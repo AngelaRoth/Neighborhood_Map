@@ -1,0 +1,144 @@
+* {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -ms-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  font-family:  Arial, Helvetica, sans-serif;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  height: 100%;
+  position: relative;
+}
+
+.flex {
+  display: -webkit-flex;
+  display: flex;
+
+  -webkit-flex-flow: row wrap;
+    flex-flow: row wrap;
+    align-items: center;
+    justify-content: space-around;
+}
+
+#write-places,
+#share-places,
+#learn-places,
+#social-places,
+#book-places {
+  width: 48%;
+  margin: 5px 0;
+  padding: 2px;
+  font-size: 12pt;
+  color: white;
+}
+
+#write-places {
+  background-color: #7BB718;
+}
+
+#share-places {
+  background-color: #F7A607;
+}
+
+#learn-places {
+  background-color: #2292DC;
+}
+
+#social-places {
+  background-color: #D62828;
+}
+
+#book-places {
+  background-color: #8E56A8;
+}
+
+input {
+  font-size: 12px;
+}
+
+h1 {
+  color: #525454;
+  font-size: 22px;
+  margin: 0 0 10px 0;
+  text-align: center;
+}
+
+h2 {
+  color: #525454;
+  font-size: 18px;
+  margin: 5px 0 0 0;
+}
+
+
+
+
+
+
+
+
+#hide-listings,
+#show-listings {
+  width: 48%;
+}
+
+hr {
+  background: #D0D7D9;
+  height: 1px;
+  margin: 20px 0 20px 0;
+  border: none;
+}
+
+#map {
+  bottom:0px;
+  height: 100%;
+  left: 362px;
+  position: absolute;
+  right: 0px;
+}
+
+.options-box {
+  background: #fff;
+  border: 1px solid #999;
+  border-radius: 3px;
+  height: 100%;
+  line-height: 35px;
+  padding: 10px 10px 30px 10px;
+  text-align: left;
+  width: 340px;
+}
+
+#pano {
+  width: 200px;
+  height: 200px;
+}
+
+#places-search,
+#search-within-time-text {
+  width: 84%;
+}
+
+.text {
+  font-size: 12px;
+}
+
+#toggle-drawing {
+  width: 27%;
+  position: relative;
+  margin-left: 10px;
+}
+
+#zoom-to-area-text {
+  width: 70%;
+}
+
+#zoom-to-area {
+  width: 24%;
+}
