@@ -117,8 +117,8 @@ function initMap() {
     },
     {
       title: 'Poetry Slam at the eBar',
-      when: 'Third Saturday of the Month, 7:00pm - 10:00pm',
       blurb: 'Guelph Spoken Word monthly poetry slam, featuring some of the best slam poets in the country.',
+      when: 'Third Saturday of the Month, 7:00pm - 10:00pm',
       day: 6,
       weeks: [3],
       hour: 19,
@@ -131,8 +131,8 @@ function initMap() {
     },
     {
       title: 'The Bookshelf - Bookstore',
-      when: '',
       blurb: 'Independant Bookstore with Cinema upstairs!',
+      when: '',
       link: '',
       address: '41 Quebec St',
       location: {lat: 43.5455706, lng: -80.2504962},
@@ -141,8 +141,8 @@ function initMap() {
     },
     {
       title: 'Vocamus Press Coffee at Planet Bean',
-      when: 'Last Sunday of the Month, 1:00pm - 3:00pm',
       blurb: 'Come have a coffee and chat with other local authors about what you are reading and writing.',
+      when: 'Last Sunday of the Month, 1:00pm - 3:00pm',
       link: '',
       address: '41 Quebec St',
       location: {lat: 43.544369, lng: -80.2479427},
@@ -151,8 +151,8 @@ function initMap() {
     },
     {
       title: 'Red Brick Cafe Open Mic Night',
-      when: 'First Tuesday of the Month, 7:00pm - 9:00pm',
       blurb: 'A relaxed and fun chance to share you work.  Bring something to read or just hear some of Guelph’s interesting literary voices.',
+      when: 'First Tuesday of the Month, 7:00pm - 9:00pm',
       link: '',
       address: '8 Douglas St',
       location: {lat: 43.54660499999999, lng: -80.248998},
@@ -161,8 +161,8 @@ function initMap() {
     },
     {
       title: 'Creative Writing Courses',
-      when: 'Winter, Summer, and Fall Courses offered',
       blurb: 'A rotating choice of creative writing evening courses taught by University of Guelph MFA grads.',
+      when: 'Winter, Summer, and Fall Courses offered',
       link: '',
       address: 'University of Guelph - Johnston Hall',
       location: {lat: 43.5329877, lng: -80.228565},
@@ -171,8 +171,8 @@ function initMap() {
     },
     {
       title: 'Winter Workshops',
-      when: 'February',
       blurb: 'Two days of Free Writers Workshops.',
+      when: 'February',
       link: '',
       address: 'University of Guelph - McLaughlin Library',
       location: {lat: 43.531479, lng: -80.227775},
@@ -181,8 +181,8 @@ function initMap() {
     },
     {
       title: 'Public Library - Main Branch',
-      when: '',
       blurb: 'Chairs have been tucked in interesting locations - find your cave!',
+      when: '',
       link: '',
       address: '100 Norfolk St',
       location: {lat: 43.545656, lng: -80.252675},
@@ -191,8 +191,8 @@ function initMap() {
     },
     {
       title: 'Courses at the Library',
-      when: '',
       blurb: 'Courses are held in the room at the top of the stairs',
+      when: '',
       link: '',
       address: '100 Norfolk St',
       location: {lat: 43.545891, lng: -80.252677},
@@ -201,8 +201,8 @@ function initMap() {
     },
     {
       title: 'Janus Books',
-      when: '',
       blurb: 'Second Hand Bookshop with some Rare Finds',
+      when: '',
       link: '',
       address: '10 Paisley St',
       location: {lat: 43.544752, lng: -80.253084},
@@ -211,8 +211,8 @@ function initMap() {
     },
     {
       title: 'Chapters',
-      when: '',
       blurb: 'Yes, that Chapters. Pick up some home scented candles while you are there',
+      when: '',
       link: '',
       address: 'Stone Road Mall',
       location: {lat: 43.5181972, lng: -80.2379581},
@@ -222,8 +222,8 @@ function initMap() {
 
     {
       title: 'Sunrise Books',
-      when: '',
       blurb: 'Secondhand Bookshop filled to the gills. Searching is rewarded.',
+      when: '',
       link: '',
       address: '366 Speedvale E',
       location: {lat: 43.56791539999999, lng: -80.25794859999999},
@@ -233,8 +233,8 @@ function initMap() {
 
     {
       title: 'Publication Studio',
-      when: 'Saturdays, 11:00am - 2:00pm',
       blurb: 'Publication Studio prints and binds books by hand, creating original work with artists and writers. Drop by during shop hours for a book or a visit.',
+      when: 'Saturdays, 11:00am - 2:00pm',
       link: 'https://www.facebook.com/PSGuelph/',
       address: '6 Dublin St S',
       location: {lat: 43.54126369999999, lng: -80.25045589999999},
@@ -243,8 +243,8 @@ function initMap() {
     },
     {
       title: 'The Common',
-      when: 'Mondays, 7:00pm - 10:00pm',
       blurb: 'The Writing Womb. Bring any type of work or reading. No purchase necessary; suggested donation $5.',
+      when: 'Mondays, 7:00pm - 10:00pm',
       link: '',
       address: '36 Wilson St',
       location: {lat: 43.543712, lng: -80.24977299999999},
@@ -253,8 +253,8 @@ function initMap() {
     },
     {
       title: '10 Carden St Book Club',
-      when: 'Usually First Wednesday of the Month, 7:00pm - 9:00pm',
       blurb: 'Focusses on books about social change and community building.',
+      when: 'Usually First Wednesday of the Month, 7:00pm - 9:00pm',
       link: '',
       address: '10 Carden St',
       location: {lat: 43.5438436, lng: -80.2493446},
@@ -263,8 +263,8 @@ function initMap() {
     },
     {
       title: 'Seniors Writing Club',
-      when: 'Second and Fourth Thursday of the Month, 1:00pm - 3:30pm',
       blurb: 'We take turns reading our stories, essays and poems in the Boardroom of the Evergreen Seniors Center. Come out to read, or listen and enjoy!',
+      when: 'Second and Fourth Thursday of the Month, 1:00pm - 3:30pm',
       link: 'https://www.meetup.com/Guelph-short-story-group/',
       address: '683 Woolwich St',
       location: {lat: 43.5602536, lng: -80.27034089999999},
@@ -273,8 +273,8 @@ function initMap() {
     },
     {
       title: 'Guelph Short Story Group at the Symposium Cafe',
-      when: 'Second Saturday of the Month, 3:00pm',
       blurb: 'Monthly book club focusses on books about social change and community building.',
+      when: 'Second Saturday of the Month, 3:00pm',
       link: 'https://www.meetup.com/Guelph-short-story-group/',
       address: '304 Stone Rd W',
       location: {lat: 43.51777619999999, lng: -80.2346285},
@@ -283,8 +283,8 @@ function initMap() {
     },
     {
       title: 'Harcourt United Church',
-      when: 'June 10 - Brian Henry Dialogue Workshop',
       blurb: 'Hosts Periodic Workshops by Special Guest Instructors',
+      when: 'June 10 - Brian Henry Dialogue Workshop',
       link: '',
       address: '87 Dean Ave',
       location: {lat: 43.5297778, lng: -80.2439373},
@@ -293,8 +293,8 @@ function initMap() {
     },
     {
       title: 'Goldie Mill Ruin',
-      when: '',
       blurb: 'A picturesque ruin on the river - Get Inspired!',
+      when: '',
       link: '',
       address: '75 Cardigan St',
       location: {lat: 43.550737, lng: -80.253634},
