@@ -371,14 +371,14 @@ function initMap() {
     }
   ];
 
-  var testDate = 'Mar 14, 2017';
+  /*var testDate = 'Mar 14, 2017';*/
 
   function addNextMeetingTime() {
     var numLocations = locations.length;
     console.log('numLocations = ' + numLocations);
     for (var i = 0; i < numLocations; i++) {
       locations[i].nextMeeting = nextDay(locations[i].day, locations[i].weeks, locations[i].hour, locations[i].minute);
-      console.log(locations[i].title + ': next = ' + locations[i].nextMeeting);
+      /*console.log(locations[i].title + ': next = ' + locations[i].nextMeeting);*/
     }
   }
 
@@ -398,7 +398,7 @@ function initMap() {
   // startHour = starting hour of event (0 - 23)
   // startMinute = starting minute of event (0 - 59)
   function getDays(dayOfWeek, nextMonth, startHour, startMinute) {
-      var d = new Date(testDate);
+      var d = new Date();
       var month = d.getMonth() + nextMonth;
       var year = d.getFullYear();
       var daysArray = [];
@@ -442,7 +442,7 @@ function initMap() {
   // startMinute = starting minute of event (0 - 59)
   function nextDay(dayOfWeek, weeks, startHour, startMinute) {
     var daysArray = getDays(dayOfWeek, 0, startHour, startMinute);
-    var now = new Date(testDate);
+    var now = new Date();
     var nowMonth = now.getMonth();
     var goodNext;
     weeks.forEach(function(week) {
