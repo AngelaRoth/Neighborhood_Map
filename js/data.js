@@ -1,47 +1,6 @@
 var locations = [
   {
-    title: 'The Bookshelf - Writing Room',
-    blurb: 'Join other writers to work in a quiet space with free wifi and coffee by donation.',
-    when: 'Every Monday, 9:00am - noon',
-    day: 1,
-    weeks: [1,2,3,4,5],
-    hour: 9,
-    minute: 0,
-    link: '',
-    location: {lat: 43.5454125, lng: -80.2504411},
-    placeId: 'ChIJpY64w8GaK4gR_6eh8uYlhwI',
-    type: 'write'
-  },
-  {
-    title: 'Vocamus Press Second Saturday',
-    blurb: 'Come have a beer and chat with other authors about what you are reading and writing.',
-    when: 'Second Saturday of the Month, 7:00pm - 10:00pm',
-    day: 6,
-    weeks: [2],
-    hour: 19,
-    minute: 0,
-    link: '',
-    address: '49 Norfolk St',
-    location: {lat: 43.543907, lng: -80.25036089999999},
-    placeId: 'ChIJH6BSCsGaK4gREFDY6UuhSGA',
-    type: 'social'
-  },
-  {
-    title: 'Poetry Slam at the eBar',
-    blurb: 'Guelph Spoken Word monthly poetry slam, featuring some of the best slam poets in the country.',
-    when: 'Third Saturday of the Month, 7:00pm - 10:00pm',
-    day: 6,
-    weeks: [3],
-    hour: 19,
-    minute: 0,
-    link: '',
-    address: '41 Quebec St',
-    location: {lat: 43.54552479999999, lng: -80.2505975},
-    placeId: 'ChIJpY64w8GaK4gR_6eh8uYlhwI',
-    type: 'share'
-  },
-  {
-    title: 'The Bookshelf - Bookstore',
+    title: 'The Bookshelf Indie Bookstore',
     blurb: 'Independant Bookstore with adjacent Restaurant and Cinema upstairs!',
     when: 'Wednesday is Date Night - $20 wine and Fodder for Romance Novelists',
     day: 3,
@@ -55,102 +14,45 @@ var locations = [
     type: 'book'
   },
   {
-    title: 'Vocamus Press Coffee at Planet Bean',
-    blurb: 'Come have a coffee and chat with other local authors about what you are reading and writing.',
-    when: 'Last Sunday of the Month, 1:00pm - 3:00pm',
-    day: 0,
-    weeks: [5],
-    hour: 13,
+    title: 'Bookshelf eBar Poetry Slam',
+    blurb: 'Guelph Spoken Word monthly poetry slam, featuring some of the best slam poets in the country.',
+    when: 'Third Saturday of the Month, 7:00pm - 10:00pm',
+    day: 6,
+    weeks: [3],
+    hour: 19,
     minute: 0,
     link: '',
     address: '41 Quebec St',
-    location: {lat: 43.544369, lng: -80.2479427},
-    placeId: 'ChIJzwtnJMKaK4gRaoGKA5twKsc',
-    type: 'social'
+    location: {lat: 43.54552479999999, lng: -80.2505975},
+    placeId: 'ChIJpY64w8GaK4gR_6eh8uYlhwI',
+    type: 'share'
   },
   {
-    title: 'Red Brick Cafe Open Mic Night',
-    blurb: 'A relaxed and fun chance to share you work.  Bring something to read or just hear some of Guelph’s interesting literary voices.',
-    when: 'First Tuesday of the Month, 7:00pm - 9:00pm',
-    day: 2,
+    title: 'Bookshelf Writing Room',
+    blurb: 'Join other writers to work in a quiet space with free wifi and coffee by donation.',
+    when: 'Every Monday, 9:00am - noon',
+    day: 1,
+    weeks: [1,2,3,4,5],
+    hour: 9,
+    minute: 0,
+    link: '',
+    location: {lat: 43.5454125, lng: -80.2504411},
+    placeId: 'ChIJpY64w8GaK4gR_6eh8uYlhwI',
+    type: 'write'
+  },
+  {
+    title: 'Carden St Book Club',
+    blurb: 'Focusses on books about social change and community building.',
+    when: 'Usually First Wednesday of the Month, 7:00pm - 9:00pm',
+    day: 3,
     weeks: [1],
     hour: 19,
     minute: 0,
     link: '',
-    address: '8 Douglas St',
-    location: {lat: 43.54660499999999, lng: -80.248998},
-    placeId: 'ChIJESiJAeqaK4gR1p5vaNuW084',
-    type: 'share'
-  },
-  {
-    title: 'Creative Writing Courses',
-    blurb: 'A rotating choice of creative writing evening courses taught by University of Guelph MFA grads.',
-    when: 'Winter, summer and Fall, but let us pretend they start on the Third Thursday.',
-    day: 4,
-    weeks: [3],
-    hour: 18,
-    minute: 30,
-    link: '',
-    address: 'University of Guelph - Johnston Hall',
-    location: {lat: 43.5329877, lng: -80.228565},
-    placeId: 'ChIJR1zC5CibK4gRhzmsgYA2rJQ',
-    type: 'learn'
-  },
-  {
-    title: 'Winter Workshops',
-    blurb: 'Two days of Free Writers Workshops.',
-    when: 'February, but let us pretend they start on the Fourth Friday.',
-    day: 5,
-    weeks: [4],
-    hour: 9,
-    minute: 45,
-    link: '',
-    address: 'University of Guelph - McLaughlin Library',
-    location: {lat: 43.531479, lng: -80.227775},
-    placeId: ' ChIJ2w63PimbK4gRvec1beOsgDo',
-    type: 'learn'
-  },
-  {
-    title: 'Public Library - Main Branch',
-    blurb: 'Chairs have been tucked in interesting locations - find your cave!',
-    when: 'Cave Hunt Plus every Sunday at Noon',
-    day: 0,
-    weeks: [1,2,3,4,5],
-    hour: 12,
-    minute: 0,
-    link: '',
-    address: '100 Norfolk St',
-    location: {lat: 43.545656, lng: -80.252675},
-    placeId: 'ChIJhwlUOcCaK4gRFhOIV64pZ_k',
-    type: 'book'
-  },
-  {
-    title: 'Courses at the Library',
-    blurb: 'Courses are held in the room at the top of the stairs',
-    when: 'Online Courses begin the Third Wednesday of the Month',
-    day: 3,
-    weeks: [3],
-    hour: 6,
-    minute: 0,
-    link: '',
-    address: '100 Norfolk St',
-    location: {lat: 43.545891, lng: -80.252677},
-    placeId: 'ChIJhwlUOcCaK4gRFhOIV64pZ_k',
-    type: 'learn'
-  },
-  {
-    title: 'Janus Books',
-    blurb: 'Second Hand Bookshop with some Rare Finds',
-    when: 'Refined Readings Wednesdays at 11:12',
-    day: 3,
-    weeks: [1,2,3,4,5],
-    hour: 11,
-    minute: 12,
-    link: '',
-    address: '10 Paisley St',
-    location: {lat: 43.544752, lng: -80.253084},
-    placeId: '"ChIJD-rDQsCaK4gRqAzSOvvLyHg',
-    type: 'book'
+    address: '10 Carden St',
+    location: {lat: 43.5438436, lng: -80.2493446},
+    placeId: 'ChIJP8KNeMGaK4gRzLSBqzSNMcQ',
+    type: 'social'
   },
   {
     title: 'Chapters',
@@ -164,36 +66,6 @@ var locations = [
     address: 'Stone Road Mall',
     location: {lat: 43.5181972, lng: -80.2379581},
     placeId: '"ChIJVeMk0iiFK4gRXuLSI4DD13g',
-    type: 'book'
-  },
-
-  {
-    title: 'Sunrise Books',
-    blurb: 'Secondhand Bookshop filled to the gills. Searching is rewarded.',
-    when: 'Treasure Thursdays at 4:57pm',
-    day: 4,
-    weeks: [1,2,3,4,5],
-    hour: 16,
-    minute: 57,
-    link: '',
-    address: '366 Speedvale E',
-    location: {lat: 43.56791539999999, lng: -80.25794859999999},
-    placeId: 'ChIJX0RdN2CaK4gRpdduPmh6XH4',
-    type: 'book'
-  },
-
-  {
-    title: 'Publication Studio',
-    blurb: 'Publication Studio prints and binds books by hand, creating original work with artists and writers. Drop by during shop hours for a book or a visit.',
-    when: 'Saturdays, 11:00am - 2:00pm',
-    day: 6,
-    weeks: [1,2,3,4,5],
-    hour: 11,
-    minute: 0,
-    link: 'https://www.facebook.com/PSGuelph/',
-    address: '6 Dublin St S',
-    location: {lat: 43.54126369999999, lng: -80.25045589999999},
-    placeId: 'ChIJy2ZxycaaK4gRKaBh9oL-Neg',
     type: 'book'
   },
   {
@@ -211,18 +83,102 @@ var locations = [
     type: 'write'
   },
   {
-    title: '10 Carden St Book Club',
-    blurb: 'Focusses on books about social change and community building.',
-    when: 'Usually First Wednesday of the Month, 7:00pm - 9:00pm',
+    title: 'Goldie Mill Ruin',
+    blurb: 'A picturesque ruin on the river - Get Inspired!',
+    when: 'Doggapalooza Tuesdays at 6:00pm',
+    day: 2,
+    weeks: [1,2,3,4,5],
+    hour: 18,
+    minute: 0,
+    link: '',
+    address: '75 Cardigan St',
+    location: {lat: 43.550737, lng: -80.253634},
+    placeId: 'ChIJP3yBReuaK4gRIgYyPfY5Xmk',
+    type: 'write'
+  },
+  {
+    title: 'Harcourt Workshops',
+    blurb: 'Harcourt United Church hosts Workshops by Special Guest Instructors',
+    when: 'Saturdays at Ten',
+    day: 6,
+    weeks: [1,2,3,4,5],
+    hour: 10,
+    minute: 0,
+    link: '',
+    address: '87 Dean Ave',
+    location: {lat: 43.5297778, lng: -80.2439373},
+    placeId: 'ChIJTevvj82aK4gRRwPyG2GYO1E',
+    type: 'learn'
+  },
+  {
+    title: 'Janus Books',
+    blurb: 'Second Hand Bookshop with some Rare Finds',
+    when: 'Refined Readings Wednesdays at 11:12',
     day: 3,
+    weeks: [1,2,3,4,5],
+    hour: 11,
+    minute: 12,
+    link: '',
+    address: '10 Paisley St',
+    location: {lat: 43.544752, lng: -80.253084},
+    placeId: '"ChIJD-rDQsCaK4gRqAzSOvvLyHg',
+    type: 'book'
+  },
+  {
+    title: 'Public Library',
+    blurb: 'Chairs have been tucked in interesting locations - find your cave!',
+    when: 'Cave Hunt Plus every Sunday at Noon',
+    day: 0,
+    weeks: [1,2,3,4,5],
+    hour: 12,
+    minute: 0,
+    link: '',
+    address: '100 Norfolk St',
+    location: {lat: 43.545656, lng: -80.252675},
+    placeId: 'ChIJhwlUOcCaK4gRFhOIV64pZ_k',
+    type: 'book'
+  },
+  {
+    title: 'Public Library Courses',
+    blurb: 'Courses are held in the room at the top of the stairs',
+    when: 'Online Courses begin the Third Wednesday of the Month',
+    day: 3,
+    weeks: [3],
+    hour: 6,
+    minute: 0,
+    link: '',
+    address: '100 Norfolk St',
+    location: {lat: 43.545891, lng: -80.252677},
+    placeId: 'ChIJhwlUOcCaK4gRFhOIV64pZ_k',
+    type: 'learn'
+  },
+  {
+    title: 'Publication Studio',
+    blurb: 'Publication Studio prints and binds books by hand, creating original work with artists and writers. Drop by during shop hours for a book or a visit.',
+    when: 'Saturdays, 11:00am - 2:00pm',
+    day: 6,
+    weeks: [1,2,3,4,5],
+    hour: 11,
+    minute: 0,
+    link: 'https://www.facebook.com/PSGuelph/',
+    address: '6 Dublin St S',
+    location: {lat: 43.54126369999999, lng: -80.25045589999999},
+    placeId: 'ChIJy2ZxycaaK4gRKaBh9oL-Neg',
+    type: 'book'
+  },
+  {
+    title: 'Red Brick Cafe Open Mic Night',
+    blurb: 'A relaxed and fun chance to share you work.  Bring something to read or just hear some of Guelph’s interesting literary voices.',
+    when: 'First Tuesday of the Month, 7:00pm - 9:00pm',
+    day: 2,
     weeks: [1],
     hour: 19,
     minute: 0,
     link: '',
-    address: '10 Carden St',
-    location: {lat: 43.5438436, lng: -80.2493446},
-    placeId: 'ChIJP8KNeMGaK4gRzLSBqzSNMcQ',
-    type: 'social'
+    address: '8 Douglas St',
+    location: {lat: 43.54660499999999, lng: -80.248998},
+    placeId: 'ChIJESiJAeqaK4gR1p5vaNuW084',
+    type: 'share'
   },
   {
     title: 'Seniors Writing Club',
@@ -239,7 +195,7 @@ var locations = [
     type: 'share'
   },
   {
-    title: 'Guelph Short Story Group at the Symposium Cafe',
+    title: 'Short Stories at Symposium Cafe',
     blurb: 'Monthly book club focusses on books about social change and community building.',
     when: 'Second Saturday of the Month, 3:00pm',
     day: 6,
@@ -253,32 +209,74 @@ var locations = [
     type: 'social'
   },
   {
-    title: 'Harcourt United Church',
-    blurb: 'Hosts Workshops by Special Guest Instructors',
-    when: 'Saturdays at Ten',
-    day: 6,
+    title: 'Sunrise Books',
+    blurb: 'Secondhand Bookshop filled to the gills. Searching is rewarded.',
+    when: 'Treasure Thursdays at 4:57pm',
+    day: 4,
     weeks: [1,2,3,4,5],
-    hour: 10,
-    minute: 0,
+    hour: 16,
+    minute: 57,
     link: '',
-    address: '87 Dean Ave',
-    location: {lat: 43.5297778, lng: -80.2439373},
-    placeId: 'ChIJTevvj82aK4gRRwPyG2GYO1E',
+    address: '366 Speedvale E',
+    location: {lat: 43.56791539999999, lng: -80.25794859999999},
+    placeId: 'ChIJX0RdN2CaK4gRpdduPmh6XH4',
+    type: 'book'
+  },
+  {
+    title: 'U of G Creative Writing Courses',
+    blurb: 'A rotating choice of creative writing evening courses taught by University of Guelph MFA grads.',
+    when: 'Winter, summer and Fall, but let us pretend they start on the Third Thursday.',
+    day: 4,
+    weeks: [3],
+    hour: 18,
+    minute: 30,
+    link: '',
+    address: 'University of Guelph - Johnston Hall',
+    location: {lat: 43.5329877, lng: -80.228565},
+    placeId: 'ChIJR1zC5CibK4gRhzmsgYA2rJQ',
     type: 'learn'
   },
   {
-    title: 'Goldie Mill Ruin',
-    blurb: 'A picturesque ruin on the river - Get Inspired!',
-    when: 'Doggapalooza Tuesdays at 6:00pm',
-    day: 2,
-    weeks: [1,2,3,4,5],
-    hour: 18,
+    title: 'U of G Free Workshops',
+    blurb: 'Two days of Free Writers Workshops.',
+    when: 'February, but let us pretend they start on the Fourth Friday.',
+    day: 5,
+    weeks: [4],
+    hour: 9,
+    minute: 45,
+    link: '',
+    address: 'University of Guelph - McLaughlin Library',
+    location: {lat: 43.531479, lng: -80.227775},
+    placeId: ' ChIJ2w63PimbK4gRvec1beOsgDo',
+    type: 'learn'
+  },
+  {
+    title: 'Vocamus Press Coffee at Planet Bean',
+    blurb: 'Come have a coffee and chat with other local authors about what you are reading and writing.',
+    when: 'Last Sunday of the Month, 1:00pm - 3:00pm',
+    day: 0,
+    weeks: [5],
+    hour: 13,
     minute: 0,
     link: '',
-    address: '75 Cardigan St',
-    location: {lat: 43.550737, lng: -80.253634},
-    placeId: 'ChIJP3yBReuaK4gRIgYyPfY5Xmk',
-    type: 'write'
+    address: '41 Quebec St',
+    location: {lat: 43.544369, lng: -80.2479427},
+    placeId: 'ChIJzwtnJMKaK4gRaoGKA5twKsc',
+    type: 'social'
+  },
+  {
+    title: 'Vocamus Press Second Saturday',
+    blurb: 'Come have a beer and chat with other authors about what you are reading and writing.',
+    when: 'Second Saturday of the Month, 7:00pm - 10:00pm',
+    day: 6,
+    weeks: [2],
+    hour: 19,
+    minute: 0,
+    link: '',
+    address: '49 Norfolk St',
+    location: {lat: 43.543907, lng: -80.25036089999999},
+    placeId: 'ChIJH6BSCsGaK4gREFDY6UuhSGA',
+    type: 'social'
   }
 ];
 
@@ -287,7 +285,7 @@ function addNextMeetingTime() {
   console.log('numLocations = ' + numLocations);
   for (var i = 0; i < numLocations; i++) {
     locations[i].nextMeeting = nextDay(locations[i].day, locations[i].weeks, locations[i].hour, locations[i].minute);
-    console.log(locations[i].title + ': next = ' + locations[i].nextMeeting);
+    /*console.log(locations[i].title + ': next = ' + locations[i].nextMeeting);*/
   }
 }
 
@@ -385,6 +383,7 @@ function nextDay(dayOfWeek, weeks, startHour, startMinute) {
 function getColor(type) {
   switch (type) {
     case 'write':
+      console.log('getting color ' + type);
       return '7BB718';
       break;
     case 'share':

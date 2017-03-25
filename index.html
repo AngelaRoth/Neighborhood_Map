@@ -21,9 +21,15 @@
         <input id="places-search" type="text" placeholder="MENU HERE - 24hrs / 1 wk / 1mo">
         <input id="go-places" type="button" value="Go">
       </div>
-      <h2 id="alpha-list-header">Full Alphabetical List</h2>
+      <h2 id="alpha-list-header">Full List</h2>
       <div id="alpha-list-container">
         <!-- Populate with Alphabetical Location List, with appropriate background colour -->
+        <ul id="locationsList" data-bind="foreach: locationList">
+            <li data-bind="text: title, style: { backgroundColor: color }"></li>
+        </ul>
+
+
+
       </div>
     </div>
     <div id="map"></div>
