@@ -12,9 +12,22 @@ var ObservableLocation = function(data) {
   this.type = ko.observable(data.type);
 
   var backColor = '#' + getColor(data.type);
-  console.log('backColor = ' + backColor);
-
   this.color = ko.observable(backColor);
+
+  var htmlListContents = '<h3>' + data.title + '</h3>';
+  this.listContents = ko.observable(htmlListContents);
+
+  this.expandListContents = ko.computed(function() {
+    if (this.expanded) {}
+
+
+
+    htmlListContents = '<h3>' + data.title + '</h3>' +
+                       '<p><b>Next Meeting:</b> ' + data.when + '</p>' +
+                       '<p><b>About:</b> ' + data.blurb + '</p>';
+
+
+  });
 }
 
 
