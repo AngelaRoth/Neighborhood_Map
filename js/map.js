@@ -371,15 +371,15 @@ function initMap() {
     }
   ];
 
-  var testDate = 'Dec 30, 2016';
+  var testDate = 'Mar 14, 2017';
 
   function addNextMeetingTime() {
     var numLocations = locations.length;
     console.log('numLocations = ' + numLocations);
     for (var i = 0; i < numLocations; i++) {
-      console.log('current location = ' + i);
+      /*console.log('current location = ' + i);
       console.log('locations[i] = ' + locations[i]);
-      console.log('in yuck = ' + nextDay(locations[i].day, locations[i].weeks, locations[i].hour, locations[i].minute));
+      console.log('in yuck = ' + nextDay(locations[i].day, locations[i].weeks, locations[i].hour, locations[i].minute));*/
       locations[i].nextMeeting = nextDay(locations[i].day, locations[i].weeks, locations[i].hour, locations[i].minute);
       console.log(locations[i].title + ': next = ' + locations[i].nextMeeting);
     }
@@ -430,7 +430,6 @@ function initMap() {
           d.setDate(d.getDate() + 7);
       }
 
-      console.log('daysArray ' + daysArray)
       return daysArray;
   }
 
@@ -445,27 +444,26 @@ function initMap() {
   // startHour = starting hour of event (0 - 23)
   // startMinute = starting minute of event (0 - 59)
   function nextDay(dayOfWeek, weeks, startHour, startMinute) {
-    console.log ('parameters = ' + dayOfWeek + ', ' + weeks + ', ' + startHour + ', ' + startMinute);
+    /*console.log ('parameters = ' + dayOfWeek + ', ' + weeks + ', ' + startHour + ', ' + startMinute);*/
 
     var daysArray = getDays(dayOfWeek, 0, startHour, startMinute);
     var now = new Date(testDate);
     var nowMonth = now.getMonth();
     var goodNext;
     weeks.forEach(function(week) {
-      console.log('week = ' + week);
+      /*console.log('week = ' + week);*/
       // If fifth week, check last date in array (week=5 means of that
       // weekday in the month; sometimes week 4; somtimes week 5)
       if (week === 5) {
-        var numThisMonth = daysArray.length
-        var proposedNext = new Date(daysArray[daysArray.length]);
+        var proposedNext = new Date(daysArray[daysArray.length - 1]);
       } else {
         var proposedNext = new Date(daysArray[week - 1]);
       }
       // if the weekday in that week is later than the current date,
       // mark that day as the next meeting day
       if (now < proposedNext && !goodNext) {
-        console.log('now = ' + now);
-        console.log ('proposed next = ' + proposedNext);
+        /*console.log('now = ' + now);
+        console.log ('proposed next = ' + proposedNext);*/
         goodNext = proposedNext;
       }
     });
@@ -473,11 +471,10 @@ function initMap() {
     // possible date in next month as the next meeting day
     if (!goodNext) {
       daysArray = getDays(dayOfWeek, 1, startHour, startMinute);
-      goodNext = new Date(daysArray[0]);
-      console.log('now = ' + now);
-      console.log ('good next = ' + goodNext);
+      goodNext = new Date(daysArray[weeks[0] - 1]);
+      /*console.log('now = ' + now);
+      console.log ('good next = ' + goodNext);*/
     }
-    console.log('returned value = ' + goodNext);
     return goodNext;
 /*
     var myDate = new Date('Jan 3, 2015');
