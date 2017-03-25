@@ -305,28 +305,43 @@ function initMap() {
 
   var testDate = 'Dec 30, 2016';
 
+  // Returns an array of the 4 or 5 days in a certain month which
+  // fall on a certain weekday.
+  // Used to determine the next meeting date/time of an event.
+  // The time is hard-coded here using setHours() because setting it
+  // once the days array (including current time) has been returned
+  // gave unpredictable results (for novice me!)
+  //
+  // dayOfWeek = weekday we want (0 = Sun; 1 = Mon; etc.)
+  // nextMonth = 0 if we want days for the current month
+  //           = 1 if we want days for next month
+  // startHour = starting hour of event (0 - 23)
+  // startMinute = starting minute of event (0 - 59)
   function getDays(dayOfWeek, nextMonth, startHour, startMinute) {
       var d = new Date(testDate);
       var month = d.getMonth() + nextMonth;
       var year = d.getFullYear();
       var daysArray = [];
 
-      if (month === 12) {
-        month = 0;
+      // If the month is "past December," (i.e because current month is December
+      // and we are interested in a later month), make the month the appropriate
+      // month in the following year
+      // NOTE: ONLY WORKS FOR ONE YEAR INTO THE FUTURE!
+      //       (But for now, app only needs info for one month into future)
+      if (month > 11) {
+        month = month - 12;
         year += 1;
       }
 
       d.setFullYear(year, month, 1);
       d.setHours(startHour, startMinute, 0, 0);
-/*
-      d.setDate(1);
-*/
-      // Get the first Monday in the month
+
+      // Get the first corresponding dayOfWeek in the month
       while (d.getDay() !== dayOfWeek) {
           d.setDate(d.getDate() + 1);
       }
 
-      // Get all the other Mondays in the month
+      // Get all the other corresponding weekdays in the month
       while (d.getMonth() === month) {
           daysArray.push(new Date(d.getTime()));
           d.setDate(d.getDate() + 7);
@@ -336,6 +351,16 @@ function initMap() {
       return daysArray;
   }
 
+  // Returns the Date and Time of the next occurance of an event.
+  // weeks = an array of the weeks of a month when event occurs
+  //         (i.e. [1,3] means first and third week of month).
+  //         NOTE that the "week" values in this array are later corrected
+  //         to reflect that the 1st week is in the 0th array position.
+  //
+  // The following parameters are passed into the getDays() function:
+  // dayOfWeek = weekday we want (0 = Sun; 1 = Mon; etc.)
+  // startHour = starting hour of event (0 - 23)
+  // startMinute = starting minute of event (0 - 59)
   function nextDay(dayOfWeek, weeks, startHour, startMinute) {
     var daysArray = getDays(dayOfWeek, 0, startHour, startMinute);
     var now = new Date(testDate);
@@ -349,7 +374,6 @@ function initMap() {
       } else {
         var proposedNext = new Date(daysArray[week - 1]);
       }
-      /*proposedNext.setHours(startHour, startMinute, 0, 0);*/
       if (now < proposedNext && !goodNext) {
         console.log('now = ' + now);
         console.log ('proposed next = ' + proposedNext);
@@ -368,51 +392,7 @@ function initMap() {
 
   nextDay(2, [1,3], 9, 30);
 
-
-/*
-  // day = numerical value of day of week (Sun=0)
-  // week = an array of the weeks of the month ([2,4]= 2nd and 4th week of month)
-  // hour = starting hour of event (from 0 to 23)
-  // minute = starting minute of event (from 0 to 59)
-  function nextTime(day, weeks, hour, minute) {
-    var now = new Date();
-    var nowDate = now.getDate();  // Numerical Day of Month
-    var nowDay = now.getDay();    // Sun = 0; Mon = 1; etc.
-
-    var firstOfMonth = new Date();
-    // Set Date to First of Month
-    firstOfMonth.setDate(1);
-    // Get numerical value of that Day (Sun = 0; Mon = 1; etc.)
-    var firstOfMonthDay = firstOfMonth.getDay();
-
-    // This will be the Date the event falls on
-    var nextDateThisMonth = Math.abs(day - firstOfMonthDay) + 1 + (weeks * 7);
-
-    var nextDateThisMonth;
-    weeks.forEach(week) {
-      nextDateThisMonth = Math.abs(day - firstOfMonthDay) + 1 + (week * 7);
-    }
-
-
-    for (var i = 0; i < this.weeks.length; i++) {
-
-    }
-*/
-
-
-/*
-    if (firstOfMonthDay <= day) {
-      var nextDateThisMonth = (day - firstOfMonthDay + 1) + (week * 7);
-     } else {
-      var nextDateThisMonth = (firstOfMonthDay - day + 1) + (week * 7);
-     }
-*/
-/*
-    var next = new Date();
-    next.setDate(29);
-    next.setHours(hour,minute,0,0);
-  }
-*/
+  // Returns the color corresponding to the type of event.
   function getColor(type) {
     switch (type) {
       case 'write':
