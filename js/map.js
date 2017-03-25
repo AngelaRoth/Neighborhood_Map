@@ -377,9 +377,6 @@ function initMap() {
     var numLocations = locations.length;
     console.log('numLocations = ' + numLocations);
     for (var i = 0; i < numLocations; i++) {
-      /*console.log('current location = ' + i);
-      console.log('locations[i] = ' + locations[i]);
-      console.log('in yuck = ' + nextDay(locations[i].day, locations[i].weeks, locations[i].hour, locations[i].minute));*/
       locations[i].nextMeeting = nextDay(locations[i].day, locations[i].weeks, locations[i].hour, locations[i].minute);
       console.log(locations[i].title + ': next = ' + locations[i].nextMeeting);
     }
@@ -444,14 +441,11 @@ function initMap() {
   // startHour = starting hour of event (0 - 23)
   // startMinute = starting minute of event (0 - 59)
   function nextDay(dayOfWeek, weeks, startHour, startMinute) {
-    /*console.log ('parameters = ' + dayOfWeek + ', ' + weeks + ', ' + startHour + ', ' + startMinute);*/
-
     var daysArray = getDays(dayOfWeek, 0, startHour, startMinute);
     var now = new Date(testDate);
     var nowMonth = now.getMonth();
     var goodNext;
     weeks.forEach(function(week) {
-      /*console.log('week = ' + week);*/
       // If fifth week, check last date in array (week=5 means of that
       // weekday in the month; sometimes week 4; somtimes week 5)
       if (week === 5) {
@@ -462,8 +456,6 @@ function initMap() {
       // if the weekday in that week is later than the current date,
       // mark that day as the next meeting day
       if (now < proposedNext && !goodNext) {
-        /*console.log('now = ' + now);
-        console.log ('proposed next = ' + proposedNext);*/
         goodNext = proposedNext;
       }
     });
@@ -471,19 +463,14 @@ function initMap() {
     // possible date in next month as the next meeting day
     if (!goodNext) {
       daysArray = getDays(dayOfWeek, 1, startHour, startMinute);
+      // NOTE that we are using the day in the daysArray which corresponds
+      // to the first possible week according to the weeks array;
+      // AND we are subtracting one from the first number in the weeks array
+      // because weeks begin at 1, not 0.
       goodNext = new Date(daysArray[weeks[0] - 1]);
-      /*console.log('now = ' + now);
-      console.log ('good next = ' + goodNext);*/
     }
     return goodNext;
-/*
-    var myDate = new Date('Jan 3, 2015');
-    console.log ('myDate = ' + myDate);
-    return myDate;
-*/
   }
-
-  /*nextDay(2, [1,3], 9, 30);*/
 
   // Returns the color corresponding to the type of event.
   function getColor(type) {
