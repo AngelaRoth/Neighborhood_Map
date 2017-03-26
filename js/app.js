@@ -61,13 +61,20 @@ var ViewModel = function() {
   };
 
   this.filter = function(type) {
+    var bounds = new google.maps.LatLngBounds();
+    var indexNumber = 0;
     self.locationList().forEach(function(item) {
       if (item.type() === type || type === 'all') {
         item.listHidden(false);
+        markers[indexNumber].setMap(map);
+        bounds.extend(markers[indexNumber].position);
       } else {
         item.listHidden(true);
+        markers[indexNumber].setMap(null);
       }
+      indexNumber++;
     });
+    map.fitBounds(bounds);
   };
 
   this.checkIfInTime = function(timePeriod) {
