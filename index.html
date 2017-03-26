@@ -10,24 +10,30 @@
     <div class="options-box">
       <h1>Guelph Writing Places</h1>
       <div class="flex">
+        <input id="all-places" type="button" value="See All Places" data-bind="click: function(){filter('all');}">
+      </div>
+      <hr>
+      <h2>Filter by Event</h2>
+      <div class="flex">
         <!-- Thanks to this StackOverflow for advice on automatically firing click event:
         http://stackoverflow.com/questions/20869572/div-click-event-automatically-getting-fired-on-page-load -->
         <input id="write-places" type="button" value="Write" data-bind="click: function(){filter('write');}">
-        <input id="share-places" type="button" value="Share"data-bind="click: function(){filter('share');}">
-        <input id="learn-places" type="button" value="Learn"data-bind="click: function(){filter('learn');}">
-        <input id="social-places" type="button" value="Socialize"data-bind="click: function(){filter('social');}">
-        <input id="book-places" type="button" value="Find Books"data-bind="click: function(){filter('book');}">
-        <input id="all-places" type="button" value="See All"data-bind="click: function(){filter('all');}">
+        <input id="share-places" type="button" value="Share" data-bind="click: function(){filter('share');}">
+        <input id="learn-places" type="button" value="Learn" data-bind="click: function(){filter('learn');}">
+        <input id="social-places" type="button" value="Socialize" data-bind="click: function(){filter('social');}">
+        <input id="book-places" type="button" value="Find Books" data-bind="click: function(){filter('book');}">
       </div>
-      <h2>Special Events Occurring Soon</h2>
-      <div>
-        <input id="places-search" type="text" placeholder="MENU HERE - 24hrs / 1 wk / 1mo">
-        <input id="go-places" type="button" value="Go">
+      <hr>
+      <h2>Filter by Imminence</h2>
+      <div class="flex">
+        <input id="day-places" type="button" value="24 Hours" data-bind="click: function(){checkIfInTime('day');}">
+        <input id="week-places" type="button" value="One Week" data-bind="click: function(){checkIfInTime('week');}">
       </div>
-      <h2 id="alpha-list-header">Full List (Click for more Information)</h2>
+      <hr>
+      <h2 id="alpha-list-header">Click Events for More Information</h2>
       <div id="alpha-list-container">
         <ul id="locationsList" data-bind="foreach: locationList">
-            <li data-bind="html: listContents, style: { backgroundColor: color }, click: $parent.listContentsClicked, css: { nextTwentyFour: timeToNext() < 86400000}, css: {hidden: listHidden()}"></li>
+            <li data-bind="html: listContents, style: { backgroundColor: color }, click: $parent.listContentsClicked, css: { nextTwentyFour: timeToNext() < 86400000, hidden: listHidden()}"></li>
         </ul>
       </div>
     </div>

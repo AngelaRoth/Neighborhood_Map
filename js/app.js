@@ -25,7 +25,7 @@ var ObservableLocation = function(data) {
     return d;
   }, this);
 
-  this.timeToNext = ko.observable(this.nextMeeting() - this.currentTime());  // 24 hrs = 86400000 ms
+  this.timeToNext = ko.observable(this.nextMeeting() - this.currentTime());
 
 };
 
@@ -61,6 +61,28 @@ var ViewModel = function() {
       console.log(item.type() + ' ' + item.listHidden());
     });
   };
+
+  this.checkIfInTime = function(timePeriod) {
+    var cutOffTime;
+    switch (timePeriod) {
+      case 'day':
+        cutOffTime = 86400000;   // milliseconds in 24 hours
+        break;
+      case 'week':
+        cutOffTime = 86400000 * 7;
+        break;
+      default:
+        cutOffTime = 0;
+    }
+
+    self.locationList().forEach(function(item) {
+      if (item.timeToNext() <= cutOffTime) {
+        item.listHidden(false);
+      } else {
+        item.listHidden(true);
+      }
+    })
+  }
 
 };
 
