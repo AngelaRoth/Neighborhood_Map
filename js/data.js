@@ -383,7 +383,8 @@ function nextDay(dayOfWeek, weeks, startHour, startMinute) {
 }
 
 function makeDatePretty(d) {
-  console.log('makeDatePretty DATE = ' + d);
+  var monthNames = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sept', 'Oct', 'Nov', 'Dec'];
+  var dayNames = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
 
   var day = d.getDay();
   var month = d.getMonth();
@@ -391,83 +392,10 @@ function makeDatePretty(d) {
   var hours = d.getHours();
   var minutes = d.getMinutes();
 
-  var stringDay = getStringDay(day);
-  var stringMonth = getStringMonth(month);
   var twoDigitMinutes = getTwoDigitMinutes(minutes);
 
-  var prettyString = stringDay + ', ' + stringMonth + ' ' + date + ' at ' + hours + ':' + twoDigitMinutes;
+  var prettyString = dayNames[day] + ', ' + monthNames[month] + ' ' + date + ' at ' + hours + ':' + twoDigitMinutes;
   return prettyString;
-}
-
-function getStringDay(day) {
-  switch (day) {
-    case 0:
-      return 'Sunday';
-      break;
-    case 1:
-      return 'Monday';
-      break;
-    case 2:
-      return 'Tuesday';
-      break;
-    case 3:
-      return 'Wednesday';
-      break;
-    case 4:
-      return 'Thursday';
-      break;
-    case 5:
-      return 'Friday';
-      break;
-    case 6:
-      return 'Saturday';
-      break;
-    default:
-      return 'Mystery-day';
-  }
-}
-
-function getStringMonth(month) {
-  switch (month) {
-    case 0:
-      return 'Jan';
-      break;
-    case 1:
-      return 'Feb';
-      break;
-    case 2:
-      return 'Mar';
-      break;
-    case 3:
-      return 'Apr';
-      break;
-    case 4:
-      return 'May';
-      break;
-    case 5:
-      return 'Jun';
-      break;
-    case 6:
-      return 'Jul';
-      break;
-    case 7:
-      return 'Aug';
-      break;
-    case 8:
-      return 'Sept';
-      break;
-    case 9:
-      return 'Oct';
-      break;
-    case 10:
-      return 'Nov';
-      break;
-    case 11:
-      return 'Dec';
-      break;
-    default:
-      return 'Quantum-month';
-  }
 }
 
 function getTwoDigitMinutes(minute) {
