@@ -14,21 +14,9 @@ var ObservableLocation = function(data) {
   var backColor = '#' + getColor(data.type);
   this.color = ko.observable(backColor);
 
-  var htmlListContents = '<h3>' + data.title + '</h3>';
-  this.listContents = ko.observable(htmlListContents);
+  this.listContents = ko.observable('<h4>' + this.title() + '</h4>');
 
-  this.expandListContents = ko.computed(function() {
-    if (this.expanded) {}
-
-
-
-    htmlListContents = '<h3>' + data.title + '</h3>' +
-                       '<p><b>Next Meeting:</b> ' + data.when + '</p>' +
-                       '<p><b>About:</b> ' + data.blurb + '</p>';
-
-
-  });
-}
+};
 
 
 
@@ -46,6 +34,14 @@ var ViewModel = function() {
     self.locationList.push(newLocItem);
   });
 
-}
+  this.expandListContents = function() {
+    this.listContents('<h4>' + this.title() + '</h4>' +
+                      '<p><b>Next Meeting:</b> ' + this.when() + '</p>' +
+                      '<p><b>About:</b> ' + this.blurb() + '</p>');
+  };
+
+
+
+};
 
 ko.applyBindings(new ViewModel());
