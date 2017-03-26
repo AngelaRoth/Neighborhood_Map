@@ -39,26 +39,34 @@ var ViewModel = function() {
   });
 
   this.listContentsClicked = function() {
+    var indexNumber = self.locationList.indexOf(this);
+    console.log('indexNumber = ' + indexNumber);
+    console.log('markers = ' + markers);
+
     if (!this.listExpanded()){
       this.listExpanded(true);
       this.listContents('<h3 class="list-header">' + this.title() + '</h3>' +
                         '<div class="list-item"><span class="item-header">Next Event:</span> ' + this.prettyMeeting() + '</div>' +
                         '<div class="list-item"><span class="item-header">About:</span> ' + this.blurb() + '</div>');
+
+      // Make the marker associated with this list item bounce
+      markers[indexNumber].setAnimation(google.maps.Animation.BOUNCE);
     } else {
       this.listExpanded(false);
       this.listContents('<h3 class="list-header">' + this.title() + '</h3>');
+
+      // Stop marker from bouncing
+      markers[indexNumber].setAnimation(null);
     }
   };
 
   this.filter = function(type) {
-    console.log('Filtering!!!')
     self.locationList().forEach(function(item) {
       if (item.type() === type || type === 'all') {
         item.listHidden(false);
       } else {
         item.listHidden(true);
       }
-      console.log(item.type() + ' ' + item.listHidden());
     });
   };
 

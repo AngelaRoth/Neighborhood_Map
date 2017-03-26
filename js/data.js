@@ -282,13 +282,11 @@ var locations = [
 
 function addNextMeetingTime() {
   var numLocations = locations.length;
-  console.log('numLocations = ' + numLocations);
   for (var i = 0; i < numLocations; i++) {
     locations[i].nextMeeting = nextDay(locations[i].day, locations[i].weeks, locations[i].hour, locations[i].minute);
     locations[i].prettyMeeting = makeDatePretty(locations[i].nextMeeting);
     var checkDay = new Date();
     var waitTime = locations[i].nextMeeting - checkDay;
-    console.log('next meeting waitTime = ' + waitTime);
   }
 }
 
@@ -440,7 +438,6 @@ function getTwoDigitMinutes(minute) {
 function getColor(type) {
   switch (type) {
     case 'write':
-      console.log('getting color ' + type);
       return '7BB718';
       break;
     case 'share':

@@ -4,18 +4,14 @@ var map;
 var markers = [];
 
 function initMap() {
-
+/*
   var d = new Date();
   d.setDate(d.getDate() + (1 + 7 - d.getDay()) % 7);
-  console.log(d);
 
   var today = new Date();
   var date = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
   var time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
-  console.log('today ' + today);
-  console.log('date ' + date);
-  console.log('time ' + time);
-
+*/
   // style courtesy of snazzy maps "Crisp and Vivid" by "Nathan"
   // https://snazzymaps.com/style/2053/crisp-and-vivid
   var styles = [
@@ -115,7 +111,7 @@ function initMap() {
     // Set marker animation to null in preparation for making it bounce, later
     marker.setAnimation(null);
 
-    // Create an onclick event to open the large infowindow at each marker.
+    // Create an onclick event to open the large infowindow at each marker and make markers bounce.
     marker.addListener('click', function() {
       populateInfoWindow(this, largeInfowindow);
       markers.forEach(function(e) {
@@ -127,7 +123,6 @@ function initMap() {
         this.setAnimation(null);
       }
     });
-
 
     bounds.extend(markers[i].position);
   }
