@@ -112,10 +112,22 @@ function initMap() {
     // Push the marker to our array of markers.
     markers.push(marker);
 
+    // Set marker animation to null in preparation for making it bounce, later
+    marker.setAnimation(null);
+
     // Create an onclick event to open the large infowindow at each marker.
     marker.addListener('click', function() {
       populateInfoWindow(this, largeInfowindow);
+      markers.forEach(function(e) {
+        e.setAnimation(null);
+      });
+      if (this.getAnimation() === null) {
+        this.setAnimation(google.maps.Animation.BOUNCE);
+      } else {
+        this.setAnimation(null);
+      }
     });
+
 
     bounds.extend(markers[i].position);
   }
