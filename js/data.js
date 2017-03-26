@@ -1,7 +1,7 @@
 var locations = [
   {
     title: 'The Bookshelf Indie Bookstore',
-    blurb: 'Independant Bookstore with adjacent Restaurant and Cinema upstairs!',
+    blurb: 'An independant Bookstore with adjacent Restaurant and Cinema upstairs. Research authentic Romance every Wednesday night, as local couples come out for Date Night ($20 Wine).',
     when: 'Wednesday is Date Night - $20 wine and Fodder for Romance Novelists',
     day: 3,
     weeks: [1,2,3,4,5],
@@ -376,7 +376,135 @@ function nextDay(dayOfWeek, weeks, startHour, startMinute) {
     // because weeks begin at 1, not 0.
     goodNext = new Date(daysArray[weeks[0] - 1]);
   }
-  return goodNext;
+
+  var formattedGoodNext = makeDatePretty(goodNext);
+
+  return formattedGoodNext;
+}
+
+function makeDatePretty(d) {
+  console.log('makeDatePretty DATE = ' + d);
+
+  var day = d.getDay();
+  var month = d.getMonth();
+  var date = d.getDate();
+  var hours = d.getHours();
+  var minutes = d.getMinutes();
+
+  var stringDay = getStringDay(day);
+  var stringMonth = getStringMonth(month);
+  var twoDigitMinutes = getTwoDigitMinutes(minutes);
+
+  var prettyString = stringDay + ', ' + stringMonth + ' ' + date + ' at ' + hours + ':' + twoDigitMinutes;
+  return prettyString;
+}
+
+function getStringDay(day) {
+  switch (day) {
+    case 0:
+      return 'Sunday';
+      break;
+    case 1:
+      return 'Monday';
+      break;
+    case 2:
+      return 'Tuesday';
+      break;
+    case 3:
+      return 'Wednesday';
+      break;
+    case 4:
+      return 'Thursday';
+      break;
+    case 5:
+      return 'Friday';
+      break;
+    case 6:
+      return 'Saturday';
+      break;
+    default:
+      return 'Mystery-day';
+  }
+}
+
+function getStringMonth(month) {
+  switch (month) {
+    case 0:
+      return 'Jan';
+      break;
+    case 1:
+      return 'Feb';
+      break;
+    case 2:
+      return 'Mar';
+      break;
+    case 3:
+      return 'Apr';
+      break;
+    case 4:
+      return 'May';
+      break;
+    case 5:
+      return 'Jun';
+      break;
+    case 6:
+      return 'Jul';
+      break;
+    case 7:
+      return 'Aug';
+      break;
+    case 8:
+      return 'Sept';
+      break;
+    case 9:
+      return 'Oct';
+      break;
+    case 10:
+      return 'Nov';
+      break;
+    case 11:
+      return 'Dec';
+      break;
+    default:
+      return 'Quantum-month';
+  }
+}
+
+function getTwoDigitMinutes(minute) {
+  switch (minute) {
+    case 0:
+      return '00';
+      break;
+    case 1:
+      return '01';
+      break;
+    case 2:
+      return '02';
+      break;
+    case 3:
+      return '03';
+      break;
+    case 4:
+      return '04';
+      break;
+    case 5:
+      return '05';
+      break;
+    case 6:
+      return '06';
+      break;
+    case 7:
+      return '07';
+      break;
+    case 8:
+      return '08';
+      break;
+    case 9:
+      return '09';
+      break;
+    default:
+      return minute;
+  }
 }
 
 // Returns the color corresponding to the type of event.
