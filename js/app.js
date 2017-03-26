@@ -11,6 +11,7 @@ var ObservableLocation = function(data) {
   this.placeId = ko.observable(data.placeId);
   this.type = ko.observable(data.type);
   this.nextMeeting = ko.observable(data.nextMeeting);
+  this.listExpanded = ko.observable(false);
 
   var backColor = '#' + getColor(data.type);
   this.color = ko.observable(backColor);
@@ -35,10 +36,16 @@ var ViewModel = function() {
     self.locationList.push(newLocItem);
   });
 
-  this.expandListContents = function() {
-    this.listContents('<h3 class="list-header">' + this.title() + '</h3>' +
-                      '<div class="list-item"><span class="item-header">Next Event:</span> ' + this.nextMeeting() + '</div>' +
-                      '<div class="list-item"><span class="item-header">About:</span> ' + this.blurb() + '</div>');
+  this.listContentsClicked = function() {
+    if (!this.listExpanded()){
+      this.listExpanded(true);
+      this.listContents('<h3 class="list-header">' + this.title() + '</h3>' +
+                        '<div class="list-item"><span class="item-header">Next Event:</span> ' + this.nextMeeting() + '</div>' +
+                        '<div class="list-item"><span class="item-header">About:</span> ' + this.blurb() + '</div>');
+    } else {
+      this.listExpanded(false);
+      this.listContents('<h3 class="list-header">' + this.title() + '</h3>');
+    }
   };
 
 

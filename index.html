@@ -23,13 +23,9 @@
       </div>
       <h2 id="alpha-list-header">Full List (Click for more Information)</h2>
       <div id="alpha-list-container">
-        <!-- Populate with Alphabetical Location List, with appropriate background colour -->
         <ul id="locationsList" data-bind="foreach: locationList">
-            <li data-bind="html: listContents, style: { backgroundColor: color }, click: $parent.expandListContents"></li>
+            <li data-bind="html: listContents, style: { backgroundColor: color }, click: $parent.listContentsClicked"></li>
         </ul>
-
-
-
       </div>
     </div>
     <div id="map"></div>
