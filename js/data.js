@@ -285,7 +285,10 @@ function addNextMeetingTime() {
   console.log('numLocations = ' + numLocations);
   for (var i = 0; i < numLocations; i++) {
     locations[i].nextMeeting = nextDay(locations[i].day, locations[i].weeks, locations[i].hour, locations[i].minute);
-    /*console.log(locations[i].title + ': next = ' + locations[i].nextMeeting);*/
+    locations[i].prettyMeeting = makeDatePretty(locations[i].nextMeeting);
+    var checkDay = new Date();
+    var waitTime = locations[i].nextMeeting - checkDay;
+    console.log('next meeting waitTime = ' + waitTime);
   }
 }
 
@@ -377,9 +380,7 @@ function nextDay(dayOfWeek, weeks, startHour, startMinute) {
     goodNext = new Date(daysArray[weeks[0] - 1]);
   }
 
-  var formattedGoodNext = makeDatePretty(goodNext);
-
-  return formattedGoodNext;
+  return goodNext;
 }
 
 function makeDatePretty(d) {

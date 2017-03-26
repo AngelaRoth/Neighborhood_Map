@@ -24,7 +24,7 @@
       <h2 id="alpha-list-header">Full List (Click for more Information)</h2>
       <div id="alpha-list-container">
         <ul id="locationsList" data-bind="foreach: locationList">
-            <li data-bind="html: listContents, style: { backgroundColor: color }, click: $parent.listContentsClicked"></li>
+            <li data-bind="html: listContents, style: { backgroundColor: color }, click: $parent.listContentsClicked, css: { nextTwentyFour: timeToNext() < 86400000}"></li>
         </ul>
       </div>
     </div>

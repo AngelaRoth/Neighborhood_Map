@@ -11,6 +11,7 @@ var ObservableLocation = function(data) {
   this.placeId = ko.observable(data.placeId);
   this.type = ko.observable(data.type);
   this.nextMeeting = ko.observable(data.nextMeeting);
+  this.prettyMeeting = ko.observable(data.prettyMeeting);
   this.listExpanded = ko.observable(false);
 
   var backColor = '#' + getColor(data.type);
@@ -18,21 +19,17 @@ var ObservableLocation = function(data) {
 
   this.listContents = ko.observable('<h3 class="list-header">' + this.title() + '</h3>');
 
+  var d = new Date();
+  this.timeToNext = ko.observable(this.nextMeeting() - d);  // 24 hrs = 86400000 ms
+
 };
 
-
-
 var ViewModel = function() {
-
   var self = this;
-
   self.locationList = ko.observableArray([]);
 
   locations.forEach(function(locItem) {
-
     var newLocItem = new ObservableLocation(locItem);
-    console.log('KOtitle = ' + newLocItem.title);
-
     self.locationList.push(newLocItem);
   });
 
@@ -40,15 +37,23 @@ var ViewModel = function() {
     if (!this.listExpanded()){
       this.listExpanded(true);
       this.listContents('<h3 class="list-header">' + this.title() + '</h3>' +
-                        '<div class="list-item"><span class="item-header">Next Event:</span> ' + this.nextMeeting() + '</div>' +
+                        '<div class="list-item"><span class="item-header">Next Event:</span> ' + this.prettyMeeting() + '</div>' +
                         '<div class="list-item"><span class="item-header">About:</span> ' + this.blurb() + '</div>');
     } else {
       this.listExpanded(false);
       this.listContents('<h3 class="list-header">' + this.title() + '</h3>');
     }
   };
-
-
+/*
+  this.isInTwentyFour = function() {
+    var d = new Date();
+    var inTwentyFour = false;
+    if ((this.nextMeeting() - d) < 86400000) {
+      inTwentyFour = true;
+    }
+    return inTwentyFour;
+  }
+*/
 
 };
 
