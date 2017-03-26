@@ -78,7 +78,10 @@ var ViewModel = function() {
   };
 
   this.checkIfInTime = function(timePeriod) {
+    var bounds = new google.maps.LatLngBounds();
+    var indexNumber = 0;
     var cutOffTime;
+
     switch (timePeriod) {
       case 'day':
         cutOffTime = 86400000;   // milliseconds in 24 hours
@@ -93,10 +96,15 @@ var ViewModel = function() {
     self.locationList().forEach(function(item) {
       if (item.timeToNext() <= cutOffTime) {
         item.listHidden(false);
+        markers[indexNumber].setMap(map);
+        bounds.extend(markers[indexNumber].position);
       } else {
         item.listHidden(true);
+        markers[indexNumber].setMap(null);
       }
-    })
+      indexNumber++;
+    });
+    map.fitBounds(bounds);
   }
 
 };
