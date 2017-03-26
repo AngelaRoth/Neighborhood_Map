@@ -13,14 +13,19 @@ var ObservableLocation = function(data) {
   this.nextMeeting = ko.observable(data.nextMeeting);
   this.prettyMeeting = ko.observable(data.prettyMeeting);
   this.listExpanded = ko.observable(false);
+  this.listHidden = ko.observable(false);
 
   var backColor = '#' + getColor(data.type);
   this.color = ko.observable(backColor);
 
   this.listContents = ko.observable('<h3 class="list-header">' + this.title() + '</h3>');
 
-  var d = new Date();
-  this.timeToNext = ko.observable(this.nextMeeting() - d);  // 24 hrs = 86400000 ms
+  this.currentTime = ko.computed(function() {
+    var d = new Date();
+    return d;
+  }, this);
+
+  this.timeToNext = ko.observable(this.nextMeeting() - this.currentTime());  // 24 hrs = 86400000 ms
 
 };
 
@@ -44,16 +49,18 @@ var ViewModel = function() {
       this.listContents('<h3 class="list-header">' + this.title() + '</h3>');
     }
   };
-/*
-  this.isInTwentyFour = function() {
-    var d = new Date();
-    var inTwentyFour = false;
-    if ((this.nextMeeting() - d) < 86400000) {
-      inTwentyFour = true;
-    }
-    return inTwentyFour;
-  }
-*/
+
+  this.filter = function(type) {
+    console.log('Filtering!!!')
+    self.locationList().forEach(function(item) {
+      if (item.type() === type || type === 'all') {
+        item.listHidden(false);
+      } else {
+        item.listHidden(true);
+      }
+      console.log(item.type() + ' ' + item.listHidden());
+    });
+  };
 
 };
 

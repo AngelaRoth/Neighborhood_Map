@@ -32,7 +32,8 @@ body {
 #share-places,
 #learn-places,
 #social-places,
-#book-places {
+#book-places,
+#all-places {
   width: 48%;
   margin: 5px 0;
   padding: 2px;
@@ -58,6 +59,10 @@ body {
 
 #book-places {
   background-color: #8E56A8;
+}
+
+#all-places {
+  background-color: black;
 }
 
 input {
@@ -124,6 +129,14 @@ li {
 .nextTwentyFour {
   border: 4px solid yellow;
 }
+
+.hidden {
+    visibility: hidden;
+    height: 0;
+    margin: 0;
+    padding: 0;
+}
+
 
 
 
