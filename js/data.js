@@ -15,7 +15,7 @@ var locations = [
   },
   {
     title: 'Bookshelf eBar Poetry Slam',
-    blurb: 'Guelph Spoken Word monthly poetry slam, featuring some of the best slam poets in the country.',
+    blurb: 'Guelph Spoken Word poetry slam, featuring some of the best slam poets in the country. Third Saturday of the Month.',
     when: 'Third Saturday of the Month, 7:00pm - 10:00pm',
     day: 6,
     weeks: [3],
@@ -29,7 +29,7 @@ var locations = [
   },
   {
     title: 'Bookshelf Writing Room',
-    blurb: 'Join other writers to work in a quiet space with free wifi and coffee by donation.',
+    blurb: 'Join other writers to work in a quiet space with free wifi and coffee by donation. Every Monday.',
     when: 'Every Monday, 9:00am - noon',
     day: 1,
     weeks: [1,2,3,4,5],
@@ -42,7 +42,7 @@ var locations = [
   },
   {
     title: 'Carden St Book Club',
-    blurb: 'Focusses on books about social change and community building.',
+    blurb: 'Come chat about books with a focus on social change and community building. First Wednesday of the Month.',
     when: 'Usually First Wednesday of the Month, 7:00pm - 9:00pm',
     day: 3,
     weeks: [1],
@@ -56,7 +56,7 @@ var locations = [
   },
   {
     title: 'Chapters',
-    blurb: 'Yes, that Chapters. Pick up some home scented candles while you are there',
+    blurb: 'Yes, that Chapters. Tired from a full Saturday at the Mall? Burrow into the pillows and duvets at closing time and wait for Sunday morning. Pick up some scented candles while you are there.',
     when: 'End of Mall-Day Pillow Snooze Saturdays',
     day: 6,
     weeks: [1,2,3,4,5],
@@ -70,7 +70,7 @@ var locations = [
   },
   {
     title: 'The Common',
-    blurb: 'The Writing Womb. Bring any type of work or reading. No purchase necessary; suggested donation $5.',
+    blurb: 'Come to the Writing Womb every Monday evening. Bring any type of work or reading. No purchase necessary; suggested donation $5.',
     when: 'Mondays, 7:00pm - 10:00pm',
     day: 1,
     weeks: [1,2,3,4,5],
@@ -84,7 +84,7 @@ var locations = [
   },
   {
     title: 'Goldie Mill Ruin',
-    blurb: 'A picturesque ruin on the river - Get Inspired!',
+    blurb: 'Get inspired by this picturesque ruin on the river. Doggapalooza Tuesdays offer a higher-octane inspirational burst.',
     when: 'Doggapalooza Tuesdays at 6:00pm',
     day: 2,
     weeks: [1,2,3,4,5],
@@ -98,7 +98,7 @@ var locations = [
   },
   {
     title: 'Harcourt Workshops',
-    blurb: 'Harcourt United Church hosts Workshops by Special Guest Instructors',
+    blurb: 'Harcourt United Church hosts Workshops by Special Guest Instructors every Saturday.',
     when: 'Saturdays at Ten',
     day: 6,
     weeks: [1,2,3,4,5],
@@ -112,7 +112,7 @@ var locations = [
   },
   {
     title: 'Janus Books',
-    blurb: 'Second Hand Bookshop with some Rare Finds',
+    blurb: 'Second Hand Bookshop with some Rare Finds. Pop in before lunch on a Wednesday for some Refined Reading.',
     when: 'Refined Readings Wednesdays at 11:12',
     day: 3,
     weeks: [1,2,3,4,5],
@@ -126,7 +126,7 @@ var locations = [
   },
   {
     title: 'Public Library',
-    blurb: 'Chairs have been tucked in interesting locations - find your cave!',
+    blurb: 'Chairs have been tucked in interesting locations. Find your new writing-cave every Sunday at Noon.',
     when: 'Cave Hunt Plus every Sunday at Noon',
     day: 0,
     weeks: [1,2,3,4,5],
@@ -140,7 +140,7 @@ var locations = [
   },
   {
     title: 'Public Library Courses',
-    blurb: 'Courses are held in the room at the top of the stairs',
+    blurb: 'Random Courses are held in the room at the top of the stairs. Online Courses begin the Third Wednesday of the Month.',
     when: 'Online Courses begin the Third Wednesday of the Month',
     day: 3,
     weeks: [3],
@@ -154,7 +154,7 @@ var locations = [
   },
   {
     title: 'Publication Studio',
-    blurb: 'Publication Studio prints and binds books by hand, creating original work with artists and writers. Drop by during shop hours for a book or a visit.',
+    blurb: 'Publication Studio prints and binds books by hand, creating original work with artists and writers. Drop by on Saturdays for a book or a visit.',
     when: 'Saturdays, 11:00am - 2:00pm',
     day: 6,
     weeks: [1,2,3,4,5],
@@ -168,7 +168,7 @@ var locations = [
   },
   {
     title: 'Red Brick Cafe Open Mic Night',
-    blurb: 'A relaxed and fun chance to share you work.  Bring something to read or just hear some of Guelph’s interesting literary voices.',
+    blurb: 'A relaxed and fun chance to share you work.  Bring something to read or just hear some of Guelph’s interesting literary voices. First Tuesday of the Month.',
     when: 'First Tuesday of the Month, 7:00pm - 9:00pm',
     day: 2,
     weeks: [1],
@@ -182,7 +182,7 @@ var locations = [
   },
   {
     title: 'Seniors Writing Club',
-    blurb: 'We take turns reading our stories, essays and poems in the Boardroom of the Evergreen Seniors Center. Come out to read, or listen and enjoy!',
+    blurb: 'Share your stories, essays and poems in the Boardroom of the Evergreen Seniors Center. Come out to read, or listen and enjoy! First Tuesday of the Month.',
     when: 'Second and Fourth Thursday of the Month, 1:00pm - 3:30pm',
     day: 4,
     weeks: [2,4],
@@ -196,7 +196,7 @@ var locations = [
   },
   {
     title: 'Short Stories at Symposium Cafe',
-    blurb: 'Monthly book club focusses on books about social change and community building.',
+    blurb: 'Chat about the writing experience and join in on short-story challenges while enjoying drinks and nibblies. Second Saturday of the Month.',
     when: 'Second Saturday of the Month, 3:00pm',
     day: 6,
     weeks: [2],
@@ -210,7 +210,7 @@ var locations = [
   },
   {
     title: 'Sunrise Books',
-    blurb: 'Secondhand Bookshop filled to the gills. Searching is rewarded.',
+    blurb: 'Secondhand Bookshop filled to the gills. Searching is rewarded, especially on Treasure Hunt Thursdays.',
     when: 'Treasure Thursdays at 4:57pm',
     day: 4,
     weeks: [1,2,3,4,5],
@@ -224,7 +224,7 @@ var locations = [
   },
   {
     title: 'U of G Creative Writing Courses',
-    blurb: 'A rotating choice of creative writing evening courses taught by University of Guelph MFA grads.',
+    blurb: 'A rotating choice of creative writing evening courses taught by University of Guelph MFA grads. Pretend they start on the Third Thursday.',
     when: 'Winter, summer and Fall, but let us pretend they start on the Third Thursday.',
     day: 4,
     weeks: [3],
@@ -238,7 +238,7 @@ var locations = [
   },
   {
     title: 'U of G Free Workshops',
-    blurb: 'Two days of Free Writers Workshops.',
+    blurb: 'Two days of Free Writers Workshops. Pretend they start on the Fourth Friday.',
     when: 'February, but let us pretend they start on the Fourth Friday.',
     day: 5,
     weeks: [4],
@@ -252,7 +252,7 @@ var locations = [
   },
   {
     title: 'Vocamus Press Coffee at Planet Bean',
-    blurb: 'Come have a coffee and chat with other local authors about what you are reading and writing.',
+    blurb: 'Come have a coffee and chat with other local authors about what you are reading and writing. Last Sunday of the Month.',
     when: 'Last Sunday of the Month, 1:00pm - 3:00pm',
     day: 0,
     weeks: [5],
@@ -266,7 +266,7 @@ var locations = [
   },
   {
     title: 'Vocamus Press Second Saturday',
-    blurb: 'Come have a beer and chat with other authors about what you are reading and writing.',
+    blurb: 'Come have a beer and chat with other authors about what you are reading and writing. Second Saturday of the Month.',
     when: 'Second Saturday of the Month, 7:00pm - 10:00pm',
     day: 6,
     weeks: [2],
