@@ -74,56 +74,9 @@ ViewModel.prototype.initMap = function() {
   /*var largeInfowindow = new google.maps.InfoWindow();*/
   var bounds = new google.maps.LatLngBounds();
 
-/*
-  // Style the markers a bit. This will be our listing marker icon.
-  var defaultIcon = makeMarkerIcon('0091ff');
-
-  // Create a "highlighted location" marker color for when the user
-  // mouses over the marker.
-  var highlightedIcon = makeMarkerIcon('FFFF24');
-*/
-/*
-  // The following group uses the location array to create an array of markers on initialize.
-  for (var i = 0; i < locations.length; i++) {
-    // Get the position from the location array.
-    var position = locations[i].location;
-    var title = locations[i].title;
-    var iconColor = getColor(locations[i].type)
-    var icon = makeMarkerIcon(iconColor);
-    // Create a marker per location, and put into markers array.
-    var marker = new google.maps.Marker({
-      map: map,
-      position: position,
-      title: title,
-      icon: icon,
-      id: i
-    });
-    // Push the marker to our array of markers.
-    markers.push(marker);
-
-    // Set marker animation to null in preparation for making it bounce, later
-    marker.setAnimation(null);
-
-    // Create an onclick event to open the large infowindow at each marker and make markers bounce.
-    marker.addListener('click', function() {
-      populateInfoWindow(this, largeInfowindow);
-      markers.forEach(function(e) {
-        e.setAnimation(null);
-      });
-      if (this.getAnimation() === null) {
-        this.setAnimation(google.maps.Animation.BOUNCE);
-      } else {
-        this.setAnimation(null);
-      }
-    });
-
-    bounds.extend(markers[i].position);
-  }
-*/
   map.fitBounds(bounds);
 
   this.googleReady(true);
-
 };
 
 

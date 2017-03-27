@@ -79,8 +79,6 @@ var ViewModel = function() {
   }, this);
 
   this.listContentsClicked = function() {
-    /*var indexNumber = self.locationList.indexOf(this);*/
-
     if (!this.listExpanded()){
       this.listExpanded(true);
       this.listContents('<h3 class="list-header">' + this.title() + '</h3>' +
@@ -88,9 +86,6 @@ var ViewModel = function() {
                         '<div class="list-item"><span class="item-header">About:</span> ' + this.blurb() + '</div>');
 
       // Make the marker associated with this list item bounce
-/*
-      this.marker().setAnimation(google.maps.Animation.BOUNCE);
-*/
       this.marker.setAnimation(google.maps.Animation.BOUNCE);
 
     } else {
@@ -104,24 +99,24 @@ var ViewModel = function() {
 
   this.filter = function(type) {
     var bounds = new google.maps.LatLngBounds();
-    var indexNumber = 0;
+    /*var indexNumber = 0;*/
     self.locationList().forEach(function(item) {
       if (item.type() === type || type === 'all') {
         item.listHidden(false);
-        markers[indexNumber].setMap(map);
-        bounds.extend(markers[indexNumber].position);
+        item.marker.setMap(map);
+        bounds.extend(item.marker.position);
       } else {
         item.listHidden(true);
-        markers[indexNumber].setMap(null);
+        item.marker.setMap(null);
       }
-      indexNumber++;
+      /*indexNumber++;*/
     });
     map.fitBounds(bounds);
   };
 
   this.checkIfInTime = function(timePeriod) {
     var bounds = new google.maps.LatLngBounds();
-    var indexNumber = 0;
+    /*var indexNumber = 0;*/
     var cutOffTime;
 
     switch (timePeriod) {
@@ -138,13 +133,13 @@ var ViewModel = function() {
     self.locationList().forEach(function(item) {
       if (item.timeToNext() <= cutOffTime) {
         item.listHidden(false);
-        markers[indexNumber].setMap(map);
-        bounds.extend(markers[indexNumber].position);
+        item.marker.setMap(map);
+        bounds.extend(item.marker.position);
       } else {
         item.listHidden(true);
-        markers[indexNumber].setMap(null);
+        item.marker.setMap(null);
       }
-      indexNumber++;
+      /*indexNumber++;*/
     });
     map.fitBounds(bounds);
   }
