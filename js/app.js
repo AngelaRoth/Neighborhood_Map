@@ -79,7 +79,7 @@ var ViewModel = function() {
   }, this);
 
   this.listContentsClicked = function() {
-    var indexNumber = self.locationList.indexOf(this);
+    /*var indexNumber = self.locationList.indexOf(this);*/
 
     if (!this.listExpanded()){
       this.listExpanded(true);
@@ -91,14 +91,14 @@ var ViewModel = function() {
 /*
       this.marker().setAnimation(google.maps.Animation.BOUNCE);
 */
-      markers[indexNumber].setAnimation(google.maps.Animation.BOUNCE);
+      this.marker.setAnimation(google.maps.Animation.BOUNCE);
 
     } else {
       this.listExpanded(false);
       this.listContents('<h3 class="list-header">' + this.title() + '</h3>');
 
       // Stop marker from bouncing
-      markers[indexNumber].setAnimation(null);
+      this.marker.setAnimation(null);
     }
   };
 
