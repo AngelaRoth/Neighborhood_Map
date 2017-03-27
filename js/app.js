@@ -38,10 +38,12 @@ var ViewModel = function() {
     self.locationList.push(newLocItem);
   });
 
+  for (var i = 0; i < self.locationList().length; i++) {
+    self.locationList()[i].marker = ko.observable(markers[i]);
+  }
+
   this.listContentsClicked = function() {
     var indexNumber = self.locationList.indexOf(this);
-    console.log('indexNumber = ' + indexNumber);
-    console.log('markers = ' + markers);
 
     if (!this.listExpanded()){
       this.listExpanded(true);
@@ -50,7 +52,10 @@ var ViewModel = function() {
                         '<div class="list-item"><span class="item-header">About:</span> ' + this.blurb() + '</div>');
 
       // Make the marker associated with this list item bounce
+      this.marker().setAnimation(google.maps.Animation.BOUNCE);
+/*
       markers[indexNumber].setAnimation(google.maps.Animation.BOUNCE);
+*/
     } else {
       this.listExpanded(false);
       this.listContents('<h3 class="list-header">' + this.title() + '</h3>');
