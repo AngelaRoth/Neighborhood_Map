@@ -40,11 +40,44 @@ var ViewModel = function() {
     var newLocItem = new ObservableLocation(locItem);
     self.locationList.push(newLocItem);
   });
-/*
-  for (var i = 0; i < self.locationList().length; i++) {
-    self.locationList()[i].marker = ko.observable(markers[i]);
-  }
-*/
+
+  this.makeMarkers = ko.computed(function() {
+    if (self.googleReady()) {
+      var largeInfowindow = new google.maps.InfoWindow();
+      var bounds = new google.maps.LatLngBounds();
+
+      self.locationList().forEach(function(item) {
+        var iconColor = getColor(item.type());
+        var icon = makeMarkerIcon(iconColor);
+        item.marker = new  google.maps.Marker({
+          map: map,
+          position: item.location(),
+          title: item.title(),
+          icon: icon
+        });
+
+        item.marker.setAnimation(null);
+
+        item.marker.addListener('click', function() {
+          populateInfoWindow(this, largeInfowindow);
+          self.locationList().forEach(function(item) {
+            item.marker.setAnimation(null);
+          });
+          if (this.getAnimation() === null) {
+            this.setAnimation(google.maps.Animation.BOUNCE);
+          } else {
+            this.setAnimation(null);
+          }
+        });
+
+        bounds.extend(item.marker.position);
+      });
+
+      map.fitBounds(bounds);
+    }
+
+  }, this);
+
   this.listContentsClicked = function() {
     var indexNumber = self.locationList.indexOf(this);
 

@@ -251,7 +251,7 @@ var locations = [
     type: 'learn'
   },
   {
-    title: 'Vocamus Press Coffee at Planet Bean',
+    title: 'Vocamus Coffee at Planet Bean',
     blurb: 'Come have a coffee and chat with other local authors about what you are reading and writing. Last Sunday of the Month.',
     when: 'Last Sunday of the Month, 1:00pm - 3:00pm',
     day: 0,
@@ -265,7 +265,7 @@ var locations = [
     type: 'social'
   },
   {
-    title: 'Vocamus Press Second Saturday',
+    title: 'Vocamus Second Saturday',
     blurb: 'Come have a beer and chat with other authors about what you are reading and writing. Second Saturday of the Month.',
     when: 'Second Saturday of the Month, 7:00pm - 10:00pm',
     day: 6,
