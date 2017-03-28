@@ -177,8 +177,6 @@ hr {
 
   -webkit-flex-flow: column nowrap;
     flex-flow: column nowrap;
-
-  margin-bottom: 10px;
 }
 
 .flex-form-item {

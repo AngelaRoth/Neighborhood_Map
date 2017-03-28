@@ -1,41 +1,26 @@
 function loadData() {
 
-  var $body = $('body');
-  var $wikiElem = $('#wikipedia-links');
-  var $nytHeaderElem = $('#nytimes-header');
-  var $nytElem = $('#nytimes-articles');
-  var $greeting = $('#greeting');
+  var $wikiSynopsis = $('#wiki-synopsis');
+  var $nytArticle = $('#nyt-article');
 
   // clear out old data before new request
-  $wikiElem.text("");
-  $nytElem.text("");
+  $wikiSynopsis.text("");
+  $nytArticle.text("");
 
-// STREETVIEW CODE
-  var street = $('#street').val();
-  var city = $('#city').val();
-  var address = street + ', ' + city;
-  var imgTag = '<img class="bgimg" src="http://maps.googleapis.com/maps/api/streetview?size=600x300&location=' + address + '">';
+  var title = $('#title').val();
+  var author = $('#author').val();
 
-  $greeting.text(address);
-  $body.append(imgTag);
 
 // NYT CODE
   var nytURL = "https://api.nytimes.com/svc/search/v2/articlesearch.json";
 
   nytURL += '?' + $.param({
     'api-key': "3579d2c108694c7fb536928a79360c54",
-    'q': "novel",
+    'q': title,
     'fl': "headline,snippet,web_url"
   });
 
-/*
-  nytURL += '?' + $.param({
-    'api-key': "3579d2c108694c7fb536928a79360c54",
-    'q': address,
-    'fl': "headline,snippet,web_url"
-  });
-
-*/  console.log(nytURL);
+  console.log(nytURL);
   // NOTE: If you want to see the JSON which the URL
   // returns, just paste the URL into the browser
   // address line.
@@ -53,31 +38,29 @@ function loadData() {
       // (here, it is the array of 10 returned articles)
       var articles = data.response.docs;
 
-      articles.forEach(function(art) {
-        var headline = art.headline.main;
-        var snippet = art.snippet;
-        var artURL = art.web_url;
-        var headString = '<a href="' + artURL + '">' + headline + '</a>';
-        var snippetString = '<p>' + snippet + '</p>';
-        var fullString = '<li class="article">' + headString + snippetString + '</li>';
-        $nytElem.append(fullString);
-      });
+      var headline = articles[0].headline.main;
+      var snippet = articles[0].snippet;
+      var artURL = articles[0].web_url;
+      var headString = '<a href="' + artURL + '">' + headline + '</a>';
+      var snippetString = '<p>' + snippet + '</p>';
+      var fullString = headString + snippetString;
+      $nytArticle.append(fullString);
     })
     .fail(function() {
-      $nytHeaderElem.text("NYT Articles Currently Unavailable");
+      $nytArticle.text("NYT Articles Currently Unavailable");
     });
 
 
 // WIKIPEDIA CODE
-  var streetForURL = street.replace(' ', '%20').replace('.', '').replace(',', '');
-  var cityForURL = city.replace(' ', '%20').replace('.', '').replace(',', '');
+  var titleForURL = title.replace(' ', '%20').replace('.', '').replace(',', '');
+  var authorForURL = author.replace(' ', '%20').replace('.', '').replace(',', '');
   // action=opensearch
   // search=[our string]
   // callback=wikiCallback
-  var wikiURL = 'https://en.wikipedia.org/w/api.php?action=query&list=search&srsearch=Albert%20Einstein&format=json&callback=wikiCallback';
-/*
-  var wikiURL = 'https://en.wikipedia.org/w/api.php?action=opensearch&search=' + cityForURL + '&format=json&callback=wikiCallback';
-*/
+  /*var wikiURL = 'https://en.wikipedia.org/w/api.php?action=query&list=search&srsearch=Albert%20Einstein&format=json&callback=wikiCallback';*/
+
+  var wikiURL = 'https://en.wikipedia.org/w/api.php?action=opensearch&search=' + titleForURL + '&format=json&callback=wikiCallback';
+
   // Arguement is an OBJECT of key/value pairs (inside {})
   // url: wikiURL  [CAN also be a string before {}.  i.e. $.ajax(wikiURL, {})]
   // dataType: 'jsonp' (NOT json) (name is a STRING inside quotes)
@@ -91,7 +74,7 @@ function loadData() {
     //       But if the "callback" in our URL was called something else,
     //       we would have to specify it here:
     // jsonp: "callback",
-    headers: {'Api-User-Agent': 'MovingCompanion/1.0 (https://angelaroth.github.io/moving-companion/)'},
+    headers: {'Api-User-Agent': 'Neighborhood_Map/1.0 (https://angelaroth.github.io//Neighborhood_Map/)'},
   })
   .done(function(data) {
     // NOTE: If we look in DevTools Network, and click on the
@@ -104,11 +87,11 @@ function loadData() {
     for (var i = 0; i < numArticles; i++) {
       var artString = '<a href="' + artLinks[i] + '">' + articles[i] + '</a>';
       var fullString = '<li class="article">' + artString + '</li>';
-      $wikiElem.append(fullString);
+      $wikiSynopsis.append(fullString);
     }
   })
   .fail(function() {
-    $wikiElem.append('Wikipedia not Responding');
+    $wikiSynopsis.append('Wikipedia not Responding');
   });
 
   return false;
