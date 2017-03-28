@@ -9,14 +9,42 @@ function loadData() {
 
   var title = $('#title').val();
   var author = $('#author').val();
+  var nytQuery;
+  var wikiQuery;
+  var dataEntered = true;
 
 
+
+  if (title) {
+    var titleForURL = title.replace(' ', '%20');
+    wikiQuery = titleForURL;
+    if (author) {
+      var authorForURL = author.replace(' ', '%20');
+      nytQuery = titleForURL + '%20' + authorForURL;
+    } else {
+      nytQuery = titleForURL;
+    }
+  } else if (author) {
+    var authorForURL = author.replace(' ', '%20');
+    nytQuery = authorForURL;
+    wikiQuery = authorForURL;
+  } else {
+    dataEntered = false;
+  }
+/*
+  if (dataEntered) {
+    getNytData(nytQuery);
+    getWikiData(wikiQuery);
+    getGoogleBooksData(titleForURL, authorForURL);
+  }
+
+*/
 // NYT CODE
   var nytURL = "https://api.nytimes.com/svc/search/v2/articlesearch.json";
 
   nytURL += '?' + $.param({
     'api-key': "3579d2c108694c7fb536928a79360c54",
-    'q': title,
+    'q': nytQuery,
     'fl': "headline,snippet,web_url"
   });
 
@@ -52,14 +80,14 @@ function loadData() {
 
 
 // WIKIPEDIA CODE
-  var titleForURL = title.replace(' ', '%20').replace('.', '').replace(',', '');
-  var authorForURL = author.replace(' ', '%20').replace('.', '').replace(',', '');
+  /*var titleForURL = title.replace(' ', '%20').replace('.', '').replace(',', '');
+  var authorForURL = author.replace(' ', '%20').replace('.', '').replace(',', '');*/
   // action=opensearch
   // search=[our string]
   // callback=wikiCallback
   /*var wikiURL = 'https://en.wikipedia.org/w/api.php?action=query&list=search&srsearch=Albert%20Einstein&format=json&callback=wikiCallback';*/
 
-  var wikiURL = 'https://en.wikipedia.org/w/api.php?action=opensearch&search=' + titleForURL + '&format=json&callback=wikiCallback';
+  var wikiURL = 'https://en.wikipedia.org/w/api.php?action=opensearch&search=' + wikiQuery + '&format=json&callback=wikiCallback';
 
   // Arguement is an OBJECT of key/value pairs (inside {})
   // url: wikiURL  [CAN also be a string before {}.  i.e. $.ajax(wikiURL, {})]
@@ -93,6 +121,8 @@ function loadData() {
   .fail(function() {
     $wikiSynopsis.append('Wikipedia not Responding');
   });
+
+  //Google books Code
 
   return false;
 };
