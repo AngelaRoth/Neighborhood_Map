@@ -9,12 +9,35 @@
   <div class="container">
     <div class="options-box">
       <h1>Guelph Writing Places</h1>
-      <div class="flex">
+
+
+      <form id="form-container" class="flex-form">
+        <div class="flex-form-item">
+         <label for="title" class="flex-form-label">Title: </label><input class="flex-form-input" type="text" id="title" value="">
+        </div>
+        <div class="flex-form-item">
+         <label for="author" class="flex-form-label">Author: </label><input class="flex-form-input" type="text" id="author" value="">
+        </div>
+        <button id="submit-btn">Submit</button>
+      </form>
+      <hr>
+
+
+
+      <div class="nytimes-container">
+        <h3 id="nytimes-header">Book Review</h3>
+        <div class="review">
+
+        </div>
+      </div>
+      <hr>
+
+      <div class="flex-filter-buttons">
         <input id="all-places" type="button" value="See All Places" data-bind="click: function(){filter('all');}">
       </div>
       <hr>
       <h2>Filter by Event</h2>
-      <div class="flex">
+      <div class="flex-filter-buttons">
         <!-- Thanks to this StackOverflow for advice on automatically firing click event:
         http://stackoverflow.com/questions/20869572/div-click-event-automatically-getting-fired-on-page-load -->
         <input id="write-places" type="button" value="Write" data-bind="click: function(){filter('write');}">
@@ -25,7 +48,7 @@
       </div>
       <hr>
       <h2>Filter by Imminence</h2>
-      <div class="flex">
+      <div class="flex-filter-buttons">
         <input id="day-places" type="button" value="24 Hours" data-bind="click: function(){checkIfInTime('day');}">
         <input id="week-places" type="button" value="One Week" data-bind="click: function(){checkIfInTime('week');}">
       </div>
@@ -41,11 +64,10 @@
   </div>
 
   <script src="js/knockout-3.4.2.js"></script>
+  <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
   <script src="js/data.js"></script>
   <script src="js/app.js"></script>
-
   <script async src="js/map.js"></script>
-
   <script async defer
       src=
       "https://maps.googleapis.com/maps/api/js?libraries=places,geometry,drawing&key=AIzaSyCNgnR6srI-o-L_1msz-0AA03afwiyOrxA&v=3&callback=viewModel.initMap">

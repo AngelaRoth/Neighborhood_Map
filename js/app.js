@@ -99,7 +99,6 @@ var ViewModel = function() {
 
   this.filter = function(type) {
     var bounds = new google.maps.LatLngBounds();
-    /*var indexNumber = 0;*/
     self.locationList().forEach(function(item) {
       if (item.type() === type || type === 'all') {
         item.listHidden(false);
@@ -109,14 +108,12 @@ var ViewModel = function() {
         item.listHidden(true);
         item.marker.setMap(null);
       }
-      /*indexNumber++;*/
     });
     map.fitBounds(bounds);
   };
 
   this.checkIfInTime = function(timePeriod) {
     var bounds = new google.maps.LatLngBounds();
-    /*var indexNumber = 0;*/
     var cutOffTime;
 
     switch (timePeriod) {
@@ -139,7 +136,6 @@ var ViewModel = function() {
         item.listHidden(true);
         item.marker.setMap(null);
       }
-      /*indexNumber++;*/
     });
     map.fitBounds(bounds);
   }
@@ -151,4 +147,6 @@ var viewModel = new ViewModel();
 
 ko.applyBindings(viewModel);
 
-
+listItemOrMarkerClicked = function() {
+  // TODO: put listContentsClicked functionality in here, and call it both when listContentsClicked and on the marker's event listener
+}
