@@ -54,12 +54,11 @@ function loadData() {
       // (here, it is the array of returned items)
       var items = data.items;
       var numItems = items.length;
-      var isbnThirteen = "";
-      var isbnTen = "";
+      var isbnIdentifier = "";
       var thumbnailSource = "";
       var bookDescription = "";
-      var itemWithIsbnThirteen = null;
-      var itemWithIsbnTen = null;
+      var itemWithIdentifier = null;
+      var identifierType = "";
       var identifierFound = false;
       var itemWithThumbnail = null;
       var itemWithDescription = null;
@@ -70,14 +69,14 @@ function loadData() {
           var industryIdents = items[i].volumeInfo.industryIdentifiers;
           industryIdents.forEach(function(e) {
             if (e.type = 'ISBN_13') {
-              isbnThirteen = e.identifier;
-              itemWithIsbnThirteen = i;
-              var identifierType = 'ISBN_13';
+              isbnIdentifier = e.identifier;
+              itemWithIdentifier = i;
+              identifierType = 'ISBN_13';
               identifierFound = true;
             } else if (e.type = 'ISBN_10') {
-              isbnTen = e.identifier;
-              itemWithIsbnTen = i;
-              var identifierType = 'ISBN_10';
+              isbnIdentifier = e.identifier;
+              itemWithIdentifier = i;
+              identifierType = 'ISBN_10';
               identifierFound = true;
             }
           });
@@ -98,8 +97,24 @@ function loadData() {
         }
       }
 
+      if (identifierFound) {
+        $gbIsbn.text('type = ' + identifierType + '; identifier = ' + isbnIdentifier);
+      } else {
+        $gbIsbn.text('No Identifier Found');
+      }
+
+      if(itemWithThumbnail) {
+        $gbImage.attr('src', thumbnailSource);
+      }
+
+      if(itemWithDescription) {
+        $gbDescription.text(bookDescription);
+      } else {
+        $gbDescription.text('No Description Found');
+      }
 
 
+/*
       if (firstItem.volumeInfo.industryIdentifiers) {
         bookIdentifiers = firstItem.volumeInfo.industryIdentifiers;
         $gbIsbn.text(bookIdentifiers)
@@ -115,7 +130,7 @@ function loadData() {
         $gbDescription.text(bookDescription);
       }
 
-
+*/
 /*
       var articles = data.response.docs;
 
