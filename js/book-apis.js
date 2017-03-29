@@ -14,12 +14,12 @@ function loadData() {
   var dataEntered = true;
 
 
-
+  // TODO Make replacement of "bad" characters more robust.
   if (title) {
-    var titleForURL = title.replace(' ', '%20');
+    var titleForURL = title.replace('<', ' ').replace('>', ' ').replace(' ', '%20');
     wikiQuery = titleForURL;
     if (author) {
-      var authorForURL = author.replace(' ', '%20');
+      var authorForURL = author.replace('<', ' ').replace('>', ' ').replace(' ', '%20');
       nytQuery = titleForURL + '%20' + authorForURL;
     } else {
       nytQuery = titleForURL;
@@ -31,6 +31,12 @@ function loadData() {
   } else {
     dataEntered = false;
   }
+
+// if data entered, add book to list and look up stuff
+// if no data entered, say so
+// if entered data produces no results in any of three apis, say "sorry, 'title' is too obscure for our list."
+
+
 /*
   if (dataEntered) {
     getNytData(nytQuery);
@@ -93,6 +99,7 @@ function loadData() {
   // url: wikiURL  [CAN also be a string before {}.  i.e. $.ajax(wikiURL, {})]
   // dataType: 'jsonp' (NOT json) (name is a STRING inside quotes)
   // success: function(response) {}
+
   $.ajax({
     url: wikiURL,
     dataType: 'jsonp',
@@ -122,7 +129,55 @@ function loadData() {
     $wikiSynopsis.append('Wikipedia not Responding');
   });
 
-  //Google books Code
+//Google books Code
+  var googleBooksURL = 'https://www.googleapis.com/books/v1/volumes?q=' + titleForURL;
+
+  if (titleForURL) {
+    googleBooksURL += 'intitle:' + titleForURL;
+    if (authorForURL) {
+      googleBooksURL += '+inauthor:' + authorForURL;
+    }
+  } else if (authorForURL) {
+    googleBooksURL += 'inauthor:' + authorForURL;
+  }
+
+  googleBooksURL += '&key=AIzaSyCNgnR6srI-o-L_1msz-0AA03afwiyOrxA';
+
+  $.getJSON( googleBooksURL )
+    // ERROR-HANDLING: Make sure request succeeded using
+    // .done() and .fail() on the object returned by .get()
+    .done(function(data) {
+      // 1st, log data to see how it's structured.
+      // REMEMBER to expand by clicking on arrows!
+      console.log(data);
+      /*$wikiSynopsis.append("http://books.google.com/books/content?id=zuKLCwAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api");*/
+
+
+      // 2nd, create a variable which ALREADY focusses on
+      // the part of the data you're interested in.
+      // (here, it is the array of 10 returned articles)
+
+
+/*
+      var articles = data.response.docs;
+
+      var headline = articles[0].headline.main;
+      var snippet = articles[0].snippet;
+      var artURL = articles[0].web_url;
+      var headString = '<a href="' + artURL + '">' + headline + '</a>';
+      var snippetString = '<p>' + snippet + '</p>';
+      var fullString = headString + snippetString;
+      $nytArticle.append(fullString);
+*/
+    })
+    .fail(function() {
+      console.log('gb data Unavailable');
+      /*$nytArticle.text("NYT Articles Currently Unavailable");*/
+    });
+
+
+
+
 
   return false;
 };
