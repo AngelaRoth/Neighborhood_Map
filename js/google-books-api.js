@@ -20,8 +20,8 @@ function loadData() {
 
   console.log('title = ' + title);
 
-  var googleBooksURL = 'https://www.googleapis.com/books/v1/volumes?q=War%20and%20Peace';
-/*
+  var googleBooksURL = 'https://www.googleapis.com/books/v1/volumes?q=';
+
   // TODO Make replacement of "bad" characters more robust.
   if (title) {
     var titleForURL = title.replace('<', ' ').replace('>', ' ').replace(' ', '%20');
@@ -34,9 +34,9 @@ function loadData() {
     var authorForURL = author.replace('<', ' ').replace('>', ' ').replace(' ', '%20');
     googleBooksURL += 'inauthor:' + authorForURL;
   } else {
-    dataEntered = false;
+    googleBooksURL += 'Pride%20and%20Prejudice';
   }
-*/
+
   googleBooksURL += '&key=AIzaSyCNgnR6srI-o-L_1msz-0AA03afwiyOrxA';
 
   console.log('googleBooksURL = ' + googleBooksURL);
