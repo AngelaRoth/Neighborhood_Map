@@ -6,14 +6,14 @@ function loadData() {
   var $gbDescription = $('#gb-description');
   var $gbImage = $('#gb-image');
   var $gbEpub = $('#gb-epub');
-/*
+
   // clear out old data before new request
-  $topThree.text("");
-  $gbIsbn.text("");
-  $gbDescription.text("");
-  $gbImage.src("");
-  $gbEpub.text("");
-*/
+  $topThree.text('');
+  $gbIsbn.text('');
+  $gbDescription.text('');
+  $gbImage.attr('src', '')
+  $gbEpub.text('');
+
   var title = $('#title').val();
   var author = $('#author').val();
   var dataEntered = true;
@@ -114,34 +114,7 @@ function loadData() {
       }
 
 
-/*
-      if (firstItem.volumeInfo.industryIdentifiers) {
-        bookIdentifiers = firstItem.volumeInfo.industryIdentifiers;
-        $gbIsbn.text(bookIdentifiers)
-      }
 
-      if (firstItem.volumeInfo.imageLinks.thumbnail) {
-        bookImage = firstItem.volumeInfo.imageLinks.thumbnail;
-        $gbImage.attr('src', bookImage);
-      }
-
-      if (firstItem.volumeInfo.description) {
-        bookDescription = firstItem.volumeInfo.description;
-        $gbDescription.text(bookDescription);
-      }
-
-*/
-/*
-      var articles = data.response.docs;
-
-      var headline = articles[0].headline.main;
-      var snippet = articles[0].snippet;
-      var artURL = articles[0].web_url;
-      var headString = '<a href="' + artURL + '">' + headline + '</a>';
-      var snippetString = '<p>' + snippet + '</p>';
-      var fullString = headString + snippetString;
-      $nytArticle.append(fullString);
-*/
     })
     .fail(function() {
       console.log('google books data Unavailable');
