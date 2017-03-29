@@ -28,6 +28,10 @@ var ObservableLocation = function(data) {
 
   this.timeToNext = ko.observable(this.nextMeeting() - this.currentTime());
 
+  this.suggestedBooks = ko.observableArray(data.suggestedBooks);
+
+  console.log('suggestedBooks = ' + this.suggestedBooks());
+
 };
 
 var ViewModel = function() {
@@ -83,7 +87,10 @@ var ViewModel = function() {
       this.listExpanded(true);
       this.listContents('<h3 class="list-header">' + this.title() + '</h3>' +
                         '<div class="list-item"><span class="item-header">Next Event:</span> ' + this.prettyMeeting() + '</div>' +
-                        '<div class="list-item"><span class="item-header">About:</span> ' + this.blurb() + '</div>');
+                        '<div class="list-item"><span class="item-header">About:</span> ' + this.blurb() + '</div>' +
+                        '<ul id="booksList" data-bind="foreach: suggestedBooks">' +
+                        '<li data-bind="text: title"></li>' +
+                        '</ul>');
 
       // Make the marker associated with this list item bounce
       this.marker.setAnimation(google.maps.Animation.BOUNCE);

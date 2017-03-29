@@ -290,7 +290,52 @@ function addNextMeetingTime() {
   }
 }
 
+function addToEachLocation() {
+  locations.forEach(function(location) {
+    location.suggestedBooks = [];
+  });
+}
+
 addNextMeetingTime();
+addToEachLocation();
+
+// Populate suggested books for first location, to test app
+var bookOne = {
+  title: "Vernon God Little",
+  image: "http://books.google.com/books/content?id=w6RlAAAAMAAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api",
+  description: "In the town jail of Martirio – the barbecue sauce capital of Central Texas – sits fifteen-year-old Vernon Little, dressed only in New Jack trainers and underpants. He is in trouble. His friend Jesus has just blown away sixteen of his classmates before turning the gun on himself. And Vernon, as his only buddy, has become the focus of the town’s need for vengeance. The news of the tragedy has resulted in the quirky backwater being flooded with wannabe CNN hacks all-too-keen to claim their fifteen minutes and lay the blame for the killings at Vernon’s feet. In particular Eulalio Ledesma, who begins manipulating matters so that Vernon becomes the centre for the bizarre and vengeful impulses of the townspeople of Martirio. But Vernon is sure he’ll be ok. “Why do movies end happy? Because they imitate life. You know it, I know it.” Peopled by a cast of grotesques, freaks, coldblooded chattering housewives (who are all mysteriously, recently widowed), and one very special adolescent with an unfortunate talent for being in the wrong place at the right time, Vernon God Little is riotously funny and puts lust for vengeance, materialism, and trial by media squarely in the dock. It also heralds the arrival of one of the most exciting and acclaimed voices in contemporary fiction, who with this debut novel illustrates that in modern times innocence and basic humanity may not be enough.",
+  preview: "http://books.google.ca/books?id=8b0MqqWqYSoC&printsec=frontcover&dq=intitle:vernon+god+little&hl=&cd=2&source=gbs_api",
+  votes: 3
+}
+
+var bookTwo = {
+  title: "The New Valley",
+  image: "http://books.google.com/books/content?id=yBpPWmEaoEMC&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api",
+  description: "The three linked novellas that comprise the Fulbright-winning author's debut bring the reader into America's remote and unforgiving backcountry and open up the private worlds of three very different men. A first novel. Reprint. A New York Times Editors' Choice.",
+  preview: "http://books.google.ca/books?id=yBpPWmEaoEMC&printsec=frontcover&dq=intitle:the+new+valley+inauthor:josh+weil&hl=&cd=1&source=gbs_api",
+  votes: 2
+}
+
+var bookThree = {
+  title: "Why We Live Where We Live",
+  image: "http://books.google.com/books/content?id=nmVZnwEACAAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api",
+  description: "Discusses the many factors that affect where humans choose to live, including the availability of food and water, jobs, and the need for safety.",
+  preview: "http://books.google.ca/books?id=nmVZnwEACAAJ&dq=inauthor:kira+vermond&hl=&cd=2&source=gbs_api",
+  votes: 1,
+}
+var bookFour = {
+  title: "The Grand Sophy",
+  image: "http://books.google.com/books/content?id=XtQsv--oP90C&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api",
+  description: "'Georgette Heyer is unbeatable.' Sunday Telegraph. A beautifully repackaged edition of one of the best of the best. When the redoubtable Sir Horace Stanton-Lacy is ordered to South America on Diplomatic Business he parks his only daughter Sophy with his sister's family, the Ombersleys, in Berkeley Square. Upon her arrival, Sophy is bemused to see her cousins are in a sad tangle. The heartless and tyrannical Charles is betrothed to a pedantic bluestocking almost as tiresome as himself; Cecilia is besotted with a beautiful but quite feather-brained poet; and Hubert has fallen foul of a money-lender. It looks like the Grand Sophy has arrived just in time to sort them out, but she hasn't reckoned with Charles, the Ombersleys' heir, who has only one thought - to marry her off and rid the family of her meddlesome ways.",
+  preview: "http://books.google.ca/books?id=XtQsv--oP90C&printsec=frontcover&dq=intitle:the+grand+sophy&hl=&cd=1&source=gbs_api",
+  votes: 1
+}
+
+
+locations[0].suggestedBooks.push(bookOne);
+locations[0].suggestedBooks.push(bookTwo);
+locations[0].suggestedBooks.push(bookThree);
+locations[0].suggestedBooks.push(bookFour);
 
 
 // Returns an array of the 4 or 5 days in a certain month which
