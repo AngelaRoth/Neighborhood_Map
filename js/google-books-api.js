@@ -1,3 +1,14 @@
+google.books.load();
+
+var viewer;
+
+function initialize() {
+  viewer = new google.books.DefaultViewer(document.getElementById('viewerCanvas'));
+}
+
+google.books.setOnLoadCallback(initialize);
+
+
 function loadData() {
   console.log('loading data');
 
@@ -5,14 +16,12 @@ function loadData() {
   var $gbIsbn = $('#gb-isbn');
   var $gbDescription = $('#gb-description');
   var $gbImage = $('#gb-image');
-  var $gbEpub = $('#gb-epub');
 
   // clear out old data before new request
   $topThree.text('');
   $gbIsbn.text('');
   $gbDescription.text('');
   $gbImage.attr('src', '')
-  $gbEpub.text('');
 
   var title = $('#title').val();
   var author = $('#author').val();
@@ -113,6 +122,8 @@ function loadData() {
         $gbDescription.text('No Description Found');
       }
 
+      // Load Book into Embedded Viewer
+      viewer.load('ISBN:' + isbnIdentifier);
 
 
     })

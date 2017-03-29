@@ -25,33 +25,13 @@
       <div id="gb-description"></div>
       <h4>Image</h4>
       <img id="gb-image" src="" alt="">
-      <h4>ePub</h4>
-      <div id="gb-epub"></div>
-
-
+      <h4>Viewer Canvas</h4>
+      <div id="viewerCanvas"></div>
 
 
       <div id="top-three"></div>
 
 
-
-<!--
-
-      <img src="http://books.google.com/books/content?id=zuKLCwAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api" alt="">
-      pdf<img src="http://books.google.ca/books/download/War_and_Peace-sample-pdf.acsm?id=zuKLCwAAQBAJ&format=pdf&output=acs4_fulfillment_token&dl_type=sample&source=gbs_api" alt="">
-      epub<img src="http://books.google.ca/books/download/War_and_Peace-sample-epub.acsm?id=zuKLCwAAQBAJ&format=epub&output=acs4_fulfillment_token&dl_type=sample&source=gbs_api">
-
-
-      <div>
-        <h3>Wikipedia Synopsis</h3>
-        <div id="wiki-synopsis"></div>
-      </div>
-      <div>
-        <h3>New York Times says:</h3>
-        <div id="nyt-article"></div>
-      </div>
-      <hr>
- -->
       <div class="flex-filter-buttons">
         <input id="all-places" type="button" value="See All Places" data-bind="click: function(){filter('all');}">
       </div>
@@ -87,12 +67,11 @@
   <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
   <script src="js/data.js"></script>
   <script src="js/app.js"></script>
-<!--
-    <script src="js/book-apis.js"></script>
-   -->
+
+  <script type="text/javascript" src="https://www.google.com/books/jsapi.js"></script>
+
 
   <script src="js/google-books-api.js"></script>
-
   <script async src="js/map.js"></script>
   <script async defer
       src=

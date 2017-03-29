@@ -196,7 +196,10 @@ hr {
   flex-grow: 6;
 }
 
-
+#viewerCanvas {
+  width: 250px;
+  height: 350px;
+}
 
 
 
