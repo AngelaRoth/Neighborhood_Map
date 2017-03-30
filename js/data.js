@@ -1,7 +1,7 @@
 // Placeholder Values in case no book is found during call to Google Books API
-var bookTitle = "No Title Found";
-var bookAuthor = "No Author Listed";
-var bookImageSrc = "http://books.google.com/books/content?id=yBpPWmEaoEMC&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api";
+var bookTitle = 'No Title Found';
+var bookAuthor = 'No Author Listed';
+var bookImageSrc = 'img/books.jpg';
 
 
 var locations = [
@@ -17,9 +17,7 @@ var locations = [
     address: '41 Quebec St',
     location: {lat: 43.5455706, lng: -80.2504962},
     placeId: 'ChIJPTq_w8GaK4gRVtwb1fJ_mVk',
-    type: 'book',
-    nowReading: 'Vernon God Little',
-    author: 'DBC Pierre'
+    type: 'book'
   },
   {
     title: 'Bookshelf eBar Poetry Slam',
@@ -33,9 +31,7 @@ var locations = [
     address: '41 Quebec St',
     location: {lat: 43.54552479999999, lng: -80.2505975},
     placeId: 'ChIJpY64w8GaK4gR_6eh8uYlhwI',
-    type: 'share',
-    nowReading: 'December Stories',
-    author: 'George Saunders'
+    type: 'share'
   },
   {
     title: 'Bookshelf Writing Room',
@@ -48,9 +44,7 @@ var locations = [
     link: '',
     location: {lat: 43.5454125, lng: -80.2504411},
     placeId: 'ChIJpY64w8GaK4gR_6eh8uYlhwI',
-    type: 'write',
-    nowReading: 'Vernon God Little',
-    author: 'DBC Pierre'
+    type: 'write'
   },
   {
     title: 'Carden St Book Club',
@@ -64,9 +58,7 @@ var locations = [
     address: '10 Carden St',
     location: {lat: 43.5438436, lng: -80.2493446},
     placeId: 'ChIJP8KNeMGaK4gRzLSBqzSNMcQ',
-    type: 'social',
-    nowReading: 'Vernon God Little',
-    author: 'DBC Pierre'
+    type: 'social'
   },
   {
     title: 'Chapters',
@@ -80,9 +72,7 @@ var locations = [
     address: 'Stone Road Mall',
     location: {lat: 43.5181972, lng: -80.2379581},
     placeId: '"ChIJVeMk0iiFK4gRXuLSI4DD13g',
-    type: 'book',
-    nowReading: 'Vernon God Little',
-    author: 'DBC Pierre'
+    type: 'book'
   },
   {
     title: 'The Common',
@@ -96,9 +86,7 @@ var locations = [
     address: '36 Wilson St',
     location: {lat: 43.543712, lng: -80.24977299999999},
     placeId: 'ChIJKUrddsGaK4gRxf1ywkRMlus',
-    type: 'write',
-    nowReading: 'Vernon God Little',
-    author: 'DBC Pierre'
+    type: 'write'
   },
   {
     title: 'Goldie Mill Ruin',
@@ -112,9 +100,7 @@ var locations = [
     address: '75 Cardigan St',
     location: {lat: 43.550737, lng: -80.253634},
     placeId: 'ChIJP3yBReuaK4gRIgYyPfY5Xmk',
-    type: 'write',
-    nowReading: 'Vernon God Little',
-    author: 'DBC Pierre'
+    type: 'write'
   },
   {
     title: 'Harcourt Workshops',
@@ -128,9 +114,7 @@ var locations = [
     address: '87 Dean Ave',
     location: {lat: 43.5297778, lng: -80.2439373},
     placeId: 'ChIJTevvj82aK4gRRwPyG2GYO1E',
-    type: 'learn',
-    nowReading: 'Vernon God Little',
-    author: 'DBC Pierre'
+    type: 'learn'
   },
   {
     title: 'Janus Books',
@@ -144,9 +128,7 @@ var locations = [
     address: '10 Paisley St',
     location: {lat: 43.544752, lng: -80.253084},
     placeId: '"ChIJD-rDQsCaK4gRqAzSOvvLyHg',
-    type: 'book',
-    nowReading: 'Vernon God Little',
-    author: 'DBC Pierre'
+    type: 'book'
   },
   {
     title: 'Public Library',
@@ -160,9 +142,7 @@ var locations = [
     address: '100 Norfolk St',
     location: {lat: 43.545656, lng: -80.252675},
     placeId: 'ChIJhwlUOcCaK4gRFhOIV64pZ_k',
-    type: 'book',
-    nowReading: 'Vernon God Little',
-    author: 'DBC Pierre'
+    type: 'book'
   },
   {
     title: 'Public Library Courses',
@@ -176,9 +156,7 @@ var locations = [
     address: '100 Norfolk St',
     location: {lat: 43.545891, lng: -80.252677},
     placeId: 'ChIJhwlUOcCaK4gRFhOIV64pZ_k',
-    type: 'learn',
-    nowReading: 'Vernon God Little',
-    author: 'DBC Pierre'
+    type: 'learn'
   },
   {
     title: 'Publication Studio',
@@ -192,9 +170,7 @@ var locations = [
     address: '6 Dublin St S',
     location: {lat: 43.54126369999999, lng: -80.25045589999999},
     placeId: 'ChIJy2ZxycaaK4gRKaBh9oL-Neg',
-    type: 'book',
-    nowReading: 'Vernon God Little',
-    author: 'DBC Pierre'
+    type: 'book'
   },
   {
     title: 'Red Brick Cafe Open Mic Night',
@@ -208,9 +184,7 @@ var locations = [
     address: '8 Douglas St',
     location: {lat: 43.54660499999999, lng: -80.248998},
     placeId: 'ChIJESiJAeqaK4gR1p5vaNuW084',
-    type: 'share',
-    nowReading: 'Vernon God Little',
-    author: 'DBC Pierre'
+    type: 'share'
   },
   {
     title: 'Seniors Writing Club',
@@ -224,9 +198,7 @@ var locations = [
     address: '683 Woolwich St',
     location: {lat: 43.5602536, lng: -80.27034089999999},
     placeId: 'ChIJ9dUkj4OaK4gRQmDTuDw7qpg',
-    type: 'share',
-    nowReading: 'Vernon God Little',
-    author: 'DBC Pierre'
+    type: 'share'
   },
   {
     title: 'Short Stories at Symposium Cafe',
@@ -240,9 +212,7 @@ var locations = [
     address: '304 Stone Rd W',
     location: {lat: 43.51777619999999, lng: -80.2346285},
     placeId: 'ChIJt6tvqimFK4gRbvvU_svjx64',
-    type: 'social',
-    nowReading: 'Vernon God Little',
-    author: 'DBC Pierre'
+    type: 'social'
   },
   {
     title: 'Sunrise Books',
@@ -256,9 +226,7 @@ var locations = [
     address: '366 Speedvale E',
     location: {lat: 43.56791539999999, lng: -80.25794859999999},
     placeId: 'ChIJX0RdN2CaK4gRpdduPmh6XH4',
-    type: 'book',
-    nowReading: 'Vernon God Little',
-    author: 'DBC Pierre'
+    type: 'book'
   },
   {
     title: 'U of G Creative Writing Courses',
@@ -272,9 +240,7 @@ var locations = [
     address: 'University of Guelph - Johnston Hall',
     location: {lat: 43.5329877, lng: -80.228565},
     placeId: 'ChIJR1zC5CibK4gRhzmsgYA2rJQ',
-    type: 'learn',
-    nowReading: 'Vernon God Little',
-    author: 'DBC Pierre'
+    type: 'learn'
   },
   {
     title: 'U of G Free Workshops',
@@ -288,9 +254,7 @@ var locations = [
     address: 'University of Guelph - McLaughlin Library',
     location: {lat: 43.531479, lng: -80.227775},
     placeId: ' ChIJ2w63PimbK4gRvec1beOsgDo',
-    type: 'learn',
-    nowReading: 'Vernon God Little',
-    author: 'DBC Pierre'
+    type: 'learn'
   },
   {
     title: 'Vocamus Coffee at Planet Bean',
@@ -304,9 +268,7 @@ var locations = [
     address: '41 Quebec St',
     location: {lat: 43.544369, lng: -80.2479427},
     placeId: 'ChIJzwtnJMKaK4gRaoGKA5twKsc',
-    type: 'social',
-    nowReading: 'Vernon God Little',
-    author: 'DBC Pierre'
+    type: 'social'
   },
   {
     title: 'Vocamus Second Saturday',
@@ -320,9 +282,7 @@ var locations = [
     address: '49 Norfolk St',
     location: {lat: 43.543907, lng: -80.25036089999999},
     placeId: 'ChIJH6BSCsGaK4gREFDY6UuhSGA',
-    type: 'social',
-    nowReading: 'Vernon God Little',
-    author: 'DBC Pierre'
+    type: 'social'
   }
 ];
 
@@ -338,51 +298,14 @@ function addNextMeetingTime() {
 
 function addToEachLocation() {
   locations.forEach(function(location) {
-    location.suggestedBooks = [];
+    location.nowReading = 'No Current Suggestion';
+    location.author = 'Nobody you Know';
+    location.bookImage = 'img/books.jpg';
   });
 }
 
 addNextMeetingTime();
 addToEachLocation();
-
-// Populate suggested books for first location, to test app
-var bookOne = {
-  title: "Vernon God Little",
-  image: "http://books.google.com/books/content?id=w6RlAAAAMAAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api",
-  description: "In the town jail of Martirio – the barbecue sauce capital of Central Texas – sits fifteen-year-old Vernon Little, dressed only in New Jack trainers and underpants. He is in trouble. His friend Jesus has just blown away sixteen of his classmates before turning the gun on himself. And Vernon, as his only buddy, has become the focus of the town’s need for vengeance. The news of the tragedy has resulted in the quirky backwater being flooded with wannabe CNN hacks all-too-keen to claim their fifteen minutes and lay the blame for the killings at Vernon’s feet. In particular Eulalio Ledesma, who begins manipulating matters so that Vernon becomes the centre for the bizarre and vengeful impulses of the townspeople of Martirio. But Vernon is sure he’ll be ok. “Why do movies end happy? Because they imitate life. You know it, I know it.” Peopled by a cast of grotesques, freaks, coldblooded chattering housewives (who are all mysteriously, recently widowed), and one very special adolescent with an unfortunate talent for being in the wrong place at the right time, Vernon God Little is riotously funny and puts lust for vengeance, materialism, and trial by media squarely in the dock. It also heralds the arrival of one of the most exciting and acclaimed voices in contemporary fiction, who with this debut novel illustrates that in modern times innocence and basic humanity may not be enough.",
-  preview: "http://books.google.ca/books?id=8b0MqqWqYSoC&printsec=frontcover&dq=intitle:vernon+god+little&hl=&cd=2&source=gbs_api",
-  votes: 3
-}
-
-var bookTwo = {
-  title: "The New Valley",
-  image: "http://books.google.com/books/content?id=yBpPWmEaoEMC&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api",
-  description: "The three linked novellas that comprise the Fulbright-winning author's debut bring the reader into America's remote and unforgiving backcountry and open up the private worlds of three very different men. A first novel. Reprint. A New York Times Editors' Choice.",
-  preview: "http://books.google.ca/books?id=yBpPWmEaoEMC&printsec=frontcover&dq=intitle:the+new+valley+inauthor:josh+weil&hl=&cd=1&source=gbs_api",
-  votes: 2
-}
-
-var bookThree = {
-  title: "Why We Live Where We Live",
-  image: "http://books.google.com/books/content?id=nmVZnwEACAAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api",
-  description: "Discusses the many factors that affect where humans choose to live, including the availability of food and water, jobs, and the need for safety.",
-  preview: "http://books.google.ca/books?id=nmVZnwEACAAJ&dq=inauthor:kira+vermond&hl=&cd=2&source=gbs_api",
-  votes: 1,
-}
-var bookFour = {
-  title: "The Grand Sophy",
-  image: "http://books.google.com/books/content?id=XtQsv--oP90C&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api",
-  description: "'Georgette Heyer is unbeatable.' Sunday Telegraph. A beautifully repackaged edition of one of the best of the best. When the redoubtable Sir Horace Stanton-Lacy is ordered to South America on Diplomatic Business he parks his only daughter Sophy with his sister's family, the Ombersleys, in Berkeley Square. Upon her arrival, Sophy is bemused to see her cousins are in a sad tangle. The heartless and tyrannical Charles is betrothed to a pedantic bluestocking almost as tiresome as himself; Cecilia is besotted with a beautiful but quite feather-brained poet; and Hubert has fallen foul of a money-lender. It looks like the Grand Sophy has arrived just in time to sort them out, but she hasn't reckoned with Charles, the Ombersleys' heir, who has only one thought - to marry her off and rid the family of her meddlesome ways.",
-  preview: "http://books.google.ca/books?id=XtQsv--oP90C&printsec=frontcover&dq=intitle:the+grand+sophy&hl=&cd=1&source=gbs_api",
-  votes: 1
-}
-
-
-locations[0].suggestedBooks.push(bookOne);
-locations[0].suggestedBooks.push(bookTwo);
-locations[0].suggestedBooks.push(bookThree);
-locations[0].suggestedBooks.push(bookFour);
-
 
 // Returns an array of the 4 or 5 days in a certain month which
 // fall on a certain weekday.

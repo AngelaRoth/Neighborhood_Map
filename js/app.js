@@ -12,7 +12,7 @@ var ObservableLocation = function(data) {
   this.type = ko.observable(data.type);
   this.nowReading = ko.observable(data.nowReading);
   this.author = ko.observable(data.author);
-  this.bookImage = ko.observable("http://books.google.com/books/content?id=yBpPWmEaoEMC&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api")
+  this.bookImage = ko.observable("img/books.jpg")
   this.nextMeeting = ko.observable(data.nextMeeting);
   this.prettyMeeting = ko.observable(data.prettyMeeting);
   this.listExpanded = ko.observable(false);
@@ -224,8 +224,11 @@ var ViewModel = function() {
           // Check if properties exist and assign their values to global variables
           if (firstBook.volumeInfo.hasOwnProperty('title')) {
             bookTitle = firstBook.volumeInfo.title;
+          } else {
+            bookTitle = "No Title Found";
           }
           if (firstBook.volumeInfo.hasOwnProperty('authors')) {
+            bookAuthor = "";
             var authors = firstBook.volumeInfo.authors;
             var numAuthors = authors.length;
             for (var i = 0; i < (numAuthors - 1); i++) {
@@ -233,23 +236,39 @@ var ViewModel = function() {
               bookAuthor += ', ';
             }
             bookAuthor += authors[numAuthors - 1];
+          } else {
+            bookAuthor = "No Author Listed";
           }
           if (firstBook.volumeInfo.hasOwnProperty('imageLinks')) {
             if (firstBook.volumeInfo.imageLinks.hasOwnProperty('smallThumbnail')) {
-              bookImageSrc = firstBook.volumeInfo.smallThumbnail;
+              bookImageSrc = firstBook.volumeInfo.imageLinks.smallThumbnail;
             } else if (firstBook.volumeInfo.imageLinks.hasOwnProperty('thumbnail')) {
-              bookImageSrc = firstBook.volumeInfo.thumbnail;
+              bookImageSrc = firstBook.volumeInfo.imageLinks.thumbnail;
             }
+          } else {
+            bookImageSrc = "img/books.jpg";
           }
           console.log('bookTitle = ' + bookTitle);
           console.log('bookAuthor = ' + bookAuthor);
           console.log('bookImageSrc = ' + bookImageSrc);
+
+          self.currentBook().nowReading(bookTitle);
+          self.currentBook().author(bookAuthor);
+          self.currentBook().bookImage(bookImageSrc);
         }
       })
       .fail(function() {
         console.log('Google Books data Unavailable');
       });
+/*
+      console.log('bookTitle = ' + bookTitle);
+      console.log('bookAuthor = ' + bookAuthor);
+      console.log('bookImageSrc = ' + bookImageSrc);
 
+      this.nowReading(bookTitle);
+      this.author(bookAuthor);
+      this.bookImage(bookImageSrc);
+*/
     return false;
   };
 
