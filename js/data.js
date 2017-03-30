@@ -11,7 +11,9 @@ var locations = [
     address: '41 Quebec St',
     location: {lat: 43.5455706, lng: -80.2504962},
     placeId: 'ChIJPTq_w8GaK4gRVtwb1fJ_mVk',
-    type: 'book'
+    type: 'book',
+    nowReading: 'Vernon God Little',
+    author: 'DBC Pierre'
   },
   {
     title: 'Bookshelf eBar Poetry Slam',
@@ -25,7 +27,9 @@ var locations = [
     address: '41 Quebec St',
     location: {lat: 43.54552479999999, lng: -80.2505975},
     placeId: 'ChIJpY64w8GaK4gR_6eh8uYlhwI',
-    type: 'share'
+    type: 'share',
+    nowReading: 'December Stories',
+    author: 'George Saunders'
   },
   {
     title: 'Bookshelf Writing Room',
@@ -38,7 +42,9 @@ var locations = [
     link: '',
     location: {lat: 43.5454125, lng: -80.2504411},
     placeId: 'ChIJpY64w8GaK4gR_6eh8uYlhwI',
-    type: 'write'
+    type: 'write',
+    nowReading: 'Vernon God Little',
+    author: 'DBC Pierre'
   },
   {
     title: 'Carden St Book Club',
@@ -52,7 +58,9 @@ var locations = [
     address: '10 Carden St',
     location: {lat: 43.5438436, lng: -80.2493446},
     placeId: 'ChIJP8KNeMGaK4gRzLSBqzSNMcQ',
-    type: 'social'
+    type: 'social',
+    nowReading: 'Vernon God Little',
+    author: 'DBC Pierre'
   },
   {
     title: 'Chapters',
@@ -66,7 +74,9 @@ var locations = [
     address: 'Stone Road Mall',
     location: {lat: 43.5181972, lng: -80.2379581},
     placeId: '"ChIJVeMk0iiFK4gRXuLSI4DD13g',
-    type: 'book'
+    type: 'book',
+    nowReading: 'Vernon God Little',
+    author: 'DBC Pierre'
   },
   {
     title: 'The Common',
@@ -80,7 +90,9 @@ var locations = [
     address: '36 Wilson St',
     location: {lat: 43.543712, lng: -80.24977299999999},
     placeId: 'ChIJKUrddsGaK4gRxf1ywkRMlus',
-    type: 'write'
+    type: 'write',
+    nowReading: 'Vernon God Little',
+    author: 'DBC Pierre'
   },
   {
     title: 'Goldie Mill Ruin',
@@ -94,7 +106,9 @@ var locations = [
     address: '75 Cardigan St',
     location: {lat: 43.550737, lng: -80.253634},
     placeId: 'ChIJP3yBReuaK4gRIgYyPfY5Xmk',
-    type: 'write'
+    type: 'write',
+    nowReading: 'Vernon God Little',
+    author: 'DBC Pierre'
   },
   {
     title: 'Harcourt Workshops',
@@ -108,7 +122,9 @@ var locations = [
     address: '87 Dean Ave',
     location: {lat: 43.5297778, lng: -80.2439373},
     placeId: 'ChIJTevvj82aK4gRRwPyG2GYO1E',
-    type: 'learn'
+    type: 'learn',
+    nowReading: 'Vernon God Little',
+    author: 'DBC Pierre'
   },
   {
     title: 'Janus Books',
@@ -122,7 +138,9 @@ var locations = [
     address: '10 Paisley St',
     location: {lat: 43.544752, lng: -80.253084},
     placeId: '"ChIJD-rDQsCaK4gRqAzSOvvLyHg',
-    type: 'book'
+    type: 'book',
+    nowReading: 'Vernon God Little',
+    author: 'DBC Pierre'
   },
   {
     title: 'Public Library',
@@ -136,7 +154,9 @@ var locations = [
     address: '100 Norfolk St',
     location: {lat: 43.545656, lng: -80.252675},
     placeId: 'ChIJhwlUOcCaK4gRFhOIV64pZ_k',
-    type: 'book'
+    type: 'book',
+    nowReading: 'Vernon God Little',
+    author: 'DBC Pierre'
   },
   {
     title: 'Public Library Courses',
@@ -150,7 +170,9 @@ var locations = [
     address: '100 Norfolk St',
     location: {lat: 43.545891, lng: -80.252677},
     placeId: 'ChIJhwlUOcCaK4gRFhOIV64pZ_k',
-    type: 'learn'
+    type: 'learn',
+    nowReading: 'Vernon God Little',
+    author: 'DBC Pierre'
   },
   {
     title: 'Publication Studio',
@@ -164,7 +186,9 @@ var locations = [
     address: '6 Dublin St S',
     location: {lat: 43.54126369999999, lng: -80.25045589999999},
     placeId: 'ChIJy2ZxycaaK4gRKaBh9oL-Neg',
-    type: 'book'
+    type: 'book',
+    nowReading: 'Vernon God Little',
+    author: 'DBC Pierre'
   },
   {
     title: 'Red Brick Cafe Open Mic Night',
@@ -178,7 +202,9 @@ var locations = [
     address: '8 Douglas St',
     location: {lat: 43.54660499999999, lng: -80.248998},
     placeId: 'ChIJESiJAeqaK4gR1p5vaNuW084',
-    type: 'share'
+    type: 'share',
+    nowReading: 'Vernon God Little',
+    author: 'DBC Pierre'
   },
   {
     title: 'Seniors Writing Club',
@@ -192,7 +218,9 @@ var locations = [
     address: '683 Woolwich St',
     location: {lat: 43.5602536, lng: -80.27034089999999},
     placeId: 'ChIJ9dUkj4OaK4gRQmDTuDw7qpg',
-    type: 'share'
+    type: 'share',
+    nowReading: 'Vernon God Little',
+    author: 'DBC Pierre'
   },
   {
     title: 'Short Stories at Symposium Cafe',
@@ -206,7 +234,9 @@ var locations = [
     address: '304 Stone Rd W',
     location: {lat: 43.51777619999999, lng: -80.2346285},
     placeId: 'ChIJt6tvqimFK4gRbvvU_svjx64',
-    type: 'social'
+    type: 'social',
+    nowReading: 'Vernon God Little',
+    author: 'DBC Pierre'
   },
   {
     title: 'Sunrise Books',
@@ -220,7 +250,9 @@ var locations = [
     address: '366 Speedvale E',
     location: {lat: 43.56791539999999, lng: -80.25794859999999},
     placeId: 'ChIJX0RdN2CaK4gRpdduPmh6XH4',
-    type: 'book'
+    type: 'book',
+    nowReading: 'Vernon God Little',
+    author: 'DBC Pierre'
   },
   {
     title: 'U of G Creative Writing Courses',
@@ -234,7 +266,9 @@ var locations = [
     address: 'University of Guelph - Johnston Hall',
     location: {lat: 43.5329877, lng: -80.228565},
     placeId: 'ChIJR1zC5CibK4gRhzmsgYA2rJQ',
-    type: 'learn'
+    type: 'learn',
+    nowReading: 'Vernon God Little',
+    author: 'DBC Pierre'
   },
   {
     title: 'U of G Free Workshops',
@@ -248,7 +282,9 @@ var locations = [
     address: 'University of Guelph - McLaughlin Library',
     location: {lat: 43.531479, lng: -80.227775},
     placeId: ' ChIJ2w63PimbK4gRvec1beOsgDo',
-    type: 'learn'
+    type: 'learn',
+    nowReading: 'Vernon God Little',
+    author: 'DBC Pierre'
   },
   {
     title: 'Vocamus Coffee at Planet Bean',
@@ -262,7 +298,9 @@ var locations = [
     address: '41 Quebec St',
     location: {lat: 43.544369, lng: -80.2479427},
     placeId: 'ChIJzwtnJMKaK4gRaoGKA5twKsc',
-    type: 'social'
+    type: 'social',
+    nowReading: 'Vernon God Little',
+    author: 'DBC Pierre'
   },
   {
     title: 'Vocamus Second Saturday',
@@ -276,7 +314,9 @@ var locations = [
     address: '49 Norfolk St',
     location: {lat: 43.543907, lng: -80.25036089999999},
     placeId: 'ChIJH6BSCsGaK4gREFDY6UuhSGA',
-    type: 'social'
+    type: 'social',
+    nowReading: 'Vernon God Little',
+    author: 'DBC Pierre'
   }
 ];
 

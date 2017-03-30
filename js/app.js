@@ -10,6 +10,8 @@ var ObservableLocation = function(data) {
   this.location = ko.observable(data.location);
   this.placeId = ko.observable(data.placeId);
   this.type = ko.observable(data.type);
+  this.nowReading = ko.observable(data.nowReading);
+  this.author = ko.observable(data.author);
   this.nextMeeting = ko.observable(data.nextMeeting);
   this.prettyMeeting = ko.observable(data.prettyMeeting);
   this.listExpanded = ko.observable(false);
@@ -47,6 +49,7 @@ var ViewModel = function() {
 
   this.makeMarkers = ko.computed(function() {
     if (self.googleReady()) {
+      console.log
       var largeInfowindow = new google.maps.InfoWindow();
       var bounds = new google.maps.LatLngBounds();
 
@@ -57,6 +60,9 @@ var ViewModel = function() {
           map: map,
           position: item.location(),
           title: item.title(),
+          blurb: item.blurb(),
+          thumbnail: "http://books.google.com/books/content?id=w6RlAAAAMAAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api",
+          booktitle: "VGL",
           icon: icon
         });
 
@@ -87,10 +93,7 @@ var ViewModel = function() {
       this.listExpanded(true);
       this.listContents('<h3 class="list-header">' + this.title() + '</h3>' +
                         '<div class="list-item"><span class="item-header">Next Event:</span> ' + this.prettyMeeting() + '</div>' +
-                        '<div class="list-item"><span class="item-header">About:</span> ' + this.blurb() + '</div>' +
-                        '<ul id="booksList" data-bind="foreach: suggestedBooks">' +
-                        '<li data-bind="text: title"></li>' +
-                        '</ul>');
+                        '<div class="list-item"><span class="item-header">About:</span> ' + this.blurb() + '</div>');
 
       // Make the marker associated with this list item bounce
       this.marker.setAnimation(google.maps.Animation.BOUNCE);
