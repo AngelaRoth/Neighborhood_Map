@@ -1,28 +1,14 @@
 function loadData() {
-
-  var $wikiSynopsis = $('#wiki-synopsis');
-  var $nytArticle = $('#nyt-article');
-
-  // clear out old data before new request
-  $wikiSynopsis.text("");
-  $nytArticle.text("");
-
   var title = $('#title').val();
   var author = $('#author').val();
-  var nytQuery;
-  var wikiQuery;
-  var dataEntered = true;
+  var dataEntered = false;
 
 
   // TODO Make replacement of "bad" characters more robust.
   if (title) {
     var titleForURL = title.replace('<', ' ').replace('>', ' ').replace(' ', '%20');
-    wikiQuery = titleForURL;
     if (author) {
       var authorForURL = author.replace('<', ' ').replace('>', ' ').replace(' ', '%20');
-      nytQuery = titleForURL + '%20' + authorForURL;
-    } else {
-      nytQuery = titleForURL;
     }
   } else if (author) {
     var authorForURL = author.replace(' ', '%20');
@@ -32,154 +18,75 @@ function loadData() {
     dataEntered = false;
   }
 
-// if data entered, add book to list and look up stuff
-// if no data entered, say so
-// if entered data produces no results in any of three apis, say "sorry, 'title' is too obscure for our list."
+  var googleBooksURL = 'https://www.googleapis.com/books/v1/volumes?q=';
 
-
-/*
-  if (dataEntered) {
-    getNytData(nytQuery);
-    getWikiData(wikiQuery);
-    getGoogleBooksData(titleForURL, authorForURL);
-  }
-
-*/
-// NYT CODE
-  var nytURL = "https://api.nytimes.com/svc/search/v2/articlesearch.json";
-
-  nytURL += '?' + $.param({
-    'api-key': "3579d2c108694c7fb536928a79360c54",
-    'q': nytQuery,
-    'fl': "headline,snippet,web_url"
-  });
-
-  console.log(nytURL);
-  // NOTE: If you want to see the JSON which the URL
-  // returns, just paste the URL into the browser
-  // address line.
-
-  $.getJSON( nytURL )
-    // ERROR-HANDLING: Make sure request succeeded using
-    // .done() and .fail() on the object returned by .get()
-    .done(function(data) {
-      // 1st, log data to see how it's structured.
-      // REMEMBER to expand by clicking on arrows!
-      console.log(data);
-
-      // 2nd, create a variable which ALREADY focusses on
-      // the part of the data you're interested in.
-      // (here, it is the array of 10 returned articles)
-      var articles = data.response.docs;
-
-      var headline = articles[0].headline.main;
-      var snippet = articles[0].snippet;
-      var artURL = articles[0].web_url;
-      var headString = '<a href="' + artURL + '">' + headline + '</a>';
-      var snippetString = '<p>' + snippet + '</p>';
-      var fullString = headString + snippetString;
-      $nytArticle.append(fullString);
-    })
-    .fail(function() {
-      $nytArticle.text("NYT Articles Currently Unavailable");
-    });
-
-
-// WIKIPEDIA CODE
-  /*var titleForURL = title.replace(' ', '%20').replace('.', '').replace(',', '');
-  var authorForURL = author.replace(' ', '%20').replace('.', '').replace(',', '');*/
-  // action=opensearch
-  // search=[our string]
-  // callback=wikiCallback
-  /*var wikiURL = 'https://en.wikipedia.org/w/api.php?action=query&list=search&srsearch=Albert%20Einstein&format=json&callback=wikiCallback';*/
-
-  var wikiURL = 'https://en.wikipedia.org/w/api.php?action=opensearch&search=' + wikiQuery + '&format=json&callback=wikiCallback';
-
-  // Arguement is an OBJECT of key/value pairs (inside {})
-  // url: wikiURL  [CAN also be a string before {}.  i.e. $.ajax(wikiURL, {})]
-  // dataType: 'jsonp' (NOT json) (name is a STRING inside quotes)
-  // success: function(response) {}
-
-  $.ajax({
-    url: wikiURL,
-    dataType: 'jsonp',
-    // NOTE: Some APIs want to use a different name for the callback function
-    //       By default, using jsonp as the dataType will set the callback
-    //       function name to callback (so following line is redundant).
-    //       But if the "callback" in our URL was called something else,
-    //       we would have to specify it here:
-    // jsonp: "callback",
-    headers: {'Api-User-Agent': 'Neighborhood_Map/1.0 (https://angelaroth.github.io//Neighborhood_Map/)'},
-  })
-  .done(function(data) {
-    // NOTE: If we look in DevTools Network, and click on the
-    // api.php?action..., in the Preview we we will see the callback
-    // of this event. Notice that it as an ARRAY; the second item
-    // is an array of articles; and the fourth is an array of URLs.
-    var articles = data[1];
-    var artLinks = data[3];
-    var numArticles = articles.length;
-    for (var i = 0; i < numArticles; i++) {
-      var artString = '<a href="' + artLinks[i] + '">' + articles[i] + '</a>';
-      var fullString = '<li class="article">' + artString + '</li>';
-      $wikiSynopsis.append(fullString);
-    }
-  })
-  .fail(function() {
-    $wikiSynopsis.append('Wikipedia not Responding');
-  });
-
-//Google books Code
-  var googleBooksURL = 'https://www.googleapis.com/books/v1/volumes?q=' + titleForURL;
-
-  if (titleForURL) {
+  if (title) {
+    dataEntered = true;
+    var titleForURL = title.replace('<', ' ').replace('>', ' ').replace(' ', '%20');
     googleBooksURL += 'intitle:' + titleForURL;
-    if (authorForURL) {
+    if (author) {
+      var authorForURL = author.replace('<', ' ').replace('>', ' ').replace(' ', '%20');
       googleBooksURL += '+inauthor:' + authorForURL;
     }
-  } else if (authorForURL) {
+  } else if (author) {
+    dataEntered = true;
+    var authorForURL = author.replace('<', ' ').replace('>', ' ').replace(' ', '%20');
     googleBooksURL += 'inauthor:' + authorForURL;
+  }
+
+  if (!dataEntered) {
+    googleBooksURL +='Guelph%20Ontario'
   }
 
   googleBooksURL += '&key=AIzaSyCNgnR6srI-o-L_1msz-0AA03afwiyOrxA';
 
+  console.log('googleBooksURL = ' + googleBooksURL);
+
+  var bookFound = false;
+
   $.getJSON( googleBooksURL )
-    // ERROR-HANDLING: Make sure request succeeded using
-    // .done() and .fail() on the object returned by .get()
     .done(function(data) {
-      // 1st, log data to see how it's structured.
-      // REMEMBER to expand by clicking on arrows!
+      // log data to see how it's structured.
       console.log(data);
-      /*$wikiSynopsis.append("http://books.google.com/books/content?id=zuKLCwAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api");*/
 
+      if (data.hasOwnProperty('items')) {
+        bookFound = true;
+        /*var items = data.items;*/
+        var firstBook = data.items[0];
+        console.log(firstBook);
+      }
 
-      // 2nd, create a variable which ALREADY focusses on
-      // the part of the data you're interested in.
-      // (here, it is the array of 10 returned articles)
-
-
-/*
-      var articles = data.response.docs;
-
-      var headline = articles[0].headline.main;
-      var snippet = articles[0].snippet;
-      var artURL = articles[0].web_url;
-      var headString = '<a href="' + artURL + '">' + headline + '</a>';
-      var snippetString = '<p>' + snippet + '</p>';
-      var fullString = headString + snippetString;
-      $nytArticle.append(fullString);
-*/
+      if (bookFound) {
+        // Check if properties exist and assign their values to global variables
+        if (firstBook.volumeInfo.hasOwnProperty('title')) {
+          bookTitle = firstBook.volumeInfo.title;
+        }
+        if (firstBook.volumeInfo.hasOwnProperty('authors')) {
+          var authors = firstBook.volumeInfo.authors;
+          var numAuthors = authors.length;
+          for (var i = 0; i < (numAuthors - 1); i++) {
+            bookAuthor += authors[i];
+            bookAuthor += ', ';
+          }
+          bookAuthor += authors[numAuthors - 1];
+        }
+        if (firstBook.volumeInfo.hasOwnProperty('imageLinks')) {
+          if (firstBook.volumeInfo.imageLinks.hasOwnProperty('smallThumbnail')) {
+            bookImageSrc = firstBook.volumeInfo.smallThumbnail;
+          } else if (firstBook.volumeInfo.imageLinks.hasOwnProperty('thumbnail')) {
+            bookImageSrc = firstBook.volumeInfo.thumbnail;
+          }
+        }
+        console.log('bookTitle = ' + bookTitle);
+        console.log('bookAuthor = ' + bookAuthor);
+        console.log('bookImageSrc = ' + bookImageSrc);
+      }
     })
     .fail(function() {
-      console.log('gb data Unavailable');
-      /*$nytArticle.text("NYT Articles Currently Unavailable");*/
+      console.log('Google Books data Unavailable');
     });
 
-
-
-
-
-  return false;
+ /* return false;*/
 };
 
 $('#form-container').submit(loadData);

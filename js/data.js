@@ -1,3 +1,9 @@
+// Placeholder Values in case no book is found during call to Google Books API
+var bookTitle = "No Title Found";
+var bookAuthor = "No Author Listed";
+var bookImageSrc = "http://books.google.com/books/content?id=yBpPWmEaoEMC&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api";
+
+
 var locations = [
   {
     title: 'The Bookshelf Indie Bookstore',

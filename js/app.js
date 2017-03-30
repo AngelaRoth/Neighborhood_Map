@@ -54,7 +54,6 @@ var ViewModel = function() {
 
   this.makeMarkers = ko.computed(function() {
     if (self.googleReady()) {
-      console.log
       var largeInfowindow = new google.maps.InfoWindow();
       var bounds = new google.maps.LatLngBounds();
 
@@ -161,6 +160,20 @@ var ViewModel = function() {
     });
     map.fitBounds(bounds);
   }
+/*
+  newBookSuggested = function() {
+    var suggestedTitle = $('#suggestedTitle').val();
+    var suggestedAuthor = $('#suggestedAuthor').val();
+    var suggestedImage = findSuggestedImage();
+
+    console.log ('suggestedTitle = ' + suggestedTitle);
+
+    self.currentBook.nowReading(suggestedTitle);
+    self.currentBook.author(suggestedAuthor);
+    self.currentBook.bookImage(suggestedImage);
+  }
+
+*/
 
 };
 
@@ -171,4 +184,8 @@ ko.applyBindings(viewModel);
 
 listItemOrMarkerClicked = function() {
   // TODO: put listContentsClicked functionality in here, and call it both when listContentsClicked and on the marker's event listener
+}
+
+findSuggestedImage = function() {
+
 }

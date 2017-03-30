@@ -10,7 +10,6 @@ google.books.setOnLoadCallback(initialize);   // TODO : Change callback!
 
 
 function loadData() {
-  console.log('loading data');
 
   var $topThree = $('#top-three');
   var $gbIsbn = $('#gb-isbn');
