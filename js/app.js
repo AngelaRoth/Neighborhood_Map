@@ -12,6 +12,7 @@ var ObservableLocation = function(data) {
   this.type = ko.observable(data.type);
   this.nowReading = ko.observable(data.nowReading);
   this.author = ko.observable(data.author);
+  this.bookImage = ko.observable("http://books.google.com/books/content?id=yBpPWmEaoEMC&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api")
   this.nextMeeting = ko.observable(data.nextMeeting);
   this.prettyMeeting = ko.observable(data.prettyMeeting);
   this.listExpanded = ko.observable(false);
@@ -41,16 +42,13 @@ var ViewModel = function() {
 
   var self = this;
   self.locationList = ko.observableArray([]);
-  self.writeList = ko.observableArray([]);
   self.filteredList = ko.observableArray([]);
+  self.currentBook = ko.observable();
 
   locations.forEach(function(locItem) {
     var newLocItem = new ObservableLocation(locItem);
     self.locationList.push(newLocItem);
     self.filteredList.push(newLocItem);
-    if (locItem.type === 'write') {
-      self.writeList.push(newLocItem);
-    }
   });
 
   this.makeMarkers = ko.computed(function() {
@@ -102,12 +100,16 @@ var ViewModel = function() {
                         '<div class="list-item"><span class="item-header">Next Event:</span> ' + this.prettyMeeting() + '</div>' +
                         '<div class="list-item"><span class="item-header">About:</span> ' + this.blurb() + '</div>');
 
+      self.currentBook(this);
+
       // Make the marker associated with this list item bounce
       this.marker.setAnimation(google.maps.Animation.BOUNCE);
 
     } else {
       this.listExpanded(false);
       this.listContents('<h3 class="list-header">' + this.title() + '</h3>');
+
+      self.currentBook(null);
 
       // Stop marker from bouncing
       this.marker.setAnimation(null);

@@ -75,7 +75,14 @@
         <input id="week-places" type="button" value="One Week" data-bind="click: function(){checkIfInTime('week');}">
       </div>
       <hr>
-      <div id="alpha-list-container">
+
+      <div id="what-to-read" data-bind="with: currentBook">
+        <h3 data-bind="text: nowReading"></h3>
+        <p data-bind="text: author"></p>
+        <img data-bind="attr: {src: bookImage}" src="" alt="">
+      </div>
+
+      <div id="filtered-list">
         <ul id="locationsList" data-bind="foreach: filteredList">
             <li data-bind="html: listContents, style: { backgroundColor: color }, click: $parent.listContentsClicked, css: { nextTwentyFour: timeToNext() < 86400000}"></li>
         </ul>
