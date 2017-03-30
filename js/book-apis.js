@@ -86,7 +86,7 @@ function loadData() {
       console.log('Google Books data Unavailable');
     });
 
- /* return false;*/
+  return false;
 };
 
 $('#form-container').submit(loadData);

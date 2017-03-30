@@ -86,14 +86,14 @@
           <img class="read-info-img" data-bind="attr: {src: bookImage}" src="" alt="">
         </div>
         <h3 class="read-header">Suggest a New Book:</h3>
-        <form id="form-container" class="flex-form">
+        <form id="form-container" class="flex-form" data-bind="submit: $parent.loadData">
           <div class="flex-form-item">
            <label for="title" class="flex-form-label">Title: </label><input class="flex-form-input" type="text" id="title" value="">
           </div>
           <div class="flex-form-item">
            <label for="author" class="flex-form-label">Author: </label><input class="flex-form-input" type="text" id="author" value="">
           </div>
-          <button id="submit-btn">Submit</button>
+          <button id="submit-btn" type="submit">Submit</button>
         </form>
       </div>
 
@@ -109,11 +109,12 @@
   <script src="js/knockout-3.4.2.js"></script>
   <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
   <script src="js/data.js"></script>
+  <script type="text/javascript" src="https://www.google.com/books/jsapi.js"></script>
   <script src="js/app.js"></script>
 
-  <script type="text/javascript" src="https://www.google.com/books/jsapi.js"></script>
-  <script src="js/book-apis.js"></script>
-
+<!--
+<script src="js/book-apis.js"></script>
+ -->
   <script async src="js/map.js"></script>
   <script async defer
       src=
