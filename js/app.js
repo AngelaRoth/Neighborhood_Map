@@ -44,6 +44,7 @@ var ViewModel = function() {
   self.locationList = ko.observableArray([]);
   self.filteredList = ko.observableArray([]);
   self.currentBook = ko.observable();
+  self.noBookSelected = ko.observable(true);
 
   locations.forEach(function(locItem) {
     var newLocItem = new ObservableLocation(locItem);
@@ -101,6 +102,7 @@ var ViewModel = function() {
                         '<div class="list-item"><span class="item-header">About:</span> ' + this.blurb() + '</div>');
 
       self.currentBook(this);
+      self.noBookSelected(false);
 
       // Make the marker associated with this list item bounce
       this.marker.setAnimation(google.maps.Animation.BOUNCE);
@@ -110,6 +112,7 @@ var ViewModel = function() {
       this.listContents('<h3 class="list-header">' + this.title() + '</h3>');
 
       self.currentBook(null);
+      self.noBookSelected(true);
 
       // Stop marker from bouncing
       this.marker.setAnimation(null);

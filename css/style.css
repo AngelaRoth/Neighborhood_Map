@@ -97,6 +97,10 @@ h2 {
   margin: 5px 0 0 0;
 }
 
+p {
+  line-height: 110%;
+}
+
 #locationsList {
   list-style-type: none;
   padding-left: 0;
@@ -144,14 +148,14 @@ li {
 .nextTwentyFour {
   border: 4px solid yellow;
 }
-/*
+
 .hidden {
     visibility: hidden;
     height: 0;
     margin: 0;
     padding: 0;
 }
- */
+
 hr {
   background: #D0D7D9;
   height: 2px;
@@ -190,6 +194,9 @@ hr {
 
 .flex-form-label {
   flex: 1 1 auto;
+  font-size: 11pt;
+  line-height: 150%;
+  color: #525454;
 }
 
 .flex-form-input {
@@ -199,6 +206,43 @@ hr {
 #viewerCanvas {
   width: 250px;
   height: 350px;
+}
+
+#what-to-read {
+  width: 96%;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 5px 10px;
+  border: 2px solid #D0D7D9;
+}
+
+.read-header {
+  margin: 2px 0;
+  font-size: 12pt;
+  line-height: 110%;
+  color: #525454;
+}
+
+.flex-read-info {
+  display: -webkit-flex;
+  display: flex;
+
+  -webkit-flex-flow: row wrap;
+    flex-flow: row wrap;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.read-info {
+  /* width: 68%; */
+  font-size: 11pt;
+  line-height: 110%;
+  color: #525454;
+}
+
+.read-info-img {
+  padding: 5px;
+  width: 70px;
 }
 
 
