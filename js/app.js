@@ -41,10 +41,16 @@ var ViewModel = function() {
 
   var self = this;
   self.locationList = ko.observableArray([]);
+  self.writeList = ko.observableArray([]);
+  self.filteredList = ko.observableArray([]);
 
   locations.forEach(function(locItem) {
     var newLocItem = new ObservableLocation(locItem);
     self.locationList.push(newLocItem);
+    self.filteredList.push(newLocItem);
+    if (locItem.type === 'write') {
+      self.writeList.push(newLocItem);
+    }
   });
 
   this.makeMarkers = ko.computed(function() {
@@ -88,6 +94,7 @@ var ViewModel = function() {
 
   }, this);
 
+
   this.listContentsClicked = function() {
     if (!this.listExpanded()){
       this.listExpanded(true);
@@ -109,13 +116,13 @@ var ViewModel = function() {
 
   this.filter = function(type) {
     var bounds = new google.maps.LatLngBounds();
+    self.filteredList().length = 0;
     self.locationList().forEach(function(item) {
       if (item.type() === type || type === 'all') {
-        item.listHidden(false);
+        self.filteredList.push(item);
         item.marker.setMap(map);
         bounds.extend(item.marker.position);
       } else {
-        item.listHidden(true);
         item.marker.setMap(null);
       }
     });
@@ -137,13 +144,13 @@ var ViewModel = function() {
         cutOffTime = 0;
     }
 
+    self.filteredList().length = 0;
     self.locationList().forEach(function(item) {
       if (item.timeToNext() <= cutOffTime) {
-        item.listHidden(false);
+        self.filteredList.push(item);
         item.marker.setMap(map);
         bounds.extend(item.marker.position);
       } else {
-        item.listHidden(true);
         item.marker.setMap(null);
       }
     });

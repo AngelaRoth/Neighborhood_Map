@@ -75,10 +75,9 @@
         <input id="week-places" type="button" value="One Week" data-bind="click: function(){checkIfInTime('week');}">
       </div>
       <hr>
-      <h2 id="alpha-list-header">Click Events for More Information</h2>
       <div id="alpha-list-container">
-        <ul id="locationsList" data-bind="foreach: locationList">
-            <li data-bind="html: listContents, style: { backgroundColor: color }, click: $parent.listContentsClicked, css: { nextTwentyFour: timeToNext() < 86400000, hidden: listHidden()}"></li>
+        <ul id="locationsList" data-bind="foreach: filteredList">
+            <li data-bind="html: listContents, style: { backgroundColor: color }, click: $parent.listContentsClicked, css: { nextTwentyFour: timeToNext() < 86400000}"></li>
         </ul>
       </div>
     </div>
