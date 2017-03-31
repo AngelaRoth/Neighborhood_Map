@@ -31,7 +31,7 @@
       </div>
       <hr>
 
-      <div id="what-to-read" data-bind="with: currentBook, css: {hidden: noBookSelected()}">
+      <div id="what-to-read" data-bind="with: currentLocation, css: {hidden: noLocationSelected()}">
         <h3 class="read-header">Reading Suggestion for:<br><span data-bind="text: title"></span></h3>
         <div class="flex-read-info">
           <div class="read-info">
@@ -41,7 +41,7 @@
           <img class="read-info-img" data-bind="attr: {src: bookImage}" src="" alt="">
         </div>
         <h3 class="read-header">Suggest a New Book:</h3>
-        <form id="form-container" class="flex-form" data-bind="submit: $parent.loadData">
+        <form id="form-container" class="flex-form" data-bind="submit: $parent.loadMapData">
           <div class="flex-form-item">
            <label for="title" class="flex-form-label">Title: </label><input class="flex-form-input" type="text" id="title" value="">
           </div>

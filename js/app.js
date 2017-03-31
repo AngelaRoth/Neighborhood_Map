@@ -12,7 +12,7 @@ var ObservableLocation = function(data) {
   this.type = ko.observable(data.type);
   this.nowReading = ko.observable(data.nowReading);
   this.author = ko.observable(data.author);
-  this.bookImage = ko.observable("img/books.jpg")
+  this.bookImage = ko.observable(data.bookImage);
   this.nextMeeting = ko.observable(data.nextMeeting);
   this.prettyMeeting = ko.observable(data.prettyMeeting);
   this.listExpanded = ko.observable(false);
@@ -44,7 +44,7 @@ var ViewModel = function() {
   self.locationList = ko.observableArray([]);
   self.filteredList = ko.observableArray([]);
   self.currentBook = ko.observable();
-  self.noBookSelected = ko.observable(true);
+  self.noLocationSelected = ko.observable(true);
 
   locations.forEach(function(locItem) {
     var newLocItem = new ObservableLocation(locItem);
@@ -100,8 +100,8 @@ var ViewModel = function() {
                         '<div class="list-item"><span class="item-header">Next Event:</span> ' + this.prettyMeeting() + '</div>' +
                         '<div class="list-item"><span class="item-header">About:</span> ' + this.blurb() + '</div>');
 
-      self.currentBook(this);
-      self.noBookSelected(false);
+      self.currentLocation(this);
+      self.noLocationSelected(false);
 
       // Make the marker associated with this list item bounce
       this.marker.setAnimation(google.maps.Animation.BOUNCE);
@@ -110,7 +110,7 @@ var ViewModel = function() {
       this.listExpanded(false);
       this.listContents('<h3 class="list-header">' + this.title() + '</h3>');
 
-      self.currentBook(null);
+      self.currentLocation(null);
       self.noBookSelected(true);
 
       // Stop marker from bouncing
@@ -162,7 +162,11 @@ var ViewModel = function() {
   };
 
 
-  this.loadData = function() {
+  this.loadBusData = function() {
+    var lat = self.
+  }
+
+  this.loadMapData = function() {
     var title = $('#title').val();
     var author = $('#author').val();
     var dataEntered = false;
@@ -255,9 +259,9 @@ var ViewModel = function() {
           bookAuthor = 'No Author Listed';
           bookImageSrc = 'img/books.jpg';
         }
-        self.currentBook().nowReading(bookTitle);
-        self.currentBook().author(bookAuthor);
-        self.currentBook().bookImage(bookImageSrc);
+        self.currentLocation().nowReading(bookTitle);
+        self.currentLocation().author(bookAuthor);
+        self.currentLocation().bookImage(bookImageSrc);
       })
       .fail(function() {
         console.log('Google Books data Unavailable');
