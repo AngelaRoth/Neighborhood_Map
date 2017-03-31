@@ -43,7 +43,7 @@ var ViewModel = function() {
   var self = this;
   self.locationList = ko.observableArray([]);
   self.filteredList = ko.observableArray([]);
-  self.currentBook = ko.observable();
+  self.currentLocation = ko.observable();
   self.noLocationSelected = ko.observable(true);
 
   locations.forEach(function(locItem) {
@@ -111,7 +111,7 @@ var ViewModel = function() {
       this.listContents('<h3 class="list-header">' + this.title() + '</h3>');
 
       self.currentLocation(null);
-      self.noBookSelected(true);
+      self.noLocationSelected(true);
 
       // Stop marker from bouncing
       this.marker.setAnimation(null);
@@ -161,11 +161,11 @@ var ViewModel = function() {
     map.fitBounds(bounds);
   };
 
-
+/*
   this.loadBusData = function() {
-    var lat = self.
+    var lat = self.currentLocation().location.lat;
   }
-
+*/
   this.loadMapData = function() {
     var title = $('#title').val();
     var author = $('#author').val();
