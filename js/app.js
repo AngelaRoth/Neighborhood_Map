@@ -262,39 +262,9 @@ var ViewModel = function() {
       .fail(function() {
         console.log('Google Books data Unavailable');
       });
-/*
-      console.log('bookTitle = ' + bookTitle);
-      console.log('bookAuthor = ' + bookAuthor);
-      console.log('bookImageSrc = ' + bookImageSrc);
 
-      this.nowReading(bookTitle);
-      this.author(bookAuthor);
-      this.bookImage(bookImageSrc);
-*/
     return false;
   };
-
-
-
-
-
-
-
-/*
-  newBookSuggested = function() {
-    var suggestedTitle = $('#suggestedTitle').val();
-    var suggestedAuthor = $('#suggestedAuthor').val();
-    var suggestedImage = findSuggestedImage();
-
-    console.log ('suggestedTitle = ' + suggestedTitle);
-
-    self.currentBook.nowReading(suggestedTitle);
-    self.currentBook.author(suggestedAuthor);
-    self.currentBook.bookImage(suggestedImage);
-  }
-
-*/
-
 };
 
 
@@ -306,6 +276,3 @@ listItemOrMarkerClicked = function() {
   // TODO: put listContentsClicked functionality in here, and call it both when listContentsClicked and on the marker's event listener
 }
 
-findSuggestedImage = function() {
-
-}
