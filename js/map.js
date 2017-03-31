@@ -4,70 +4,11 @@ var map;
 var markers = [];
 
 ViewModel.prototype.initMap = function() {
-  // style courtesy of snazzy maps "Crisp and Vivid" by "Nathan"
-  // https://snazzymaps.com/style/2053/crisp-and-vivid
-  var styles = [
-    {
-        "featureType": "landscape",
-        "elementType": "geometry.fill",
-        "stylers": [
-            {
-                "color": "#e9e5dc"
-            }
-        ]
-    },
-    {
-        "featureType": "landscape.natural.terrain",
-        "elementType": "geometry.fill",
-        "stylers": [
-            {
-                "color": "#44a04b"
-            }
-        ]
-    },
-    {
-        "featureType": "poi.park",
-        "elementType": "geometry.fill",
-        "stylers": [
-            {
-                "color": "#7bb718"
-            }
-        ]
-    },
-    {
-        "featureType": "road.highway",
-        "elementType": "geometry.fill",
-        "stylers": [
-            {
-                "color": "#ffffff"
-            }
-        ]
-    },
-    {
-        "featureType": "road.highway",
-        "elementType": "geometry.stroke",
-        "stylers": [
-            {
-                "color": "#a3a2a2"
-            }
-        ]
-    },
-    {
-        "featureType": "water",
-        "elementType": "geometry.fill",
-        "stylers": [
-            {
-                "color": "#0099dd"
-            }
-        ]
-    }
-  ];
-
   // Constructor creates a new map - only center and zoom are required.
   map = new google.maps.Map(document.getElementById('map'), {
     center: {lat: 43.5425, lng: -80.24466},
     zoom: 15,
-    styles: styles,
+    styles: mapStyles,
     mapTypeControl: false
   });
 
