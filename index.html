@@ -6,15 +6,69 @@
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
+  <header>
+    <h1>Guelph Writing Places</h1>
+    <div id="keyword-box">
+      <div class="filter-prompt">Search for Keywords</div>
+      <input id="places-search" type="text" placeholder="Ex: Short Story">
+      <input id="go-places" type="button" value="Go">
+    </div>
+
+    <div id="button-box">
+      <div class="filter-prompt">Events in Next:</div>
+      <div class="button-group">
+        <div class="button-pair">
+          <input type="button" class="filter-button" id="day-button"></input>
+          <label for="day-button">24 Hours</label>
+        </div>
+        <div class="button-pair">
+          <input type="button" class="filter-button" id="week-button"></input>
+          <label for="week-button">7 Days</label>
+        </div>
+      </div>
+    </div>
+
+    <div id="button-box">
+      <div class="filter-prompt">Do You Want To:</div>
+      <div class="button-group">
+        <div class="button-pair">
+          <input type="button" class="filter-button" id="write-button"></input>
+          <label for="write-button">Write</label>
+        </div>
+        <div class="button-pair">
+          <input type="button" class="filter-button" id="share-button"></input>
+          <label for="share-button">Share</label>
+        </div>
+        <div class="button-pair">
+          <input type="button" class="filter-button" id="learn-button"></input>
+          <label for="learn-button">Learn</label>
+        </div>
+        <div class="button-pair">
+          <input type="button" class="filter-button" id="social-button"></input>
+          <label for="social-button">Socialize</label>
+        </div>
+        <div class="button-pair">
+          <input type="button" class="filter-button" id="book-button"></input>
+          <label for="book-button">Find Books</label>
+        </div>
+        <div class="button-pair">
+          <input type="button" class="filter-button" id="all-button"></input>
+          <label for="all-button">See All</label>
+        </div>
+      </div>
+    </div>
+
+
+  </header>
   <div class="container">
 
     <div class="options-box">
-      <h1>Guelph Writing Places</h1>
+<!--
       <div>
         <h2>Filter by Event</h2>
         <div class="flex-filter-buttons">
-          <!-- Thanks to this StackOverflow for advice on automatically firing click event:
-          http://stackoverflow.com/questions/20869572/div-click-event-automatically-getting-fired-on-page-load -->
+          Thanks to this StackOverflow for advice on automatically firing click event:
+          http://stackoverflow.com/questions/20869572/div-click-event-automatically-getting-fired-on-page-load
           <input id="write-places" type="button" value="Write" data-bind="click: function(){filter('write');}">
           <input id="share-places" type="button" value="Share" data-bind="click: function(){filter('share');}">
           <input id="learn-places" type="button" value="Learn" data-bind="click: function(){filter('learn');}">
@@ -24,37 +78,40 @@
         </div>
         <hr>
       </div>
+
       <div>
-      <h2>Filter by Imminence</h2>
+        <h2>Filter by Imminence</h2>
         <div class="flex-filter-buttons">
           <input id="day-places" type="button" value="24 Hours" data-bind="click: function(){checkIfInTime('day');}">
           <input id="week-places" type="button" value="One Week" data-bind="click: function(){checkIfInTime('week');}">
         </div>
         <hr>
         <h2>Choose a Place</h2>
-
       </div>
-      <div id="what-to-read" data-bind="with: currentLocation, css: {hidden: noLocationSelected()}">
-        <h3 class="read-header">Reading Suggestion for:<br><span data-bind="text: title"></span></h3>
-        <div class="flex-read-info">
-          <div class="read-info">
-            <p data-bind="text: nowReading"></p>
-            <p>by: <span data-bind="text: author"></span></p>
-          </div>
-          <img class="read-info-img" data-bind="attr: {src: bookImage}" src="" alt="">
-        </div>
-        <h3 class="read-header">Suggest a New Book:</h3>
-        <form id="form-container" class="flex-form" data-bind="submit: $parent.loadBookData">
-          <div class="flex-form-item">
-           <label for="title" class="flex-form-label">Title: </label><input class="flex-form-input" type="text" id="title" value="">
-          </div>
-          <div class="flex-form-item">
-           <label for="author" class="flex-form-label">Author: </label><input class="flex-form-input" type="text" id="author" value="">
-          </div>
-          <button id="submit-btn" type="submit">Submit</button>
-        </form>
-      </div>
-
+ -->
+<!--
+     <div id="what-to-read" data-bind="with: currentLocation, css: {hidden: noLocationSelected()}">
+       <h3 class="read-header">Reading Suggestion for:<br><span data-bind="text: title"></span></h3>
+       <div class="flex-read-info">
+         <div class="read-info">
+           <p data-bind="text: nowReading"></p>
+           <p>by: <span data-bind="text: author"></span></p>
+         </div>
+         <img class="read-info-img" data-bind="attr: {src: bookImage}" src="" alt="">
+       </div>
+       <h3 class="read-header">Suggest a New Book:</h3>
+       <form id="form-container" class="flex-form" data-bind="submit: $parent.loadBookData">
+         <div class="flex-form-item">
+          <label for="title" class="flex-form-label">Title: </label><input class="flex-form-input" type="text" id="title" value="">
+         </div>
+         <div class="flex-form-item">
+          <label for="author" class="flex-form-label">Author: </label><input class="flex-form-input" type="text" id="author" value="">
+         </div>
+         <button id="submit-btn" type="submit">Submit</button>
+       </form>
+     </div>
+-->
+      <h2>Click for More Info:</h2>
       <div id="filtered-list">
         <ul id="locationsList" data-bind="foreach: filteredList">
             <li class="location-items" data-bind="html: listContents, style: { backgroundColor: color }, click: $parent.listContentsClicked, css: { nextTwentyFour: timeToNext() < 86400000}"></li>
