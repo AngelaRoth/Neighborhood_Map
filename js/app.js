@@ -166,7 +166,9 @@ var ViewModel = function() {
     var title = $('#title').val();
     var author = $('#author').val();
     var dataEntered = false;
-
+    var bookTitle = 'No Title Found';
+    var bookAuthor = 'No Author Listed';
+    var bookImageSrc = 'img/books.jpg';
 
     // TODO Make replacement of "bad" characters more robust.
     if (title) {
@@ -248,14 +250,14 @@ var ViewModel = function() {
           } else {
             bookImageSrc = "img/books.jpg";
           }
-          console.log('bookTitle = ' + bookTitle);
-          console.log('bookAuthor = ' + bookAuthor);
-          console.log('bookImageSrc = ' + bookImageSrc);
-
-          self.currentBook().nowReading(bookTitle);
-          self.currentBook().author(bookAuthor);
-          self.currentBook().bookImage(bookImageSrc);
+        } else {
+          bookTitle = 'No Title Found';
+          bookAuthor = 'No Author Listed';
+          bookImageSrc = 'img/books.jpg';
         }
+        self.currentBook().nowReading(bookTitle);
+        self.currentBook().author(bookAuthor);
+        self.currentBook().bookImage(bookImageSrc);
       })
       .fail(function() {
         console.log('Google Books data Unavailable');
