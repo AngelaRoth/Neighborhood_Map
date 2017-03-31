@@ -18,11 +18,13 @@
       <div class="filter-prompt">Events in Next:</div>
       <div class="button-group">
         <div class="button-pair">
-          <input type="button" class="filter-button" id="day-button"></input>
+          <!-- Thanks to this StackOverflow for advice on automatically firing click event:
+          http://stackoverflow.com/questions/20869572/div-click-event-automatically-getting-fired-on-page-load -->
+          <input type="button" class="filter-button" id="day-button" data-bind="click: function(){checkIfInTime('day');}"></input>
           <label for="day-button">24 Hours</label>
         </div>
         <div class="button-pair">
-          <input type="button" class="filter-button" id="week-button"></input>
+          <input type="button" class="filter-button" id="week-button" data-bind="click: function(){checkIfInTime('week');}"></input>
           <label for="week-button">7 Days</label>
         </div>
       </div>
@@ -32,27 +34,27 @@
       <div class="filter-prompt">Do You Want To:</div>
       <div class="button-group">
         <div class="button-pair">
-          <input type="button" class="filter-button" id="write-button"></input>
+          <input type="button" class="filter-button" id="write-button" data-bind="click: function(){filter('write');}"></input>
           <label for="write-button">Write</label>
         </div>
         <div class="button-pair">
-          <input type="button" class="filter-button" id="share-button"></input>
+          <input type="button" class="filter-button" id="share-button" data-bind="click: function(){filter('share');}"></input>
           <label for="share-button">Share</label>
         </div>
         <div class="button-pair">
-          <input type="button" class="filter-button" id="learn-button"></input>
+          <input type="button" class="filter-button" id="learn-button" data-bind="click: function(){filter('learn');}"></input>
           <label for="learn-button">Learn</label>
         </div>
         <div class="button-pair">
-          <input type="button" class="filter-button" id="social-button"></input>
+          <input type="button" class="filter-button" id="social-button" data-bind="click: function(){filter('social');}"></input>
           <label for="social-button">Socialize</label>
         </div>
         <div class="button-pair">
-          <input type="button" class="filter-button" id="book-button"></input>
+          <input type="button" class="filter-button" id="book-button" data-bind="click: function(){filter('book');}"></input>
           <label for="book-button">Find Books</label>
         </div>
         <div class="button-pair">
-          <input type="button" class="filter-button" id="all-button"></input>
+          <input type="button" class="filter-button" id="all-button" data-bind="click: function(){filter('all');}"></input>
           <label for="all-button">See All</label>
         </div>
       </div>

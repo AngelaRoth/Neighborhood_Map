@@ -511,7 +511,7 @@ function getColor(type) {
       return '7BB718';
       break;
     case 'share':
-      return 'F7A607';
+      return 'FF2ECB';
       break;
     case 'learn':
       return '2292DC';
