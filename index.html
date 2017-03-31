@@ -7,6 +7,7 @@
 </head>
 <body>
   <div class="container">
+
     <div class="options-box">
       <h1>Guelph Writing Places</h1>
       <div class="flex-filter-buttons">
@@ -41,7 +42,7 @@
           <img class="read-info-img" data-bind="attr: {src: bookImage}" src="" alt="">
         </div>
         <h3 class="read-header">Suggest a New Book:</h3>
-        <form id="form-container" class="flex-form" data-bind="submit: $parent.loadMapData">
+        <form id="form-container" class="flex-form" data-bind="submit: $parent.loadBookData">
           <div class="flex-form-item">
            <label for="title" class="flex-form-label">Title: </label><input class="flex-form-input" type="text" id="title" value="">
           </div>
@@ -58,6 +59,9 @@
         </ul>
       </div>
     </div>
+
+
+
     <div id="map"></div>
   </div>
 

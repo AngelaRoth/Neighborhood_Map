@@ -160,13 +160,81 @@ var ViewModel = function() {
     });
     map.fitBounds(bounds);
   };
-
 /*
   this.loadBusData = function() {
-    var lat = self.currentLocation().location.lat;
+    var lat = self.currentLocation().location().lat;
+    var lng = self.currentLocation().location().lng;
+    var numBusStops = 10;
+
+    var klimaatBusURL = 'http://klimaat.ca/bus/bus.php?lon='
+                        + lng + '&lat=' + lat + '&n=' + numBusStops;
+
+    $.getJSON ( klimaatBusURL )
+    .done(function(data) {
+      console.log('bus data: ' + data);
+      var busArray = data;
+
+
+    })
+
+
+
+    $.getJSON( googleBooksURL )
+      .done(function(data) {
+        // log data to see how it's structured.
+        console.log('book data: ' + data);
+
+        if (data.hasOwnProperty('items')) {
+          bookFound = true;
+          var firstBook = data.items[0];
+          console.log(firstBook);
+        }
+
+        if (bookFound) {
+          // Check if properties exist and assign their values to global variables
+          if (firstBook.volumeInfo.hasOwnProperty('title')) {
+            bookTitle = firstBook.volumeInfo.title;
+          } else {
+            bookTitle = "No Title Found";
+          }
+          if (firstBook.volumeInfo.hasOwnProperty('authors')) {
+            bookAuthor = "";
+            var authors = firstBook.volumeInfo.authors;
+            var numAuthors = authors.length;
+            for (var i = 0; i < (numAuthors - 1); i++) {
+              bookAuthor += authors[i];
+              bookAuthor += ', ';
+            }
+            bookAuthor += authors[numAuthors - 1];
+          } else {
+            bookAuthor = "No Author Listed";
+          }
+          if (firstBook.volumeInfo.hasOwnProperty('imageLinks')) {
+            if (firstBook.volumeInfo.imageLinks.hasOwnProperty('smallThumbnail')) {
+              bookImageSrc = firstBook.volumeInfo.imageLinks.smallThumbnail;
+            } else if (firstBook.volumeInfo.imageLinks.hasOwnProperty('thumbnail')) {
+              bookImageSrc = firstBook.volumeInfo.imageLinks.thumbnail;
+            }
+          } else {
+            bookImageSrc = "img/books.jpg";
+          }
+        } else {
+          bookTitle = 'No Title Found';
+          bookAuthor = 'No Author Listed';
+          bookImageSrc = 'img/books.jpg';
+        }
+        self.currentLocation().nowReading(bookTitle);
+        self.currentLocation().author(bookAuthor);
+        self.currentLocation().bookImage(bookImageSrc);
+      })
+      .fail(function() {
+        console.log('Google Books data Unavailable');
+      });
+
+    return false;
   }
 */
-  this.loadMapData = function() {
+  this.loadBookData = function() {
     var title = $('#title').val();
     var author = $('#author').val();
     var dataEntered = false;
