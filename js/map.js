@@ -28,7 +28,7 @@ function populateInfoWindow(marker, infowindow) {
     innerHTML += '<p class="map-item"><strong>Next Meeting: </strong>' + marker.prettyMeeting + '</p>';
     innerHTML += '<p class="map-item"><strong>Address: </strong>' + marker.address + '</p>';
     innerHTML += '<p class="map-item"><strong>About: </strong>' + marker.blurb + '</p>';
-    innerHTML += '<p class="map-item"><strong>Writing Prompt: </strong>' + marker.title + '</p>';
+    innerHTML += '<p class="map-item"><strong>Here and Now Writing Prompt: </strong>' + marker.title + '</p>';
     innerHTML += '<p class="map-item"><strong>Books for Inspiration: </strong></p>';
     innerHTML += '<div class="map-book-container">';
     innerHTML += '<img class="map-book-image" src=' + marker.thumbnail + ' alt=' + marker.booktitle + '>';
