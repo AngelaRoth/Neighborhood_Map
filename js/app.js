@@ -7,6 +7,7 @@ var ObservableLocation = function(data) {
   this.hour = ko.observable(data.hour);
   this.minute = ko.observable(data.minute);
   this.link = ko.observable(data.link);
+  this.address=ko.observable(data.address);
   this.location = ko.observable(data.location);
   this.placeId = ko.observable(data.placeId);
   this.type = ko.observable(data.type);
@@ -64,6 +65,7 @@ var ViewModel = function() {
           map: map,
           position: item.location(),
           title: item.title(),
+          address: item.address(),
           prettyMeeting: item.prettyMeeting(),
           blurb: item.blurb(),
           thumbnail: "http://books.google.com/books/content?id=w6RlAAAAMAAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api",

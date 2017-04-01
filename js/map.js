@@ -23,25 +23,20 @@ ViewModel.prototype.initMap = function() {
 function populateInfoWindow(marker, infowindow) {
   // Check to make sure the infowindow is not already opened on this marker.
   if (infowindow.marker != marker) {
-    infowindow.marker = marker;
     var innerHTML = '<div class="map-box">';
     innerHTML += '<div class="map-header">' + marker.title + '</div>';
-    innerHTML += '<p class="map-label">Next Meeting:</p>';
-    innerHTML += '<p class="map-text">' + marker.prettyMeeting + '</p>';
-    innerHTML += '<p class="map-label">About:</p>';
-    innerHTML += '<p>' + marker.blurb + '</p>';
-    innerHTML += '<p><strong>Here and Now Writing Prompt:</strong></p>';
-    innerHTML += '<p>' + marker.title + '</p>';
-    innerHTML += '<p><strong>Books for Inspiration:</strong></p>';
+    innerHTML += '<p class="map-item"><strong>Next Meeting: </strong>' + marker.prettyMeeting + '</p>';
+    innerHTML += '<p class="map-item"><strong>Address: </strong>' + marker.address + '</p>';
+    innerHTML += '<p class="map-item"><strong>About: </strong>' + marker.blurb + '</p>';
+    innerHTML += '<p class="map-item"><strong>Writing Prompt: </strong>' + marker.title + '</p>';
+    innerHTML += '<p class="map-item"><strong>Books for Inspiration: </strong></p>';
     innerHTML += '<div class="map-book-container">';
-    innerHTML += '<img src=' + marker.thumbnail + ' alt=' + marker.booktitle + '>';
-    innerHTML += '<img src=' + marker.thumbnail + ' alt=' + marker.booktitle + '>';
-
+    innerHTML += '<img class="map-book-image" src=' + marker.thumbnail + ' alt=' + marker.booktitle + '>';
+    innerHTML += '<img class="map-book-image" src=' + marker.thumbnail + ' alt=' + marker.booktitle + '>';
     innerHTML += '</div>';
     innerHTML += '</div>';
 
-
-
+    infowindow.marker = marker;
     infowindow.setContent(innerHTML);
     infowindow.open(map, marker);
     // Make sure the marker property is cleared if the infowindow is closed.
