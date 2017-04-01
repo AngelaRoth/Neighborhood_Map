@@ -1,4 +1,11 @@
-listItemOrMarkerClicked = function() {
-  // TODO: put listContentsClicked functionality in here, and call it both when listContentsClicked and on the marker's event listener
+this.listItemClicked = function() {
+  if (this !== self.currentLocation()) {
+    self.currentLocation(this);
+    populateInfoWindow(this, largeInfowindow);
+    self.locationist().forEach(function(item) {
+      item.marker.setIcon(item.defaultIcon);
+    });
+    self.listItemMouseOver.call(this);
+  }
 }
 

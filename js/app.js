@@ -87,15 +87,12 @@ var ViewModel = function() {
         item.marker.setAnimation(null);
 
         item.marker.addListener('click', function() {
+          self.currentLocation(this);
           populateInfoWindow(this, largeInfowindow);
-          self.locationList().forEach(function(item) {
-            item.marker.setAnimation(null);
+          self.locationList().forEach(function(e) {
+            e.marker.setIcon(e.defaultIcon);
           });
-          if (this.getAnimation() === null) {
-            this.setAnimation(google.maps.Animation.BOUNCE);
-          } else {
-            this.setAnimation(null);
-          }
+          this.setIcon(item.bigIcon);
         });
 
         bounds.extend(item.marker.position);
@@ -127,6 +124,27 @@ var ViewModel = function() {
     map.fitBounds(self.allBounds);
   }
 
+  // Thanks to StackOverflow for suggesting how to trigger any Maps API event listener using the event.trigger function
+  // http://stackoverflow.com/questions/9194579/how-to-simulate-a-click-on-a-google-maps-marker
+  this.listContentsClicked = function() {
+    google.maps.event.trigger(this.marker, 'click', {
+      latLng: new google.maps.LatLng(0,0)
+    });
+
+/*
+    if (this !== self.currentLocation()) {
+      self.currentLocation(this);
+      populateInfoWindow(this, largeInfowindow);
+      self.locationist().forEach(function(item) {
+        item.marker.setIcon(item.defaultIcon);
+      });
+      self.listItemMouseOver.call(this);
+    }
+*/
+  }
+
+
+/*
   this.listContentsClicked = function() {
     if (!this.listExpanded()){
       this.listExpanded(true);
@@ -151,7 +169,7 @@ var ViewModel = function() {
       this.marker.setAnimation(null);
     }
   };
-
+*/
   this.filter = function(type) {
     var bounds = new google.maps.LatLngBounds();
     self.filteredList().length = 0;
