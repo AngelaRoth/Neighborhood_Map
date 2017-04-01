@@ -38,7 +38,7 @@ h1 {
 
 h2 {
   font-size: 16px;
-  margin: 0;
+  margin: 0 0 10px 0;
 }
 
 .container {
@@ -62,15 +62,14 @@ h2 {
   margin: 0 5px;
   padding: 5px 10px 10px;    /* top horizontal bottom */
   /* text-align: left; */
-  width: 330px;
+  width: 300px;
 }
 
 #map {
   margin: 5px;
   bottom: 5px;
   top: 5px;
-  /* height: 95%; */
-  left: 340px;
+  left: 310px;
   position: absolute;
   right: 5px;
 }
@@ -101,6 +100,28 @@ h2 {
     flex-flow: row nowrap;
     align-items: center;
     justify-content: flex-start;
+}
+
+.location-pair {
+  padding: 5px 0;
+  display: -webkit-flex;
+  display: flex;
+
+  -webkit-flex-flow: row nowrap;
+    flex-flow: row nowrap;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.location-button {
+  width: 40px;
+  height: 40px;
+  margin-right: 5px;
+}
+
+.location-label {
+  margin-right: 20px;
+  font-family: cursive;
 }
 
 .filter-prompt {
