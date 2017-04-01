@@ -21,29 +21,27 @@ ViewModel.prototype.initMap = function() {
 };
 
 function populateInfoWindow(marker, infowindow) {
-  // Check to make sure the infowindow is not already opened on this marker.
-  if (infowindow.marker != marker) {
-    var innerHTML = '<div class="map-box">';
-    innerHTML += '<div class="map-header">' + marker.title + '</div>';
-    innerHTML += '<p class="map-item"><strong>Next Meeting: </strong>' + marker.prettyMeeting + '</p>';
-    innerHTML += '<p class="map-item"><strong>Address: </strong>' + marker.address + '</p>';
-    innerHTML += '<p class="map-item"><strong>About: </strong>' + marker.blurb + '</p>';
-    innerHTML += '<p class="map-item"><strong>Here and Now Writing Prompt: </strong>' + marker.title + '</p>';
-    innerHTML += '<p class="map-item"><strong>Books for Inspiration: </strong></p>';
-    innerHTML += '<div class="map-book-container">';
-    innerHTML += '<img class="map-book-image" src=' + marker.thumbnail + ' alt=' + marker.booktitle + '>';
-    innerHTML += '<img class="map-book-image" src=' + marker.thumbnail + ' alt=' + marker.booktitle + '>';
-    innerHTML += '</div>';
-    innerHTML += '</div>';
+  var innerHTML = '<div class="map-box">';
+  innerHTML += '<div class="map-header">' + marker.title + '</div>';
+  innerHTML += '<p class="map-item"><strong>Next Meeting: </strong>' + marker.prettyMeeting + '</p>';
+  innerHTML += '<p class="map-item"><strong>Address: </strong>' + marker.address + '</p>';
+  innerHTML += '<p class="map-item"><strong>About: </strong>' + marker.blurb + '</p>';
+  innerHTML += '<p class="map-item"><strong>Here and Now Writing Prompt: </strong>' + marker.title + '</p>';
+  innerHTML += '<p class="map-item"><strong>Books for Inspiration: </strong></p>';
+  innerHTML += '<div class="map-book-container">';
+  innerHTML += '<img class="map-book-image" src=' + marker.thumbnail + ' alt=' + marker.booktitle + '>';
+  innerHTML += '<img class="map-book-image" src=' + marker.thumbnail + ' alt=' + marker.booktitle + '>';
+  innerHTML += '</div>';
+  innerHTML += '</div>';
 
-    infowindow.marker = marker;
-    infowindow.setContent(innerHTML);
-    infowindow.open(map, marker);
-    // Make sure the marker property is cleared if the infowindow is closed.
-    infowindow.addListener('closeclick',function(){
-      infowindow.setMarker = null;
-    });
-  }
+  infowindow.marker = marker;
+  infowindow.setContent(innerHTML);
+  infowindow.open(map, marker);
+  // Make sure the marker property is cleared if the infowindow is closed.
+  infowindow.addListener('closeclick', function(){
+    infowindow.setMarker = null;
+    /*marker.setIcon(self.currentLocation.defaultIcon());*/
+  });
 }
 
 // This function takes in a COLOR, and then creates a new marker

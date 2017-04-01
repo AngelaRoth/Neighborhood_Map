@@ -51,7 +51,7 @@ var ViewModel = function() {
   self.locationList = ko.observableArray([]);
   self.filteredList = ko.observableArray([]);
   self.currentLocation = ko.observable();
-  self.noLocationSelected = ko.observable(true);
+  /*self.noLocationSelected = ko.observable(true);*/
 
   self.allBounds = null;
 
@@ -104,25 +104,6 @@ var ViewModel = function() {
 
   }, this);
 
-  this.listItemMouseOver = function() {
-    var bounds = new google.maps.LatLngBounds();
-    bounds.extend(this.marker.position);
-
-    // Thanks to StackOverflow for this nifty trick of extending bounds when you only have one point (which makes the map zoom too close!)
-    // http://stackoverflow.com/questions/3334729/google-maps-v3-fitbounds-zoom-too-close-for-single-marker
-    var extendPoint1 = new google.maps.LatLng(bounds.getNorthEast().lat() + 0.005, bounds.getNorthEast().lng() + 0.005);
-    var extendPoint2 = new google.maps.LatLng(bounds.getNorthEast().lat() - 0.005, bounds.getNorthEast().lng() - 0.005);
-    bounds.extend(extendPoint1);
-    bounds.extend(extendPoint2);
-
-    map.fitBounds(bounds);
-    this.marker.setIcon(this.bigIcon);
-  }
-
-  this.listItemMouseOut = function() {
-    this.marker.setIcon(this.defaultIcon);
-    map.fitBounds(self.allBounds);
-  }
 
   // Thanks to StackOverflow for suggesting how to trigger any Maps API event listener using the event.trigger function
   // http://stackoverflow.com/questions/9194579/how-to-simulate-a-click-on-a-google-maps-marker
@@ -130,17 +111,6 @@ var ViewModel = function() {
     google.maps.event.trigger(this.marker, 'click', {
       latLng: new google.maps.LatLng(0,0)
     });
-
-/*
-    if (this !== self.currentLocation()) {
-      self.currentLocation(this);
-      populateInfoWindow(this, largeInfowindow);
-      self.locationist().forEach(function(item) {
-        item.marker.setIcon(item.defaultIcon);
-      });
-      self.listItemMouseOver.call(this);
-    }
-*/
   }
 
 
