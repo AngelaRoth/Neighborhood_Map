@@ -20,7 +20,7 @@ ViewModel.prototype.initMap = function() {
   this.googleReady(true);
 };
 
-function populateInfoWindow(marker, infowindow) {
+ViewModel.prototype.populateInfoWindow = function(marker, infowindow) {
   var innerHTML = '<div class="map-box">';
   innerHTML += '<div class="map-header">' + marker.title + '</div>';
   innerHTML += '<p class="map-item"><strong>Next Meeting: </strong>' + marker.prettyMeeting + '</p>';
