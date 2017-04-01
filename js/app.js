@@ -1,24 +1,30 @@
 var ObservableLocation = function(data) {
   this.title = ko.observable(data.title);
   this.blurb = ko.observable(data.blurb);
+/*
   this.when = ko.observable(data.when);
   this.day = ko.observable(data.day);
   this.weeks = ko.observable(data.weeks);
   this.hour = ko.observable(data.hour);
   this.minute = ko.observable(data.minute);
-  this.link = ko.observable(data.link);
+*/
+  /*this.link = ko.observable(data.link);*/
   this.address=ko.observable(data.address);
   this.location = ko.observable(data.location);
-  this.placeId = ko.observable(data.placeId);
+  /*this.placeId = ko.observable(data.placeId);*/
   this.type = ko.observable(data.type);
-  this.nowReading = ko.observable(data.nowReading);
-  this.author = ko.observable(data.author);
-  this.bookImage = ko.observable(data.bookImage);
   this.nextMeeting = ko.observable(data.nextMeeting);
   this.prettyMeeting = ko.observable(data.prettyMeeting);
   this.listExpanded = ko.observable(false);
-  this.listHidden = ko.observable(false);
+  /*this.listHidden = ko.observable(false);*/
   this.googleReady = ko.observable(false);
+
+  this.nowReading = ko.observable(data.nowReading);
+  this.author = ko.observable(data.author);
+  this.bookImage = ko.observable(data.bookImage);
+
+  this.defaultIcon = null;
+  this.bigIcon = null;
 
   var backColor = '#' + getColor(data.type);
   this.color = ko.observable(backColor);
@@ -31,11 +37,11 @@ var ObservableLocation = function(data) {
   }, this);
 
   this.timeToNext = ko.observable(this.nextMeeting() - this.currentTime());
-
+/*
   this.suggestedBooks = ko.observableArray(data.suggestedBooks);
 
   console.log('suggestedBooks = ' + this.suggestedBooks());
-
+*/
 };
 
 var ViewModel = function() {
@@ -46,6 +52,8 @@ var ViewModel = function() {
   self.filteredList = ko.observableArray([]);
   self.currentLocation = ko.observable();
   self.noLocationSelected = ko.observable(true);
+
+  self.allBounds = null;
 
   locations.forEach(function(locItem) {
     var newLocItem = new ObservableLocation(locItem);
@@ -61,6 +69,9 @@ var ViewModel = function() {
       self.locationList().forEach(function(item) {
         var iconColor = getColor(item.type());
         var icon = makeMarkerIcon(iconColor);
+        var bigIcon = makeBigIcon(iconColor);
+        item.defaultIcon = icon;
+        item.bigIcon = bigIcon;
         item.marker = new  google.maps.Marker({
           map: map,
           position: item.location(),
@@ -90,11 +101,31 @@ var ViewModel = function() {
         bounds.extend(item.marker.position);
       });
 
+      self.allBounds = bounds;
       map.fitBounds(bounds);
     }
 
   }, this);
 
+  this.listItemMouseOver = function() {
+    var bounds = new google.maps.LatLngBounds();
+    bounds.extend(this.marker.position);
+
+    // Thanks to StackOverflow for this nifty trick of extending bounds when you only have one point (which makes the map zoom too close!)
+    // http://stackoverflow.com/questions/3334729/google-maps-v3-fitbounds-zoom-too-close-for-single-marker
+    var extendPoint1 = new google.maps.LatLng(bounds.getNorthEast().lat() + 0.005, bounds.getNorthEast().lng() + 0.005);
+    var extendPoint2 = new google.maps.LatLng(bounds.getNorthEast().lat() - 0.005, bounds.getNorthEast().lng() - 0.005);
+    bounds.extend(extendPoint1);
+    bounds.extend(extendPoint2);
+
+    map.fitBounds(bounds);
+    this.marker.setIcon(this.bigIcon);
+  }
+
+  this.listItemMouseOut = function() {
+    this.marker.setIcon(this.defaultIcon);
+    map.fitBounds(self.allBounds);
+  }
 
   this.listContentsClicked = function() {
     if (!this.listExpanded()){
@@ -133,6 +164,7 @@ var ViewModel = function() {
         item.marker.setMap(null);
       }
     });
+    self.allBounds = bounds;
     map.fitBounds(bounds);
   };
 
@@ -161,82 +193,10 @@ var ViewModel = function() {
         item.marker.setMap(null);
       }
     });
+    self.allBounds = bounds;
     map.fitBounds(bounds);
   };
-/*
-  this.loadBusData = function() {
-    var lat = self.currentLocation().location().lat;
-    var lng = self.currentLocation().location().lng;
-    var numBusStops = 10;
 
-    var klimaatBusURL = 'http://klimaat.ca/bus/bus.php?lon='
-                        + lng + '&lat=' + lat + '&n=' + numBusStops;
-
-    $.getJSON ( klimaatBusURL )
-    .done(function(data) {
-      console.log('bus data: ' + data);
-      var busArray = data;
-
-
-    })
-
-
-
-    $.getJSON( googleBooksURL )
-      .done(function(data) {
-        // log data to see how it's structured.
-        console.log('book data: ' + data);
-
-        if (data.hasOwnProperty('items')) {
-          bookFound = true;
-          var firstBook = data.items[0];
-          console.log(firstBook);
-        }
-
-        if (bookFound) {
-          // Check if properties exist and assign their values to global variables
-          if (firstBook.volumeInfo.hasOwnProperty('title')) {
-            bookTitle = firstBook.volumeInfo.title;
-          } else {
-            bookTitle = "No Title Found";
-          }
-          if (firstBook.volumeInfo.hasOwnProperty('authors')) {
-            bookAuthor = "";
-            var authors = firstBook.volumeInfo.authors;
-            var numAuthors = authors.length;
-            for (var i = 0; i < (numAuthors - 1); i++) {
-              bookAuthor += authors[i];
-              bookAuthor += ', ';
-            }
-            bookAuthor += authors[numAuthors - 1];
-          } else {
-            bookAuthor = "No Author Listed";
-          }
-          if (firstBook.volumeInfo.hasOwnProperty('imageLinks')) {
-            if (firstBook.volumeInfo.imageLinks.hasOwnProperty('smallThumbnail')) {
-              bookImageSrc = firstBook.volumeInfo.imageLinks.smallThumbnail;
-            } else if (firstBook.volumeInfo.imageLinks.hasOwnProperty('thumbnail')) {
-              bookImageSrc = firstBook.volumeInfo.imageLinks.thumbnail;
-            }
-          } else {
-            bookImageSrc = "img/books.jpg";
-          }
-        } else {
-          bookTitle = 'No Title Found';
-          bookAuthor = 'No Author Listed';
-          bookImageSrc = 'img/books.jpg';
-        }
-        self.currentLocation().nowReading(bookTitle);
-        self.currentLocation().author(bookAuthor);
-        self.currentLocation().bookImage(bookImageSrc);
-      })
-      .fail(function() {
-        console.log('Google Books data Unavailable');
-      });
-
-    return false;
-  }
-*/
   this.loadBookData = function() {
     var title = $('#title').val();
     var author = $('#author').val();
@@ -346,8 +306,4 @@ var ViewModel = function() {
 var viewModel = new ViewModel();
 
 ko.applyBindings(viewModel);
-
-listItemOrMarkerClicked = function() {
-  // TODO: put listContentsClicked functionality in here, and call it both when listContentsClicked and on the marker's event listener
-}
 
