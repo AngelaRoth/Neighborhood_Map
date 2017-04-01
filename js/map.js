@@ -27,7 +27,7 @@ function populateInfoWindow(marker, infowindow) {
     var innerHTML = '<div class="map-box">';
     innerHTML += '<div class="map-header">' + marker.title + '</div>';
     innerHTML += '<p class="map-label">Next Meeting:</p>';
-    innerHTML += '<p class="map-text">' + marker.nextMeeting + '</p>';
+    innerHTML += '<p class="map-text">' + marker.prettyMeeting + '</p>';
     innerHTML += '<p class="map-label">About:</p>';
     innerHTML += '<p>' + marker.blurb + '</p>';
     innerHTML += '<p><strong>Here and Now Writing Prompt:</strong></p>';

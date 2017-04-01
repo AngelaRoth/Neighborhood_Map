@@ -64,7 +64,7 @@ var ViewModel = function() {
           map: map,
           position: item.location(),
           title: item.title(),
-          nextMeeting: item.nextMeeting(),
+          prettyMeeting: item.prettyMeeting(),
           blurb: item.blurb(),
           thumbnail: "http://books.google.com/books/content?id=w6RlAAAAMAAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api",
           booktitle: "VGL",
