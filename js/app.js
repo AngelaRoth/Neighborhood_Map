@@ -107,39 +107,12 @@ var ViewModel = function() {
 
   // Thanks to StackOverflow for suggesting how to trigger any Maps API event listener using the event.trigger function
   // http://stackoverflow.com/questions/9194579/how-to-simulate-a-click-on-a-google-maps-marker
-  this.listContentsClicked = function() {
+  this.listItemClicked = function() {
     google.maps.event.trigger(this.marker, 'click', {
       latLng: new google.maps.LatLng(0,0)
     });
   }
 
-
-/*
-  this.listContentsClicked = function() {
-    if (!this.listExpanded()){
-      this.listExpanded(true);
-      this.listContents('<h3 class="list-header">' + this.title() + '</h3>' +
-                        '<div class="list-item"><span class="item-header">Next Event:</span> ' + this.prettyMeeting() + '</div>' +
-                        '<div class="list-item"><span class="item-header">About:</span> ' + this.blurb() + '</div>');
-
-      self.currentLocation(this);
-      self.noLocationSelected(false);
-
-      // Make the marker associated with this list item bounce
-      this.marker.setAnimation(google.maps.Animation.BOUNCE);
-
-    } else {
-      this.listExpanded(false);
-      this.listContents('<h3 class="list-header">' + this.title() + '</h3>');
-
-      self.currentLocation(null);
-      self.noLocationSelected(true);
-
-      // Stop marker from bouncing
-      this.marker.setAnimation(null);
-    }
-  };
-*/
   this.filter = function(type) {
     var bounds = new google.maps.LatLngBounds();
     self.filteredList().length = 0;

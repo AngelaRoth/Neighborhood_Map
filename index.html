@@ -67,7 +67,7 @@
       <div id="filtered-list">
         <ul id="locations-list" data-bind="foreach: filteredList">
           <li class="location-pair">
-            <input type="button" class="location-button" data-bind="style: { backgroundColor: color }, click: $parent.listContentsClicked, css: { nextTwentyFour: timeToNext() < 86400000}"></input>
+            <input type="button" class="location-button" data-bind="style: { backgroundColor: color }, click: $parent.listItemClicked, css: { nextTwentyFour: timeToNext() < 86400000}"></input>
             <label class="location-label" data-bind="text: title"></label>
           </li>
         </ul>
