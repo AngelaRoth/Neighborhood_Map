@@ -24,9 +24,25 @@ function populateInfoWindow(marker, infowindow) {
   // Check to make sure the infowindow is not already opened on this marker.
   if (infowindow.marker != marker) {
     infowindow.marker = marker;
-    infowindow.setContent('<div>' + marker.title + '</div>' +
-        '<div>' + marker.blurb + '</div>' +
-        '<img src=' + marker.thumbnail + ' alt=' + marker.booktitle + '>');
+    var innerHTML = '<div class="map-box">';
+    innerHTML += '<div class="map-header">' + marker.title + '</div>';
+    innerHTML += '<p class="map-label">Next Meeting:</p>';
+    innerHTML += '<p class="map-text">' + marker.nextMeeting + '</p>';
+    innerHTML += '<p class="map-label">About:</p>';
+    innerHTML += '<p>' + marker.blurb + '</p>';
+    innerHTML += '<p><strong>Here and Now Writing Prompt:</strong></p>';
+    innerHTML += '<p>' + marker.title + '</p>';
+    innerHTML += '<p><strong>Books for Inspiration:</strong></p>';
+    innerHTML += '<div class="map-book-container">';
+    innerHTML += '<img src=' + marker.thumbnail + ' alt=' + marker.booktitle + '>';
+    innerHTML += '<img src=' + marker.thumbnail + ' alt=' + marker.booktitle + '>';
+
+    innerHTML += '</div>';
+    innerHTML += '</div>';
+
+
+
+    infowindow.setContent(innerHTML);
     infowindow.open(map, marker);
     // Make sure the marker property is cleared if the infowindow is closed.
     infowindow.addListener('closeclick',function(){

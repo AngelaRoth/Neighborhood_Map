@@ -177,71 +177,10 @@ h2 {
   background-color: #C9C9C9;
 }
 
-
-
-
-
-/*
-#write-places,
-#share-places,
-#learn-places,
-#social-places,
-#book-places,
-#all-places {
-  width: 48%;
-  margin: 5px 0;
-  padding: 2px;
-  font-size: 12pt;
-  color: white;
-}
-
-#write-places {
-  background-color: #7BB718;
-}
-
-#share-places {
-  background-color: #F7A607;
-}
-
-#learn-places {
-  background-color: #2292DC;
-}
-
-#social-places {
-  background-color: #D62828;
-}
-
-#book-places {
-  background-color: #8E56A8;
-}
-
-#all-places {
-  background-color: black;
-}
-
-#day-places,
-#week-places {
-  width: 48%;
-  margin: 5px 0;
-  padding: 2px;
-  font-size: 12pt;
-}
-#day-places {
-  background-color: yellow;
-}
-
-#week-places {
-  background-color: #FEDD00;
-}
- */
 input {
   font-size: 14px;
 }
-/*
-p {
-  line-height: 110%;
-}
- */
+
 #filtered-list {
   flex-grow: 1;
   overflow: scroll;
@@ -287,15 +226,45 @@ p {
     margin: 0;
     padding: 0;
 }
-/*
-hr {
-  background: #D0D7D9;
-  height: 2px;
-  margin: 5px;
-  border: none;
-}
- */
 
+
+/* Map Info Window CSS */
+
+.map-box {
+  font-size: 12px;
+  color: black;
+  max-width: 300px;
+}
+.map-header {
+  margin-bottom: 5px;
+  text-align: center;
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.map-item-container {
+  margin: 0 0 5pt 0;
+}
+
+.map-label {
+  font-weight: bold;
+  margin: 0;
+}
+
+.map-text {
+  margin: 0 0 5px 0;
+}
+
+.map-book-container {
+  margin: 5px;
+  display: -webkit-flex;
+  display: flex;
+
+  -webkit-flex-flow: row wrap;
+    flex-flow: row wrap;
+    align-items: center;
+    justify-content: space-between;
+}
 
 /* Book API CSS */
 
