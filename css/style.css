@@ -181,7 +181,7 @@ h2 {
 
 
 
-
+/*
 #write-places,
 #share-places,
 #learn-places,
@@ -233,21 +233,21 @@ h2 {
 #week-places {
   background-color: #FEDD00;
 }
-
+ */
 input {
-  font-size: 12px;
+  font-size: 14px;
 }
-
+/*
 p {
   line-height: 110%;
 }
-
+ */
 #filtered-list {
   flex-grow: 1;
   overflow: scroll;
 }
 
-#locationsList {
+#locations-list {
   list-style-type: none;
   padding-left: 0;
   margin: 0;
@@ -287,14 +287,14 @@ p {
     margin: 0;
     padding: 0;
 }
-
+/*
 hr {
   background: #D0D7D9;
   height: 2px;
   margin: 5px;
   border: none;
 }
-
+ */
 
 
 /* Book API CSS */

@@ -67,7 +67,7 @@
     <div class="options-box">
       <h2>Click for More Info:</h2>
       <div id="filtered-list">
-        <ul id="locationsList" data-bind="foreach: filteredList">
+        <ul id="locations-list" data-bind="foreach: filteredList">
           <li class="location-pair">
             <input type="button" class="location-button" data-bind="style: { backgroundColor: color }, click: $parent.listContentsClicked, css: { nextTwentyFour: timeToNext() < 86400000}"></input>
             <label class="location-label" data-bind="text: title"></label>
