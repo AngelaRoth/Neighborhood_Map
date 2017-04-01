@@ -88,7 +88,7 @@ var ViewModel = function() {
 
         item.marker.addListener('click', function() {
           self.currentLocation(this);
-          self.populateInfoWindow(this, largeInfowindow);
+          self.populateInfoWindow(this, largeInfowindow, item.defaultIcon);
           self.locationList().forEach(function(e) {
             e.marker.setIcon(e.defaultIcon);
           });

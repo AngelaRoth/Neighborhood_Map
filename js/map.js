@@ -20,7 +20,7 @@ ViewModel.prototype.initMap = function() {
   this.googleReady(true);
 };
 
-ViewModel.prototype.populateInfoWindow = function(marker, infowindow) {
+ViewModel.prototype.populateInfoWindow = function(marker, infowindow, smallIcon) {
   var innerHTML = '<div class="map-box">';
   innerHTML += '<div class="map-header">' + marker.title + '</div>';
   innerHTML += '<p class="map-item"><strong>Next Meeting: </strong>' + marker.prettyMeeting + '</p>';
@@ -40,7 +40,7 @@ ViewModel.prototype.populateInfoWindow = function(marker, infowindow) {
   // Make sure the marker property is cleared if the infowindow is closed.
   infowindow.addListener('closeclick', function(){
     infowindow.setMarker = null;
-    /*marker.setIcon(self.currentLocation.defaultIcon());*/
+    marker.setIcon(smallIcon);
   });
 }
 
